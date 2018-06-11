@@ -9,9 +9,13 @@
 ;;
 
 (require 'core-packages)
+(require 'core-common)
+(require 'core-display)
+(require 'core-theme)
 
 (defun emacs/init ()
   "Initialization."
+  (prefer-coding-system 'utf-8)
   (emacs/remove-gui-elements))
 
 (defun emacs/remove-gui-elements ()
