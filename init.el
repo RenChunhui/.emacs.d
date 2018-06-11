@@ -21,7 +21,8 @@
 (require 'init-js)
 (require 'init-json)
 (require 'init-yaml)
-(require 'init-markdown)
+(require 'init-md)
+(require 'init-org)
 (require 'init-pdf)
 
 (provide 'init)
@@ -32,7 +33,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (json-mode try counsel which-key web-mode use-package scss-mode js2-mode helm company-tern atom-one-dark-theme))))
+    (yasnippet json-mode try counsel which-key web-mode use-package scss-mode js2-mode helm company-tern atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

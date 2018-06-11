@@ -16,16 +16,18 @@
   )
 
 (use-package swiper
-  :ensure try
+  :ensure t
+  :bind (("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file))
+  :init
+  (setq ivy-use-virtual-buffers t)
   :config
-  (progn
-    (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (global-set-key "\C-s" 'swiper)
-    (global-set-key (kbd "M-x") 'counsel-M-x)
-    (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-    (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-    ))
+  (ivy-mode 1))
+
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1))
 
 ;; 括号自动补全
 (electric-pair-mode t)
