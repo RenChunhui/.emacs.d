@@ -48,14 +48,17 @@
   ;; highlight current line
   (global-hl-line-mode 1)
   (global-linum-mode t)
-  
+
   ;; PATH
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
-  
+
   ;; nice fonts in macOS
   (setq mac-allow-anti-aliasing t)
-  
+
+  ;; Start fullscreen
+  (add-hook 'window-setup-hook 'toggle-frame-fullscreen t)
+
   ;; delete trailing whitespace in all modes
   (add-hook 'before-save-hook #'delete-trailing-whitespace))
 
