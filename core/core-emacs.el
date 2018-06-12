@@ -1,4 +1,4 @@
-;; core-emacs.el --- My personal Emacs configuration.
+;;; core-emacs.el --- My personal Emacs configuration.
 ;;
 ;; Copyright (c) 2018
 ;;
@@ -9,8 +9,6 @@
 ;;
 
 (require 'core-packages)
-(require 'core-common)
-(require 'core-display)
 (require 'core-theme)
 
 (defun emacs/init ()
@@ -29,6 +27,7 @@
     tooltip-mode -1))
 
 (defun emacs/display ()
+  ""
   ;; default font
   (set-default-font "DroidSansMono Nerd Font-13")
 
@@ -65,3 +64,5 @@
 (emacs/init)
 
 (provide 'core-emacs)
+
+;;; core-emacs.el ends here
