@@ -29,8 +29,18 @@
   :ensure t
   :bind (("M-x" . counsel-M-x)
 	 ("C-x C-f" . counsel-find-file)
+	 ("s-f" . swiper)
 	 ("C-c g" . counsel-git))
   :config
   (ivy-mode 1))
 
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t)
+  :config
+  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+
 (provide 'core-packages)
+
+;;; core-packages ends here
