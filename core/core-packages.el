@@ -37,9 +37,17 @@
 (use-package flycheck
   :ensure t
   :init
-  (global-flycheck-mode t)
+  (global-flycheck-mode t))
+
+(use-package editorconfig
+  :ensure t
   :config
-  (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))
+  (editorconfig-mode 1))
+
+(use-package window-numbering
+  :ensure t
+  :init
+  (window-numbering-mode t))
 
 (provide 'core-packages)
 
