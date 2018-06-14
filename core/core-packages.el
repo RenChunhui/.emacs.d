@@ -44,6 +44,14 @@
   :config
   (editorconfig-mode 1))
 
+(use-package projectile
+  :ensure t
+  :config
+  (setq projectile-completion-system 'ivy))
+
+(use-package counsel-projectile
+  :ensure t)
+
 (use-package magit
   :ensure t)
 
@@ -52,7 +60,9 @@
   :init
   (require 'spaceline-config)
   :config
-  (setq powerline-default-separator 'slant)
+  (setq-default
+   powerline-default-separator 'slant
+   spaceline-flycheck-bullet "❖ %s")
   (spaceline-toggle-buffer-size-off)
   (spaceline-toggle-buffer-modified-off)
   (spaceline-toggle-remote-host-off)
