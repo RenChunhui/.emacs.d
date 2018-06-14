@@ -6,16 +6,16 @@
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
-	(package-refresh-contents)
-	(package-install 'use-package))
+  (package-refresh-contents)
+  (package-install 'use-package))
 
 (use-package company
-    :ensure t
-    :config
-    (global-company-mode)
-    (setq company-idle-delay 0.1)
-    (setq company-tooltip-limit 10)
-    (setq company-minimum-prefix-length 2))
+  :ensure t
+  :config
+  (global-company-mode)
+  (setq company-idle-delay 0.1)
+  (setq company-tooltip-limit 10)
+  (setq company-minimum-prefix-length 2))
 
 (use-package which-key
   :ensure t
@@ -44,10 +44,25 @@
   :config
   (editorconfig-mode 1))
 
-(use-package window-numbering
+(use-package magit
+  :ensure t)
+
+(use-package spaceline
   :ensure t
   :init
-  (window-numbering-mode t))
+  (require 'spaceline-config)
+  :config
+  (setq powerline-default-separator 'slant)
+  (spaceline-toggle-buffer-size-off)
+  (spaceline-toggle-buffer-modified-off)
+  (spaceline-toggle-remote-host-off)
+  (spaceline-toggle-workspace-number-off)
+  (spaceline-toggle-minor-modes-off)
+  (spaceline-toggle-window-number-off)
+  (spaceline-toggle-process-off)
+  (spaceline-toggle-buffer-position-off)
+  (spaceline-toggle-hud-off)
+  (spaceline-spacemacs-theme))
 
 (provide 'core-packages)
 
