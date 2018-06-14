@@ -43,7 +43,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (magit spaceline zenburn-theme window-numbering which-key web-mode use-package scss-mode org-bullets json-mode js2-mode flycheck editorconfig counsel company-tern color-theme-modern base16-theme atom-one-dark-theme))))
+    (projectile magit spaceline zenburn-theme window-numbering which-key web-mode use-package scss-mode org-bullets json-mode js2-mode flycheck editorconfig counsel company-tern color-theme-modern base16-theme atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -68,6 +68,9 @@
 ;; 显示括号匹配
 (electric-pair-mode t)
 
+;; 默认 org 文件目录
+(setq-default org-agenda-files '("~/org/todo.org"))
+
 (provide 'core-emacs)
 
 ;;; core-emacs.el ends here
