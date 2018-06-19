@@ -55,25 +55,6 @@
 (use-package magit
   :ensure t)
 
-(use-package spaceline
-  :ensure t
-  :init
-  (require 'spaceline-config)
-  :config
-  (setq-default
-   powerline-default-separator 'slant
-   spaceline-flycheck-bullet "❖ %s")
-  (spaceline-toggle-buffer-size-off)
-  (spaceline-toggle-buffer-modified-off)
-  (spaceline-toggle-remote-host-off)
-  (spaceline-toggle-workspace-number-off)
-  (spaceline-toggle-minor-modes-off)
-  (spaceline-toggle-window-number-off)
-  (spaceline-toggle-process-off)
-  (spaceline-toggle-buffer-position-off)
-  (spaceline-toggle-hud-off)
-  (spaceline-spacemacs-theme))
-
 (provide 'core-packages)
 
 ;;; core-packages ends here
