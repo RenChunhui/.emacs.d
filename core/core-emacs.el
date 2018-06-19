@@ -68,8 +68,20 @@
 ;; 显示括号匹配
 (electric-pair-mode t)
 
-;; 默认 org 文件目录
-(setq-default org-agenda-files '("~/org/todo.org"))
+;; 设置 org 目录
+(setq-default org-agenda-files (list
+			"~/.org/birthday.org"
+			"~/.org/company.org"
+			"~/.org/family.org"))
+
+;; 设置星期一为每周的第一天
+(setq-default calendar-week-start-day 1)
+
+;; 标记节假日的日期
+(setq-default calendar-mark-holidays-flag t)
+
+;; 标记出待办事项的日期
+(setq-default calendar-mark-diary-entries-flag t)
 
 (provide 'core-emacs)
 
