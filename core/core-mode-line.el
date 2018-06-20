@@ -17,6 +17,7 @@
 (defun file-type-icon ()
   "This is file type icon."
   (cond
+   ((string= major-mode "emacs-lisp-mode") "")
    ((string= major-mode "text-mode") "\xf40e")
    ((string= major-mode "makefile-mode") "\xe779")
    ((string= major-mode "json-mode") "\xe60b")
@@ -26,10 +27,11 @@
    ((string= major-mode "scss-mode") "\xe603")
    ((string= major-mode "html-mode") "\xe736")
    ((string= major-mode "markdown-mode") "\xe73e")
+   ((string= major-mode "org-mode") "")
    ((string= major-mode "gfm-mode" "\xe73e"))
    ((string= major-mode "org-mode") "\xe612")
-   ((string= major-mode "js2-mode") "\xe74e")
-   ((string= major-mode "js-mode") "\xe74e")
+   ((string= major-mode "js2-mode") "")
+   ((string= major-mode "js-mode") "")
    ((string= major-mode "tern-mode") "\xe74e")
    ((string= major-mode "web-mode") "\xe736")))
 
