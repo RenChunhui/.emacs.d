@@ -1,87 +1,82 @@
-(prefer-coding-system 'utf-8)
+;;; core-emacs.el --- core config
+;;
+;; Copyright (c) 2018
+;;
+;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
+;; URL     : https://github.com/RenChunhui/.emacs.d
+;; Version : 1.0.0
+;;
+;;    ___ _ __ ___   __ _  ___ ___
+;;   / _ \ '_ ` _ \ / _` |/ __/ __|
+;;  |  __/ | | | | | (_| | (__\__ \
+;; (_)___|_| |_| |_|\__,_|\___|___/
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
 
-;; remove tool bar
-(tool-bar-mode -1)
+;;; Commentary:
 
-;; remove scroll bar
-(scroll-bar-mode -1)
+;;; Code:
 
-;; remove tooltip
-(tooltip-mode -1)
+(defun emacs/init ()
+  "Perform startup initialzation."
+  (prefer-coding-system 'utf-8)
 
-;; 启用时间显示
-(display-time-mode t)
+  ;; 不生成临时文件
+  (setq-default make-backup-files nil)
 
-;; 24 小时制
-(setq-default display-time-24hr-format t)
+  ;; default font
+  (set-frame-font "Droidsansmono Nerd Font-13")
 
-;; 启用邮件设置
-(setq-default display-time-use-mail-icon t)
+  ;; Warn when opening files bigger than 10MB
+  (setq large-file-warning-threshold 10000000)
 
-;; 时间变化频率
-(setq-default display-time-interval 1000)
+  ;; only type 'y' or 'n' instead of 'yes' or 'no'
+  (fset 'yes-or-no-p 'y-or-n-p)
 
-(setq-default display-time-string-forms
-      '((propertize (format-time-string "%H:%M" now)
-		    'face 'bold)))
+  ;; no splash screen
+  (setq inhibit-splash-screen t)
 
-;; 显示电池
-(display-battery-mode t)
+  ;; no message on startup
+  (setq initial-scratch-message nil)
+  (setq fill-column 80)
 
-;; 不生成临时文件
-(setq-default make-backup-files nil)
+  ;; highlight current line
+  (global-hl-line-mode 1)
 
-;; default font
-(set-frame-font "Droidsansmono Nerd Font-13")
+  ;; 显示列号
+  (global-linum-mode t)
 
-;; Warn when opening files bigger than 10MB
-(setq large-file-warning-threshold 10000000)
+  ;; PATH
+  (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+  (setq exec-path (append exec-path '("/usr/local/bin")))
 
-;; only type 'y' or 'n' instead of 'yes' or 'no'
-(fset 'yes-or-no-p 'y-or-n-p)
+  ;; nice fonts in macOS
+  (setq mac-allow-anti-aliasing t)
 
-;; no splash screen
-(setq inhibit-splash-screen t)
+  (setq ns-use-srgb-colorspace nil)
 
-;; no message on startup
-(setq initial-scratch-message nil)
-(setq fill-column 80)
+  ;; delete trailing whitespace in all modes
+  (add-hook 'before-save-hook #'delete-trailing-whitespace)
 
-;; highlight current line
-(global-hl-line-mode 1)
+  ;; 显示括号匹配
+  (electric-pair-mode t)
 
-;; 显示列号
-(global-linum-mode t)
+  (emacs//remove-gui-elements))
 
-;; PATH
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+(defun emacs//remove-gui-elements ()
+  "Remove the menu bar, tool bar and scroll bar."
+  (when (and (fboundp 'tool-bar-mode) (not (eq tool-bar-mode -1)))
+    (tool-bar-mode -1))
+  (when (and (fboundp 'menu-bar-mode) (not (eq menu-bar-mode -1)))
+    (menu-bar-mode -1))
+  (when (and (fboundp 'scroll-bar-mode) (not (eq scroll-bar-mode -1)))
+    (scroll-bar-mode -1))
+  (when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
+    (tooltip-mode -1)))
 
-;; nice fonts in macOS
-(setq mac-allow-anti-aliasing t)
-
-(setq ns-use-srgb-colorspace nil)
-
-;; delete trailing whitespace in all modes
-(add-hook 'before-save-hook #'delete-trailing-whitespace)
-
-;; 显示括号匹配
-(electric-pair-mode t)
-
-;; 设置 org 目录
-(setq-default org-agenda-files (list
-			"~/.org/birthday.org"
-			"~/.org/company.org"
-			"~/.org/family.org"))
-
-;; 设置星期一为每周的第一天
-(setq-default calendar-week-start-day 1)
-
-;; 标记节假日的日期
-(setq-default calendar-mark-holidays-flag t)
-
-;; 标记出待办事项的日期
-(setq-default calendar-mark-diary-entries-flag t)
+(emacs/init)
 
 (provide 'core-emacs)
 
