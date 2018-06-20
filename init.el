@@ -29,6 +29,7 @@
 (require 'core-emacs)
 (require 'core-packages)
 (require 'core-themes)
+(require 'core-mode-line)
 
 (require 'init-html)
 (require 'init-css)
@@ -38,5 +39,8 @@
 (require 'init-yaml)
 (require 'init-org)
 (require 'init-markdown)
+
+(require 'server)
+(server-start)
 
 ;;; init.el ends here
