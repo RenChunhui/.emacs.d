@@ -20,6 +20,9 @@
 ;; You may delete these explanatory comments.
 ;; (package-initialize)
 
+;; Increase the garbage collection threshold to 128 MB to ease startup
+(setq gc-cons-threshold (* 128 1024 1024))
+
 (load-file (concat (file-name-directory load-file-name)
                      "core/core-load-paths.el"))
 
@@ -34,5 +37,6 @@
 (require 'init-json)
 (require 'init-yaml)
 (require 'init-org)
+(require 'init-markdown)
 
 ;;; init.el ends here
