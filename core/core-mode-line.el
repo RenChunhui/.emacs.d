@@ -49,19 +49,14 @@
   "Major mode 类型图标."
   (cond
    ((string= major-mode "emacs-lisp-mode") (propertize "" 'face '(:foreground "#A52ECB")))
-   ((string= major-mode "text-mode") "\xf40e")
-   ((string= major-mode "makefile-mode") "\xe779")
+   ((string= major-mode "lisp-interaction-mode") (propertize "" 'face '(:foreground "#A52ECB")))
    ((string= major-mode "json-mode") (propertize "" 'face '(:foreground "#FBC02D")))
-   ((string= major-mode "yaml-mode") "\xe612")
    ((string= major-mode "python-mode") (propertize "" 'face '(:foreground "#387EB8")))
    ((string= major-mode "css-mode") (propertize "" 'face '(:foreground "#1572B6")))
    ((string= major-mode "scss-mode") "\xe603")
-   ((string= major-mode "html-mode") "\xe736")
+   ((string= major-mode "js2-mode") "")
    ((string= major-mode "markdown-mode") "")
    ((string= major-mode "org-mode") (propertize "" 'face '(:foreground "#77AA99")))
-   ((string= major-mode "gfm-mode" "\xe73e"))
-   ((string= major-mode "js2-mode") "")
-   ((string= major-mode "js-mode") "")
    ((string= major-mode "web-mode") (propertize "" 'face '(:foreground "#E44F26")))
    (t (format "%s" major-mode))))
 
