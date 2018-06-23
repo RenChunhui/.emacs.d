@@ -66,12 +66,17 @@
 		 (`finished (if flycheck-current-errors
 				(let ((count (let-alist (flycheck-count-errors flycheck-current-errors)
 					       (+ (or .warning 0) (or .error 0)))))
-				  (format "✖ %s Issue%s" count (unless (eq 1 count) "s")))
-			      "✔ No Issues"))
-		 (`running     "⟲ Running")
-		 (`no-checker  "⚠ No Checker")
+				  (propertize (format "✖ %s Issue%s" count (if (eq 1 count) "" "s"))
+					      'face '(:foreground "#ff6c6b")))
+			      (propertize "✔ No Issues"
+					  'face '(:foreground "#61afef"))))
+
+		 (`running (propertize "⟲ Running"
+				       'face '(:foreground "#da8548")))
+		 (`no-checker (propertize "⚠ No Checke"
+					  'face '(:foreground "#da8548")))
 		 (`not-checked "✖ Disabled")
-		 (`errored     "⚠ Error")
+		 (`errored (propertize "⚠ Error" 'face '(:foreground "#ff6c6b")))
 		 (`interrupted "⛔ Interrupted")
 		 (`suspicious  ""))))
     (propertize text
@@ -104,7 +109,7 @@
      (concat
       "%2 "
       (modeline-mode-icon)
-      " %b"
+      (propertize " %b" 'face 'bold)
       "%2 "
       (modeline-flycheck-status)))))
 
