@@ -1,4 +1,4 @@
-;;; core-mode-line.el --- custom mode line.
+;;; emacs-mode-line.el --- custom mode line.
 ;;
 ;; Copyright (c) 2018
 ;;
@@ -135,6 +135,6 @@
                                        (reserve-middle/right)))
                mode-line-align-right))
 
-(provide 'core-mode-line)
+(provide 'emacs-mode-line)
 
-;;; core-mode-line.el ends here
+;;; emacs-mode-line.el ends here

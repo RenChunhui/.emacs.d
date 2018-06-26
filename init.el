@@ -31,7 +31,8 @@
 (require 'core-emacs)
 (require 'core-packages)
 (require 'core-themes)
-(require 'core-mode-line)
+
+(require 'emacs-mode-line)
 
 (require 'init-html)
 (require 'init-css)
