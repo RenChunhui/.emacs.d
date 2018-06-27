@@ -46,6 +46,7 @@
 
 (use-package projectile
   :ensure t
+  :bind ("s-p" . projectile-find-file)
   :config
   (projectile-mode t)
   (setq projectile-completion-system 'ivy))
@@ -54,7 +55,19 @@
   :ensure t)
 
 (use-package magit
-  :ensure t)
+  :ensure t
+  :bind (("C-c m" . magit-status)))
+
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1))
+
+(use-package wttrin
+  :ensure t
+  :config
+  (setq wttrin-default-cities '("Chongqing")
+	wttrin-default-accept-language '("Accept-Language" . "en-US")))
 
 (provide 'core-packages)
 
