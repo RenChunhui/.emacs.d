@@ -4,4 +4,5 @@
 /elpa
 network-security.data
 *recentf*
-projectile*
+*projectile*
+custom.el

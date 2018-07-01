@@ -24,12 +24,15 @@
 (setq gc-cons-threshold (* 128 1024 1024))
 
 (load-file (concat (file-name-directory load-file-name)
-                     "core/core-load-paths.el"))
+		   "core/core-load-paths.el"))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
 
 (require 'core-emacs)
 (require 'core-packages)
 (require 'core-themes)
-(require 'core-mode-line)
+
+(require 'emacs-mode-line)
 
 (require 'init-html)
 (require 'init-css)
@@ -41,21 +44,7 @@
 (require 'init-markdown)
 
 (require 'server)
-(server-start)
+(unless (server-running-p)
+  (server-start))
 
 ;;; init.el ends here
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (markdown-mode org-bullets json-mode company-tern tern js2-mode scss-mode web-mode atom-one-dark-theme base16-theme color-theme-modern zerodark-theme magit counsel-projectile projectile editorconfig flycheck counsel which-key company use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

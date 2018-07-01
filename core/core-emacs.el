@@ -63,7 +63,9 @@
   ;; 显示括号匹配
   (electric-pair-mode t)
 
-  (emacs//remove-gui-elements))
+  (emacs//remove-gui-elements)
+  (emacs//personal-infomation)
+  (emacs//calendar))
 
 (defun emacs//remove-gui-elements ()
   "Remove the menu bar, tool bar and scroll bar."
@@ -75,6 +77,39 @@
     (scroll-bar-mode -1))
   (when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
     (tooltip-mode -1)))
+
+(defun emacs//personal-infomation ()
+  "个人信息."
+  (setq user-full-name "Chunhui Ren"
+	user-mail-address "renchunhui2008@gmail.com"))
+
+(defun emacs//calendar ()
+  "日历自定义."
+
+  ;; 当前月份居中
+  (setq-default calendar-offset 0)
+
+  ;; 每周第一天为周一
+  (setq-default calendar-week-start-day 1)
+
+  ;; 阳历节日
+  (setq holiday-general-holidays
+	'((holiday-fixed 2 14 "情人节")
+	  (holiday-fixed 3 8 "妇女节")
+	  (holiday-fixed 5 1 "劳动节")
+	  (holiday-fixed 10 1 "国庆节")))
+
+  ;; 农历节日
+  (setq holiday-local-holidays
+	'((holiday-chinese 1 15 "元宵节")
+	  (holiday-chinese 5 5 "端午节")
+	  (holiday-chinese 8 15 "中秋节")))
+
+  ;; 其他节日
+  (setq holiday-other-holidays
+	'((holiday-fixed 3 24 "自己生日")
+	  (holiday-chinese 10 2 "母亲生日")))
+  )
 
 (emacs/init)
 
