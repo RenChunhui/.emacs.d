@@ -38,6 +38,7 @@
 (require 'init-css)
 (require 'init-scss)
 (require 'init-js)
+(require 'init-react)
 (require 'init-json)
 (require 'init-yaml)
 (require 'init-org)
