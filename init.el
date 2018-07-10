@@ -43,6 +43,7 @@
 (require 'init-yaml)
 (require 'init-org)
 (require 'init-markdown)
+(require 'init-shell)
 
 (require 'server)
 (unless (server-running-p)
