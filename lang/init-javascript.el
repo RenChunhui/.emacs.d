@@ -1,19 +1,3 @@
-;;; init-js.el --- javascript config
-;;
-;; Copyright (c) 2018
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
-
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-
-;;; Commentary:
-
-;;; Code:
-
 (use-package js2-mode
   :ensure t
   :mode ("\\.js\\'" . js2-mode)
@@ -35,6 +19,4 @@
 	    (setq company-tern-meta-as-single-line t)
 	    (setq company-tooltip-align-annotations t)))
 
-(provide 'init-js)
-
-;;; init-js ends here
+(provide 'init-javascript)

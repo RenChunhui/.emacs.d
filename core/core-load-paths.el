@@ -1,6 +1,6 @@
 ;;; core-load-paths.el --- core paths
 ;;
-;; Copyright (c) 2018
+;; Copyright (c) 2018 Chunhui Ren
 ;;
 ;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
 ;; URL     : https://github.com/RenChunhui/.emacs.d
@@ -20,6 +20,4 @@
 ;;; Code:
 
 (add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "extends" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "snippets" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "lang" user-emacs-directory))
