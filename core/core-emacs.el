@@ -5,9 +5,6 @@
   ;; No backup file
   (setq-default make-backup-files nil)
 
-  ;; Default font
-  (set-frame-font "Droidsansmono Nerd Font-13")
-
   ;; Warn when opening files bigger then 10MB
   (setq large-file-warning-threshold 10000000)
 
@@ -40,7 +37,8 @@
 
   (emacs//remove-gui-elements)
   (emacs//personal-infomation)
-  (emacs//calendar))
+  (emacs//calendar)
+  (emacs//monospace))
 
 (defun emacs//remove-gui-elements ()
   "Remove the tool bar and scroll bar."
@@ -63,6 +61,15 @@
 
   ;; 每周第一天为周一
   (setq-default calendar-week-start-day 1))
+
+(defun emacs//monospace ()
+  "中英文等宽"
+  (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+
+  (set-face-attribute 'default nil :font "Source Code Pro-13")
+
+  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
 
 (emacs/init)
 
