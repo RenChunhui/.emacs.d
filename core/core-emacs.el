@@ -8,34 +8,16 @@
   ;; Warn when opening files bigger then 10MB
   (setq large-file-warning-threshold 10000000)
 
-  ;; Only type 'y' or 'n' instead of 'yes' or 'no'
-  (fset 'yes-or-no-p 'y-or-n-p)
-
-  ;; No splash screen
-  (setq inhibit-splash-screen t)
-
   ;; no message on startup
   (setq initial-scratch-message nil)
   (setq fill-column 80)
-
-  ;; Highlight current line
-  (global-hl-line-mode 1)
-
-  ;; Show line number
-  (global-linum-mode t)
 
   ;; PATH
   (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
   (setq exec-path (append exec-path '("/usr/local/bin")))
 
-  ;; Nice fonts in macOS
-  (setq mac-allow-anti-aliasing t)
-
-  (setq ns-use-srgb-colorspace nil)
-
-  (electric-pair-mode t)
-
   (emacs//remove-gui-elements)
+  (emacs//display)
   (emacs//personal-infomation)
   (emacs//calendar)
   (emacs//monospace))
@@ -49,6 +31,33 @@
   (when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
     (tooltip-mode -1)))
 
+(defun emacs//display ()
+  "General configuration."
+  ;; Highlight current line
+  (global-hl-line-mode 1)
+
+  ;; Show line number
+  (global-linum-mode t)
+  
+  ;; display column number in modeline
+  (column-number-mode)
+
+  ;; No splash screen
+  (setq inhibit-splash-screen t)
+
+  ;; display current time in modeline
+  (display-time-mode 1)
+
+  ;; Only type 'y' or 'n' instead of 'yes' or 'no'
+  (fset 'yes-or-no-p 'y-or-n-p)
+
+  ;; Nice fonts in macOS
+  (setq mac-allow-anti-aliasing t)
+
+  (setq ns-use-srgb-colorspace nil)
+
+  (electric-pair-mode t))
+
 (defun emacs//personal-infomation ()
   "Personal infomation."
   (setq user-full-name "Chunhui Ren"
@@ -59,7 +68,7 @@
   ;; center current month
   (setq-default calendar-offset 0)
 
-  ;; 每周第一天为周一
+  ;; Week in the calendar begins on Monday
   (setq-default calendar-week-start-day 1))
 
 (defun emacs//monospace ()
@@ -74,3 +83,5 @@
 (emacs/init)
 
 (provide 'core-emacs)
+
+;;; core-emacs.el ends here

@@ -1,5 +1,7 @@
 (use-package company
   :ensure t
+  :bind(("<C-tab>" . company-auto-complete)
+	("C-/" . helm-complete))
   :config
   (global-company-mode)
   (setq company-idle-delay 0.1)
