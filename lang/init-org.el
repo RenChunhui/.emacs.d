@@ -9,5 +9,12 @@
 	org-log-done t
 	org-agenda-include-diary t
 	org-src-fontify-natively t))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-bullets-mode-hook (lambda () (org-bullets-mode 1))))
     
 (provide 'init-org)
+
+;;; init-org.el ends here

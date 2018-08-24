@@ -12,4 +12,10 @@
   :ensure t
   :bind (("C-c m" . magit-status)))
 
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode)
+  (setq projectile-completion-system 'helm))
+
 (provide 'core-editor)

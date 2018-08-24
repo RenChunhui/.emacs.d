@@ -21,9 +21,9 @@
 
 (require 'package)
 
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org"   . "https://orgmode.org/elpa/")
-                         ("gnu"   . "https://elpa.gnu.org/packages/")))
+(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+                         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
 (package-initialize)
 
@@ -31,6 +31,10 @@
   (package-refresh-contents)
   (package-read-all-archive-contents)
   (package-install 'use-package))
+
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("M-s" . ace-jump-mode))
 
 (provide 'core-use-package)
 
