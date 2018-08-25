@@ -18,4 +18,9 @@
   (projectile-mode)
   (setq projectile-completion-system 'helm))
 
+(use-package window-number
+  :ensure t)
+
 (provide 'core-editor)
+
+;;; core-editor.el ends here
