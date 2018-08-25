@@ -1,3 +1,12 @@
+;; extends
+(require 'startup)
+(require 'mode-line)
+
+;; features
+;;(require 'browse)
+;;(require 'email)
+;;(require 'translate)
+
 (defun emacs/init ()
   "Perform startup initialization."
   (prefer-coding-system 'utf-8)

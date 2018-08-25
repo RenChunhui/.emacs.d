@@ -13,7 +13,7 @@
 (use-package org-bullets
   :ensure t
   :config
-  (add-hook 'org-bullets-mode-hook (lambda () (org-bullets-mode 1))))
+  (add-hook 'org-mode-hook 'org-bullets-mode))
     
 (provide 'init-org)
 
