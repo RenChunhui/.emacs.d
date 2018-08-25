@@ -47,7 +47,7 @@
 (require 'core-use-package)
 (require 'core-editor)
 (require 'core-completion)
-(require 'core-themes)
+;; (require 'core-themes)
 (require 'core-keymap)
 
 ;; languages
