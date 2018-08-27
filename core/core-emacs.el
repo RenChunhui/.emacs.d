@@ -1,5 +1,5 @@
 ;; extends
-(require 'startup)
+;; (require 'startup)
 (require 'mode-line)
 
 ;; features

@@ -18,8 +18,11 @@
   (projectile-mode)
   (setq projectile-completion-system 'helm))
 
-(use-package window-number
-  :ensure t)
+(use-package winum
+  :ensure t
+  :config
+  (setq winum-auto-setup-mode-line nil)
+  (winum-mode))
 
 (provide 'core-editor)
 
