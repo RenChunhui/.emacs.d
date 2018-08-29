@@ -32,10 +32,6 @@
   (package-read-all-archive-contents)
   (package-install 'use-package))
 
-(use-package ace-jump-mode
-  :ensure t
-  :bind ("M-s" . ace-jump-mode))
-
 (provide 'core-use-package)
 
 ;;; core-use-package ends here

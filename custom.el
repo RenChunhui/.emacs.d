@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (winum spaceline powerline window-number atom-one-dark-theme zenburn-theme projectile spacemacs-theme counsel-projectile org-bullets ace-jump-mode yasnippet which-key magit editorconfig flycheck scss-mode markdown-mode json-mode company-tern tern js2-mode web-mode helm-projectile helm company use-package))))
+    (scss-mode markdown-mode json-mode company-tern tern js2-mode web-mode which-key company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
