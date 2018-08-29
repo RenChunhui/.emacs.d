@@ -1,14 +1,14 @@
-;; extends
-;; (require 'startup)
-(require 'mode-line)
+;;; core-emacs.el --- core file
 
-;; features
-;;(require 'browse)
-;;(require 'email)
-;;(require 'translate)
+
+(defconst emacs-start-time (current-time))
+
+(require 'core-keymap)
+(require 'core-use-package)
+(require 'core-layers)
 
 (defun emacs/init ()
-  "Perform startup initialization."
+  "启动初使化."
   (prefer-coding-system 'utf-8)
 
   ;; No backup file
@@ -64,7 +64,7 @@
   (setq mac-allow-anti-aliasing t)
 
   (setq ns-use-srgb-colorspace nil)
-
+  ;; 自动补全括号
   (electric-pair-mode t))
 
 (defun emacs//personal-infomation ()

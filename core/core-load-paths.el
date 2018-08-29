@@ -20,6 +20,5 @@
 ;;; Code:
 
 (add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "core/extends" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "core/features" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lang" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "layers/plugins" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "layers/lang" user-emacs-directory))
