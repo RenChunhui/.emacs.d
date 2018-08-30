@@ -1,4 +1,7 @@
 (require 'init-completion)
+(require 'init-ivy)
+(require 'init-base)
+(provide 'init-vim)
 
 ;; lang
 (require 'init-css)
