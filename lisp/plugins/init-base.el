@@ -23,6 +23,9 @@
   (setq-default evil-vsplit-window-right t)
   (setq-default evil-split-window-below t)
   (setq-default evil-shift-round nil)
+  (setq-default evil-normal-state-tag "N"
+		evil-insert-state-tag "I"
+		evil-visual-state-tag "V")
   :config
   (evil-mode 1)
 
@@ -38,6 +41,11 @@
 
   (use-package evil-indent-textobject
     :ensure t))
+
+(use-package atom-one-dark-theme
+  :ensure t
+  :config
+  (load-theme 'atom-one-dark t))
 
 (use-package projectile
   :ensure t
@@ -75,9 +83,7 @@
 (use-package powerline
   :ensure t
   :init
-  (setq-default powerline-default-separator 'slant)
-  :config
-  (powerline-center-evil-theme))
+  (setq-default powerline-default-separator 'slant))
   
 (provide 'init-base)
 

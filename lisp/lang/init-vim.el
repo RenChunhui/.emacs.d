@@ -18,4 +18,6 @@
   :ensure t
   :mode "\\.vim[rc]?\\'")
 
+(provide 'init-vim)
+
 ;;; init-vim.el ends here
