@@ -1,5 +1,18 @@
-;;; core-emacs.el --- core file
+;;; core-emacs.el --- core configuration
+;;
+;; Copyright (c) 2018 Chunhui Ren
+;;
+;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
+;; URL     : https://github.com/RenChunhui/.emacs.d
+;; Version : 1.0.0
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
 
+;;; Commentary:
+
+;;; Code:
 
 (defconst emacs-start-time (current-time))
 
@@ -9,9 +22,11 @@
 
 (require 'gnus-calendar)
 (require 'gnus-dired)
-(require 'gnus-bindings)
+;;(require 'gnus-bindings)
+(require 'gnus-org)
 
 (defun emacs/init ()
+  "初使化设置."
   ;; No backup file
   (setq-default make-backup-files nil)
 
@@ -28,7 +43,7 @@
   (emacs//monospace))
 
 (defun emacs//remove-gui-elements ()
-  "Remove the tool bar and scroll bar."
+  "移除不需要的GUI元素."
   (when (and (fboundp 'tool-bar-mode) (not (eq tool-bar-mode -1)))
     (tool-bar-mode -1))
   (when (and (fboundp 'scroll-bar-mode) (not (eq scroll-bar-mode -1)))
@@ -38,15 +53,15 @@
 
 
 (defun emacs//display ()
-  "General configuration."
-  "Explicitly set the prefered coding systems to avoid annoying prompt."
+  "视觉显示."
+  "编码格式."
   (prefer-coding-system 'utf-8)
-  ;; no message on startup
+  ;; 启动不显示消息
   (setq initial-scratch-message nil)
   (setq fill-column 80)
-  ;; Highlight current line
+  ;; 高亮当前行
   (global-hl-line-mode 1)
-  ;; Show line number
+  ;; 显示行号
   (global-linum-mode t)
   ;; display column number in modeline
   (column-number-mode)
@@ -63,12 +78,12 @@
   (electric-pair-mode t))
 
 (defun emacs//personal-infomation ()
-  "Personal infomation."
+  "个人信息设置."
   (setq user-full-name "Chunhui Ren"
 	user-mail-address "renchunhui2008@gmail.com"))
 
 (defun emacs//monospace ()
-  "中英文等宽"
+  "中英文等宽."
   (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
 
   (set-face-attribute 'default nil :font "Source Code Pro-13")

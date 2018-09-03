@@ -1,4 +1,4 @@
-;;; guns-org.el --- org mode config
+;;; init-vim.el --- vim script
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,10 +14,8 @@
 
 ;;; Code:
 
-(setq-default org-agenda-files (list "~/.org/calendar.org"
-			     "~/.org/todo.org"
-			     "~/.org/gtd.org"))
+(use-package vimrc-mode
+  :ensure t
+  :mode "\\.vim[rc]?\\'")
 
-(provide 'gnus-org)
-
-;;; guns-org.el ends here
+;;; init-vim.el ends here
