@@ -22,7 +22,7 @@
 
 (require 'gnus-calendar)
 (require 'gnus-dired)
-;;(require 'gnus-bindings)
+(require 'gnus-bindings)
 (require 'gnus-org)
 
 (defun emacs/init ()
