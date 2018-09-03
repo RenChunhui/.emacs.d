@@ -18,3 +18,5 @@
 (add-to-list 'load-path (expand-file-name "core/gnus" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp/plugins" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp/lang" user-emacs-directory))
+
+;;; core-load-path.el ends here
