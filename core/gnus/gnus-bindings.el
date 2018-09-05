@@ -22,16 +22,16 @@
    (format-mode-line
     (concat
      (cond
-      ((string= "1" str) "➊ ")
-      ((string= "2" str) "➋ ")
-      ((string= "3" str) "➌ ")
-      ((string= "4" str) "➍ ")
-      ((string= "5" str) "➎ ")
-      ((string= "6" str) "➏ ")
-      ((string= "7" str) "➐ ")
-      ((string= "8" str) "➑ ")
-      ((string= "9" str) "➒ ")
-      ((string= "0" str) "➓ "))))))
+      ((string= "1" str) "➀ ")
+      ((string= "2" str) "➁ ")
+      ((string= "3" str) "➂ ")
+      ((string= "4" str) "➃ ")
+      ((string= "5" str) "➄ ")
+      ((string= "6" str) "➅ ")
+      ((string= "7" str) "➆ ")
+      ((string= "8" str) "➇ ")
+      ((string= "9" str) "➈ ")
+      ((string= "0" str) "➉ "))))))
 
 (defpowerline powerline-window-number
   (when (bound-and-true-p winum-mode)
@@ -97,7 +97,6 @@
 
 			  (lhs (list (powerline-raw evil-mode-line-tag face0 'l)
 				     (powerline-raw " " face0)
-				     (funcall separator-left face0 face1)
 				     (powerline-window-number face1 'l)
 					 (funcall separator-right face1 face0)
 				     (powerline-raw "%b" face0 'l)

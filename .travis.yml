@@ -1,0 +1,11 @@
+language: emacs-lisp
+sudo: false
+dist: trusty
+os:
+  - osx
+env:
+  - EMACS_VERISON=26.1
+before_install:
+  - export PATH="$HOME/bin:$PATH"
+script:
+  - emacs

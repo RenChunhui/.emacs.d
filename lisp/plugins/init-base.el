@@ -23,9 +23,11 @@
   (setq-default evil-vsplit-window-right t)
   (setq-default evil-split-window-below t)
   (setq-default evil-shift-round nil)
-  (setq-default evil-normal-state-tag "N"
-		evil-insert-state-tag "I"
-		evil-visual-state-tag "V")
+  (setq-default evil-normal-state-tag "Ⓝ"
+		evil-insert-state-tag "Ⓘ"
+		evil-visual-state-tag "Ⓥ"
+		evil-motion-state-tag "Ⓜ"
+		evil-emacs-state-tag  "Ⓔ")
   :config
   (evil-mode 1)
 
