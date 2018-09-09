@@ -22,6 +22,7 @@
 (require 'init-css)
 (require 'init-html)
 (require 'init-javascript)
+(require 'init-typescript)
 (require 'init-json)
 (require 'init-markdown)
 (require 'init-scss)

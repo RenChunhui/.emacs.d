@@ -14,6 +14,9 @@
 
 ;;; Code:
 
+;; 标记 calendar 上有 diary 的日期
+(setq-default mark-diary-entries-in-calendar t)
+
 ;; 设置农历显示
 (setq-default chinese-calendar-celestial-stem
           ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
