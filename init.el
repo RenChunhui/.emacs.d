@@ -14,13 +14,52 @@
 
 ;;; Code:
 
-;; Increase the garbage collection threshold to 128 MB to ease startup
-(setq gc-cons-threshold (* 128 1024 1024))
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+; (package-initialize)
 
+(require 'package)
+(setq package-enable-at-startup nil)
+
+;;----------------------------------------------------------------------------
+;; Stop Emacs from useing init.el for customization code
+;;----------------------------------------------------------------------------
+(setq custom-file
+      (concat user-emacs-directory "custom.el"))
+
+;;----------------------------------------------------------------------------
+;; Increase the garbage collection threshold to 128 MB to ease startup
+;;----------------------------------------------------------------------------
+(setq gc-cons-threshold (* 128 1024 1024)
+      gc-cons-percentage 0.9)
+
+;;----------------------------------------------------------------------------
+;; Turn on debugging and turn off after init
+;;----------------------------------------------------------------------------
+(setq debug-on-error t)
+(add-hook 'after-init-hook (lambda ()
+			     (setq debug-on-error nil)))
+
+;;----------------------------------------------------------------------------
+;; Initialize use-package
+;;----------------------------------------------------------------------------
+(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+                         ("org-cn"   . "http://elpa.emacs-china.org/org/")
+                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;;----------------------------------------------------------------------------
+;; Bootstrap config
+;;----------------------------------------------------------------------------
 (load-file (concat (file-name-directory load-file-name)
 		   "core/core-load-paths.el"))
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file)
 
 (require 'core-emacs)
 
