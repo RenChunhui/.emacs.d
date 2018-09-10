@@ -5,7 +5,11 @@ os:
   - osx
 env:
   - EMACS_VERISON=26.1
+  - EVM_EMACS=emacs-26.1-travis
 before_install:
-  - export PATH="$HOME/bin:$PATH"
+  - git clone https://github.com/rejeep/evm.git $HOME/.evm
+  - export PATH="$HOME/.evm/bin:$PATH"
+  - evm config path /tmp
+  - evm install $EVM_EMACS --use
 script:
-  - emacs
+  - emacs --version
