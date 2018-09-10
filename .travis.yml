@@ -2,22 +2,11 @@ language: ruby
 
 sudo: false
 
-dist: trusty
-
-os:
-  - osx
-
 cache:
   directories:
     - $HOME/.evm
 
 env:
-  - EVM_EMACS=emacs-24.3-travis
-  - EVM_EMACS=emacs-24.4-travis
-  - EVM_EMACS=emacs-24.5-travis
-  - EVM_EMACS=emacs-25.1-travis
-  - EVM_EMACS=emacs-25.2-travis
-  - EVM_EMACS=emacs-25.3-travis
   - EVM_EMACS=emacs-26.1-travis
 
 matrix:
@@ -31,4 +20,4 @@ before_install:
   - evm install $EVM_EMACS --use --skip
 
 script:
-  - ./.travis-build.sh
+  lsb_release -a && ./test-startup.sh
