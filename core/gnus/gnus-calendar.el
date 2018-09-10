@@ -17,17 +17,6 @@
 ;; 标记 calendar 上有 diary 的日期
 (setq-default mark-diary-entries-in-calendar t)
 
-;; 设置农历显示
-(setq-default chinese-calendar-celestial-stem
-          ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-          chinese-calendar-terrestrial-branch
-          ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
-
-;; 格式化星期和月份
-(setq-default calendar-week-start-day 0
-	      calendar-day-name-array ["日" "一" "二" "三" "四" "五" "六"]
-              calendar-month-name-array ["一月" "二月" "三月" "四月" "五月" "六月" "七月" "八月" "九月" "十月" "十一月" "十二月"])
-
 ;; 关注的节日
 (setq-default calendar-holidays
 	      '((holiday-fixed 1 1 "元旦节")

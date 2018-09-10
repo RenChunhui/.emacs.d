@@ -17,7 +17,6 @@
 (defconst emacs-start-time (current-time))
 
 (require 'core-keymap)
-(require 'core-use-package)
 (require 'core-layers)
 
 (require 'gnus-calendar)
