@@ -2,6 +2,8 @@ language: ruby
 
 sudo: false
 
+ox: osx
+
 cache:
   directories:
     - $HOME/.evm
@@ -20,4 +22,5 @@ before_install:
   - evm install $EVM_EMACS --use --skip
 
 script:
-  lsb_release -a && ./.travis-build.sh
+  - chmod +x ./.travis-build.sh
+  - lsb_release -a && ./.travis-build.sh
