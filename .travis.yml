@@ -1,6 +1,8 @@
-language: emacs-lisp
+language: generic
 
 sudo: false
+
+os: osx
 
 addons:
   apt:
