@@ -2,6 +2,8 @@ language: generic
 
 sudo: false
 
+os: osx
+
 addons:
   apt:
     sources:
@@ -19,6 +21,7 @@ install:
 
 script:
   - emacs --version
+  - emacs
 
 notifications:
   email: false
