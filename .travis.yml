@@ -2,14 +2,12 @@ language: generic
 
 sudo: false
 
-os: osx
-
 addons:
   apt:
     sources:
     - cassou-emacs
     packages:
-    - emacs26.1
+    - emacs26
 
 env:
   matrix:
