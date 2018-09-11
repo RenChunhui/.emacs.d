@@ -1,26 +1,28 @@
-language: ruby
+language: generic
 
 sudo: false
 
-ox: osx
-
-cache:
-  directories:
-    - $HOME/.evm
+addons:
+  apt:
+    sources:
+    - cassou-emacs
+    packages:
+    - emacs26.1
 
 env:
-  - EVM_EMACS=emacs-26.1-travis
-
-matrix:
-  allow_failures:
-    - env: EVM_EMACS=emacs-git-snapshot-travis
+  matrix:
+    - EMACS=emacs26.1
 
 before_install:
-  - (cd $HOME/.evm && git pull) || git clone https://github.com/rejeep/evm.git $HOME/.evm
-  - export PATH=$HOME/.evm/bin:$PATH
-  - evm config path /tmp
-  - evm install $EVM_EMACS --use --skip
+  - git clone https://github.com/cask/cask.git "$HOME/.cask"
+  - export PATH="$HOME/.cask/bin:$PATH"
+
+install:
+  - cask install
 
 script:
-  - chmod +x ./.travis-build.sh
-  - lsb_release -a && ./.travis-build.sh
+  - cask exec ert-runner
+
+# Local variables:
+# coding: utf-8
+# End:
