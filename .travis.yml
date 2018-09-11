@@ -1,4 +1,4 @@
-language: generic
+language: emacs-lisp
 
 sudo: false
 
@@ -11,17 +11,17 @@ addons:
 
 env:
   matrix:
-    - EMACS=emacs26.1
-
-before_install:
-  - git clone https://github.com/cask/cask.git "$HOME/.cask"
-  - export PATH="$HOME/.cask/bin:$PATH"
+    - EMACS=emacs26
+    - EMACS=emacs-snapshot
 
 install:
-  - cask install
+  - brew install emacs
 
 script:
-  - cask exec ert-runner
+  - emacs --version
+
+notifications:
+  email: false
 
 # Local variables:
 # coding: utf-8
