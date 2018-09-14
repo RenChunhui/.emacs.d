@@ -47,7 +47,6 @@
        ((string-match "Git[:-]" vc-mode)
 	(let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
 	  (concat
-	   (propertize " \xf418")
 	   (propertize (format " %s " branch)))))
        (t (format "%s" vc-mode)))))))
 
@@ -71,7 +70,6 @@
   (powerline-raw
    (format-mode-line
     (concat
-     (propertize " \xf49b")
      (propertize (format-time-string " %H:%M"))))))
 
 ;;;###autoload

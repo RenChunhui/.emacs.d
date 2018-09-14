@@ -44,10 +44,10 @@
   (use-package evil-indent-textobject
     :ensure t))
 
-(use-package atom-one-dark-theme
-  :ensure t
-  :config
-  (load-theme 'atom-one-dark t))
+;; (use-package zerodark-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'zerodark t))
 
 (use-package projectile
   :ensure t
@@ -55,13 +55,11 @@
   (projectile-mode)
   (setq projectile-completion-system 'ivy))
 
-(use-package dired-sidebar
-  :ensure t)
-
 (use-package flycheck
   :ensure t
   :init
-  (global-flycheck-mode t))
+  (global-flycheck-mode t)
+  (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package yasnippet
   :ensure t

@@ -39,7 +39,8 @@
   (emacs//remove-gui-elements)
   (emacs//display)
   (emacs//personal-infomation)
-  (emacs//monospace))
+  (emacs//monospace)
+  (emacs//load-theme))
 
 (defun emacs//remove-gui-elements ()
   "移除不需要的GUI元素."
@@ -89,6 +90,10 @@
 
   (set-fontset-font t 'han      (font-spec :family "STkaiti"))
   (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
+
+(defun emacs//load-theme ()
+  "Default theme."
+  (load-theme 'chunhui t))
 
 (emacs/init)
 

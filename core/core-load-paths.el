@@ -19,4 +19,6 @@
 (add-to-list 'load-path (expand-file-name "lisp/plugins" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp/lang" user-emacs-directory))
 
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+
 ;;; core-load-path.el ends here

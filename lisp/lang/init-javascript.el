@@ -20,3 +20,5 @@
 	    (setq company-tooltip-align-annotations t)))
 
 (provide 'init-javascript)
+
+;;; init-javascript.el ends here
