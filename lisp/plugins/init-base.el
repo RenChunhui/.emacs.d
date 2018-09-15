@@ -83,7 +83,7 @@
 (use-package powerline
   :ensure t
   :init
-  (setq-default powerline-default-separator 'slant))
+  (setq-default powerline-default-separator 'nil))
   
 (provide 'init-base)
 
