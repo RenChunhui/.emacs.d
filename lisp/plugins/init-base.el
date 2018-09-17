@@ -64,7 +64,11 @@
 (use-package yasnippet
   :ensure t
   :init
-  (yas-global-mode 1))
+  (setq yas-snippet-dirs
+	'("~/.emacs.d/private/snippets"))
+  (yas-global-mode 1)
+  :config
+  (yas-reload-all))
 
 (use-package winum
   :ensure t

@@ -62,6 +62,7 @@
 		   "core/core-load-paths.el"))
 
 (require 'core-emacs)
+(require 'core-startup)
 
 (require 'server)
 (unless (server-running-p)
