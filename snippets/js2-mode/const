@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: const declaration
-# key: const
-# --
-const ${1:name} = ${2:initial}
