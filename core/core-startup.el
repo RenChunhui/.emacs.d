@@ -16,5 +16,4 @@
 (defun spacemacs/setup-startup-hook ()
   "Add post init processing.")
 
-
 (provide 'core-startup)

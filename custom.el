@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (tide yasnippet winum which-key web-mode vimrc-mode use-package scss-mode powerline markdown-mode magit json-mode js2-mode flycheck fancy-battery evil-surround evil-leader evil-indent-textobject editorconfig dired-sidebar counsel-projectile company-tern atom-one-dark-theme))))
+    (vimrc-mode scss-mode markdown-mode json-mode tide company-tern tern js2-mode web-mode powerline editorconfig magit winum yasnippet flycheck evil-indent-textobject evil-surround evil-leader evil counsel-projectile counsel which-key company use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -17,6 +17,7 @@
 (require 'init-completion)
 (require 'init-ivy)
 (require 'init-base)
+(require 'init-evil)
 
 ;; lang
 (require 'init-css)

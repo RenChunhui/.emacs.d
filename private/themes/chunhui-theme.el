@@ -14,7 +14,6 @@
 
 ;;; Code:
 
-
 (defmacro cached-for (secs &rest body)
   "Cache for SECS the result of the evaluation of BODY."
   (declare (debug t))
@@ -64,7 +63,7 @@
       (background-green (if (true-color-p) "#3d4a41" "#5f5f5f"))
       (bright-background-green (if (true-color-p) "#3f6d54" "#3f6d54"))
       (background-orange (if (true-color-p) "#4a473d" "#5f5f5f"))
-      (hl-line (if (true-color-p) "#2c323b" "#333333"))
+      (hl-line (if (true-color-p) "#2C323C" "#333333"))
       (grey (if (true-color-p) "#cccccc" "#cccccc"))
       (grey-dark (if (true-color-p) "#666666" "#666666"))
       (highlight (if (true-color-p) "#3e4451" "#5f5f5f"))

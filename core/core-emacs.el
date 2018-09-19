@@ -74,6 +74,8 @@
   ;; Nice fonts in macOS
   (setq mac-allow-anti-aliasing t)
   (setq ns-use-srgb-colorspace nil)
+  (fringe-mode '(1 . 0))
+  (setq linum-format " %d ")
   ;; 自动补全括号
   (electric-pair-mode t))
 
@@ -86,7 +88,7 @@
   "中英文等宽."
   (setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
 
-  (set-face-attribute 'default nil :font "DroidSansMono Nerd Font-13")
+  (set-face-attribute 'default nil :font "FuraMono Nerd Font Mono-13")
 
   (set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
   (set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei")))
