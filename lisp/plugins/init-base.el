@@ -14,41 +14,6 @@
 
 ;;; Code:
 
-(use-package evil
-  :ensure t
-  :init
-  (setq-default evil-want-inter nil)
-  (setq-default evil-search-module 'evil-search)
-  (setq-default evil-ex-complete-emacs-commands nil)
-  (setq-default evil-vsplit-window-right t)
-  (setq-default evil-split-window-below t)
-  (setq-default evil-shift-round nil)
-  (setq-default evil-normal-state-tag "Ⓝ"
-		evil-insert-state-tag "Ⓘ"
-		evil-visual-state-tag "Ⓥ"
-		evil-motion-state-tag "Ⓜ"
-		evil-emacs-state-tag  "Ⓔ")
-  :config
-  (evil-mode 1)
-
-  (use-package evil-leader
-    :ensure t
-    :config
-    (global-evil-leader-mode))
-
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode))
-
-  (use-package evil-indent-textobject
-    :ensure t))
-
-;; (use-package zerodark-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'zerodark t))
-
 (use-package projectile
   :ensure t
   :config
@@ -87,7 +52,7 @@
 (use-package powerline
   :ensure t
   :init
-  (setq-default powerline-default-separator 'nil))
+  (setq-default powerline-default-separator 'slant))
   
 (provide 'init-base)
 
