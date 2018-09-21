@@ -33,7 +33,8 @@
 	'("~/.emacs.d/private/snippets"))
   (yas-global-mode 1)
   :config
-  (yas-reload-all))
+  (yas-reload-all)
+  (global-set-key (kbd "M-/") 'company-yasnippet))
 
 (use-package winum
   :ensure t

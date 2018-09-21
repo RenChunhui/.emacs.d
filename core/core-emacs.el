@@ -54,10 +54,17 @@
 
 (defun emacs//display ()
   "视觉显示."
-  "编码格式."
+  ;; 
   (prefer-coding-system 'utf-8)
-  ;; 启动不显示消息
-  (setq initial-scratch-message nil)
+
+  ;; splash screen
+  (setq-default inhibit-splash-screen t
+		initial-scratch-message nil
+		initial-major-mode 'org-mode)
+
+  ;; enable syntax highlighting
+  (global-font-lock-mode 1)
+  
   (setq fill-column 80)
   ;; 高亮当前行
   (global-hl-line-mode 1)
@@ -65,8 +72,6 @@
   (global-linum-mode t)
   ;; display column number in modeline
   (column-number-mode)
-  ;; No splash screen
-  (setq inhibit-splash-screen t)
   ;; display current time in modeline
   (display-time-mode 1)
   ;; Only type 'y' or 'n' instead of 'yes' or 'no'

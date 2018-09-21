@@ -1,4 +1,4 @@
-;;; init-shell.el --- shell mode
+;;; init-org.el --- org mode
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,10 +14,12 @@
 
 ;;; Code:
 
-(setq shell-file-name "/bin/zsh")
-(add-to-list 'auto-mode-alist '("\\.zsh$" . shell-script-mode))
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda ()
+			     (org-bullets-mode 1))))
 
-(provide 'init-shell)
+(provide 'init-org)
 
-
-;;; init-shell.el ends here
+;;; init-org.el ends here

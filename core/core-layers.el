@@ -14,10 +14,10 @@
 
 ;;; Code:
 
+(require 'init-evil)
 (require 'init-completion)
 (require 'init-ivy)
 (require 'init-base)
-(require 'init-evil)
 
 ;; lang
 (require 'init-css)
@@ -30,6 +30,7 @@
 (require 'init-shell)
 (require 'init-yaml)
 (require 'init-vim)
+(require 'init-org)
 
 (provide 'core-layers)
 

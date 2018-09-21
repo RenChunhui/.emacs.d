@@ -18,20 +18,21 @@
   :ensure t
   :config
   (evil-leader/set-key
-    "f f" 'counsel-find-file))
+    "ff" 'counsel-find-file))
 
 (use-package counsel-projectile
   :ensure t
   :config
   (evil-leader/set-key
-    "p f" 'counsel-projectile-find-file))
+    "pf" 'counsel-projectile-find-file
+    "pb" 'counsel-projectile-switch-to-buffer))
 
 (use-package swiper
   :ensure t
   :config
   (ivy-mode 1)
   (evil-leader/set-key
-    "s s" 'swiper))
+    "ss" 'swiper))
 
 (provide 'init-ivy)
 
