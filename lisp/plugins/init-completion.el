@@ -16,28 +16,43 @@
 
 (use-package company
   :ensure t
-  :bind(("<C-tab>" . company-auto-complete)
-	("C-/" . helm-complete))
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
+  :config (progn
+	    (setq company-idle-delay 0.1)
+	    (setq company-tooltip-limit 10)
+	    (setq company-minimum-prefix-length 2)))
+
+(use-package lsp-mode
+  :ensure t
+  :init
+  (add-hook 'prog-major-mode 'lsp-mode))
+
+(use-package lsp-ui
+  :ensure t
+  :after lsp-mode
   :init
   (progn
-    (setq-default company-idle-delay 0.2
-		  company-minimum-prefix-length 2
-		  company-require-match nil
-		  company-dabbrev-ignore-case nil
-		  company-dabbrev-downcase nil)
-    (add-hook 'company-completion-started-hook 'company-turn-off-fci)
-    (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
-    (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci))
+    (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+    (progn
+      (require 'lsp-ui-flycheck)))
   :config
-  (global-company-mode)
-  (setq company-idle-delay 0.1)
-  (setq company-tooltip-limit 10)
-  (setq company-minimum-prefix-length 2))
+  (setq lsp-ui-sideline-enable t
+	lsp-ui-sideline-show-symbol t
+	lsp-ui-sideline-show-hover t
+	lsp-ui-sideline-show-code-actions t))
+
+(use-package company-lsp
+  :ensure t
+  :after lsp-mode company
+  :config
+  (push 'company-lsp company-backends))
 
 (use-package which-key
   :ensure t
   :config
   (which-key-mode))
+
 
 (provide 'init-completion)
 
