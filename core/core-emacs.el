@@ -79,7 +79,6 @@
   ;; Nice fonts in macOS
   (setq mac-allow-anti-aliasing t)
   (setq ns-use-srgb-colorspace nil)
-  (fringe-mode '(1 . 0))
   (setq linum-format " %d ")
   ;; 自动补全括号
   (electric-pair-mode t))
