@@ -16,9 +16,19 @@
 
 (use-package counsel
   :ensure t
+  :init
+  (progn
+    (evil-leader/set-key
+      "ff" 'counsel-find-file
+      "fel" 'counsel-find-library
+      "fL" 'counsel-locate
+      "?" 'counsel-descbinds
+      "ry" 'counsel-yank-pop
+      "rm" 'counsel-mark-ring))
   :config
-  (evil-leader/set-key
-    "ff" 'counsel-find-file))
+  (progn
+    (define-key counsel-find-file-map (kbd "C-h") 'counsel-up-directory)
+    (counsel-mode 1)))
 
 (use-package counsel-projectile
   :ensure t

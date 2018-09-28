@@ -19,14 +19,6 @@
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
-(use-package lsp-css
-  :ensure t
-  :ensure-system-package
-  (css-languageserver . "yarn global add vscode-css-languageserver-bin")
-  :commands (lsp-css-enable lsp-scss-enable)
-  :hook ((css-mode . #'lsp-css-enable)
-	 (scss-mode . #'lsp-scss-enable)))
-
 (provide 'init-scss)
 
 ;;; init-scss.el ends here

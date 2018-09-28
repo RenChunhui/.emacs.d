@@ -14,6 +14,16 @@
 
 ;;; Code:
 
+(use-package org
+  :defer t
+  :config
+  (evil-leader/set-key
+    "a" 'org-agenda
+    "c" 'org-capture
+    "dd" 'org-deadline
+    "ds" 'org-schedule
+    "dt" 'org-time-stamp))
+
 (use-package org-bullets
   :ensure t
   :config

@@ -23,28 +23,20 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 
-;;----------------------------------------------------------------------------
 ;; Stop Emacs from useing init.el for customization code
-;;----------------------------------------------------------------------------
 (setq custom-file
       (concat user-emacs-directory "custom.el"))
 
-;;----------------------------------------------------------------------------
 ;; Increase the garbage collection threshold to 128 MB to ease startup
-;;----------------------------------------------------------------------------
 (setq gc-cons-threshold (* 128 1024 1024)
       gc-cons-percentage 0.9)
 
-;;----------------------------------------------------------------------------
 ;; Turn on debugging and turn off after init
-;;----------------------------------------------------------------------------
 (setq debug-on-error t)
 (add-hook 'after-init-hook (lambda ()
 			     (setq debug-on-error nil)))
 
-;;----------------------------------------------------------------------------
 ;; Initialize use-package
-;;----------------------------------------------------------------------------
 (setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
                          ("org-cn"   . "http://elpa.emacs-china.org/org/")
                          ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
@@ -54,13 +46,8 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-(use-package use-package-ensure-system-package
-  :ensure t)
   
-;;----------------------------------------------------------------------------
 ;; Bootstrap config
-;;----------------------------------------------------------------------------
 (load-file (concat (file-name-directory load-file-name)
 		   "core/core-load-paths.el"))
 
@@ -72,4 +59,5 @@
   (server-start))
 
 (provide 'init)
+
 ;;; init.el ends here

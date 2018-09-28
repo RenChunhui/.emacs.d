@@ -14,12 +14,38 @@
 
 ;;; Code:
 
-(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "core/gnus" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp/plugins" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp/lang" user-emacs-directory))
+(defun add-to-load-path (dir)
+  "Add DIR to folder."
+  (add-to-list 'load-path dir))
 
-(add-to-list 'load-path (expand-file-name "private/themes" user-emacs-directory))
-(add-to-list 'custom-theme-load-path (expand-file-name "private/themes" user-emacs-directory))
+;; paths
+(defconst emacs-core-directory
+  (expand-file-name (concat user-emacs-directory "core/"))
+  "Emacs core directory.")
+(defconst emacs-lisp-directory
+  (expand-file-name (concat user-emacs-directory "lisp/"))
+  "Emacs lisp directory.")
 
-;;; core-load-path.el ends here
+(defconst emacs-private-directory
+  (expand-file-name (concat user-emacs-directory "private/"))
+  "Emacs private directory.")
+
+;; load paths
+(mapc 'add-to-load-path
+      `(,emacs-core-directory
+    ,(concat emacs-core-directory "gnus/")
+	,(concat emacs-core-directory "libs/")
+	,(concat emacs-core-directory "libs/themes/")))
+
+(mapc 'add-to-load-path
+      `(,emacs-lisp-directory
+    ,(concat emacs-lisp-directory "basic/")
+	,(concat emacs-lisp-directory "lang/")))
+
+;; themes
+(add-to-list 'custom-theme-load-path (concat emacs-core-directory
+					     "libs/themes/"))
+
+(provide 'core-load-paths)
+
+;;; core-load-paths.el ends here

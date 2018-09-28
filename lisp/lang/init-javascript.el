@@ -35,15 +35,6 @@
 	    (setq company-tern-meta-as-single-line t)
 	    (setq company-tooltip-align-annotations t)))
 
-(use-package lsp-javascript-typescript
-  :ensure t
-  :ensure-system-package
-  (javascript-typescript-langserver . "yarn global add javascript-typescript-langserver")
-  :commands lsp-javascript-typescript-server
-  :init
-  (progn
-    (add-hook 'js2-mode #'lsp-javascript-typescript-enable)))
-
 (provide 'init-javascript)
 
 ;;; init-javascript.el ends here

@@ -16,6 +16,9 @@
 
 (defconst emacs-start-time (current-time))
 
+(require 'page-break-lines)
+(require 'all-the-icons)
+
 (require 'core-keymap)
 (require 'core-layers)
 
@@ -59,8 +62,7 @@
 
   ;; splash screen
   (setq-default inhibit-splash-screen t
-		initial-scratch-message nil
-		initial-major-mode 'org-mode)
+		initial-scratch-message nil)
 
   ;; enable syntax highlighting
   (global-font-lock-mode 1)

@@ -35,7 +35,9 @@
     :ensure t
     :config
     (global-evil-leader-mode)
-    (evil-leader/set-leader "<SPC>"))
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+    "G" #'goto-line))
 
   (use-package evil-surround
     :ensure t
