@@ -23,7 +23,7 @@
 				     "~/.org/gtd.org"
 				     "~/.org/notes.org"
 				     "~/.org/tasks.org"
-				     "~/.org/todo.org"))
+				     "~/.org/todos.org"))
 
 ;; I want files with the extension ".org" to open in org-mode.
 
