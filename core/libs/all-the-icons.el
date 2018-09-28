@@ -9,6 +9,10 @@
     ("folder_open" . "\xf07c")
     ("folder_npm" . "\xe5fa")
     ("favicon" . "\xe623")
+    ("chevron-down" . "\x25e2")
+    ("chevron-left" . "\xf053")
+    ("chevron-right" . "\xf0da")
+    ("chevron-up" . "\xf077")
     ;; system os
     ("windows" . "\xe70f")
     ("apple" . "\xe711")
@@ -52,7 +56,7 @@
     ;; mode
     ("python" . "\xe73c")
     ("ruby" . "\xe791")
-    ("terminal" . "\xe795")
+    ("terminal" . "\xf489")
     ("terminal_badge" . "\xe7a2")
     ("vim" . "\xe7c5")
     ;; others
@@ -81,12 +85,12 @@
   :group 'all-the-icons
   :type 'boolean)
 
-(defcustom all-the-icons-scale-factor 1
+(defcustom all-the-icons-scale-factor 1.1
   "The base Scale Factor for the `height' face property of an icon."
   :group 'all-the-icons
   :type 'number)
 
-(defcustom all-the-icons-default-adjust -0.2
+(defcustom all-the-icons-default-adjust 0
   "The default adjustment to be made to the `raise' display property of an icon."
   :group 'all-the-icons
   :type 'number)
@@ -96,56 +100,57 @@
 
 (defvar all-the-icons-icon-alist
   '(
-    ("\\.org"           all-the-icons-fonts "org")
-    ("\\.md"            all-the-icons-fonts "markdown")
-    ("\\.mk$"           all-the-icons-fonts "gnu")
+    ("\\.org"           all-the-icons-fonts "org" :face '(:foreground "#77AA99"))
+    ("\\.md"            all-the-icons-fonts "markdown" :face '(:foreground "#755838"))
+    ("\\.mk$"           all-the-icons-fonts "gnu" :face '(:foreground "#FFFFFF"))
     ("\\.sh"            all-the-icons-fonts "terminal")
     ("\\.py$"           all-the-icons-fonts "python")
-    ("\\.gem$"          all-the-icons-fonts "ruby") 
-    ("\\.rb$"           all-the-icons-fonts "ruby")
+    ("\\.gem$"          all-the-icons-fonts "ruby" :face '(:foreground "#A31601")) 
+    ("\\.rb$"           all-the-icons-fonts "ruby" :face '(:foreground "#A31601"))
+    ("\\.el$"           all-the-icons-fonts "lisp" :face '(:foreground "#8381C5") :height 1.0 :v-adjust -0.1)
 
-    ("^Makefile$"       all-the-icons-fonts "gnu")
-    ("^Gemfile$"        all-the-icons-fonts "ruby")
-    ("^Brewfile$"       all-the-icons-fonts "ruby")
-    ("^LICENSE$"        all-the-icons-fonts "license")
+    ("^Makefile$"       all-the-icons-fonts "gnu" :face '(:foreground "#FFFFFF"))
+    ("^Gemfile$"        all-the-icons-fonts "ruby" :face '(:foreground "#A31601"))
+    ("^Brewfile$"       all-the-icons-fonts "ruby" :face '(:foreground "#A31601"))
+    ("^LICENSE$"        all-the-icons-fonts "license" :face '(:foreground "#FFD436"))
 
-    ("\\.npmignore"     all-the-icons-fonts "npm")
-    (".npmrc"           all-the-icons-fonts "npm")
-    ("^package.json$"     all-the-icons-fonts "npm")
-    ("^package.lock.json$" all-the-icons-fonts "npm")
-    ("\\.yarnrc"          all-the-icons-fonts "yarn")
-    ("^yarn.lock$"      all-the-icons-fonts "yarn")
-    ("^webpack"         all-the-icons-fonts "webpack")
-    ("\\.gitconfig"     all-the-icons-fonts "git")
-    ("\\.gitignore"     all-the-icons-fonts "git")
-    (".bashrc"          all-the-icons-fonts "terminal")
-    (".bash_profile"    all-the-icons-fonts "terminal")
-    (".bash_history"    all-the-icons-fonts "terminal")
-    ("\\.zsh"           all-the-icons-fonts "terminal")
-    (".zsh_history"     all-the-icons-fonts "terminal")
+    ("\\.npmignore"     all-the-icons-fonts "npm" :face '(:foreground "#CB3837") :v-adjust -0.1)
+    (".npmrc"           all-the-icons-fonts "npm" :face '(:foreground "#CB3837") :v-adjust -0.1)
+    ("^package.json$"     all-the-icons-fonts "npm" :face '(:foreground "#CB3837") :v-adjust -0.1)
+    ("^package.lock.json$" all-the-icons-fonts "npm" :face '(:foreground "#CB3837") :v-adjust -0.1)
+    ("\\.yarnrc"          all-the-icons-fonts "yarn" :face '(:foreground "#2188B6") :v-adjust -0.2)
+    ("^yarn.lock$"      all-the-icons-fonts "yarn" :face '(:foreground "#2188B6") :v-adjust -0.2)
+    ("^webpack"         all-the-icons-fonts "webpack" :face '(:foreground "#6F95DB"))
+    ("\\.gitconfig"     all-the-icons-fonts "git" :face '(:foreground "#DD4C35"))
+    ("\\.gitignore"     all-the-icons-fonts "git" :face '(:foreground "#DD4C35"))
+    (".bashrc"          all-the-icons-fonts "terminal" :face '(:foreground "#D9B400"))
+    (".bash_profile"    all-the-icons-fonts "terminal" :face '(:foreground "#D9B400"))
+    (".bash_history"    all-the-icons-fonts "terminal" :face '(:foreground "#D9B400"))
+    ("\\.zsh"           all-the-icons-fonts "terminal" :face '(:foreground "#D9B400"))
+    (".zsh_history"     all-the-icons-fonts "terminal" :face '(:foreground "#D9B400"))
     
-    ("\\.html?$"        all-the-icons-fonts "html")
-    ("\\.css$"          all-the-icons-fonts "css")
-    ("\\.scss$"         all-the-icons-fonts "scss")
-    ("-?spec\\.ts$"     all-the-icons-fonts "ts")
-    ("-?test\\.ts$"     all-the-icons-fonts "ts")
-    ("-?spec\\.js$"     all-the-icons-fonts "js")
-    ("-?test\\.js$"     all-the-icons-fonts "js")
-    ("\\.d\\.ts$"       all-the-icons-fonts "ts")
-    ("\\.ts$"           all-the-icons-fonts "ts")
-    ("\\.js$"           all-the-icons-fonts "js")
-    ("\\.vue$"          all-the-icons-fonts "vue")
-    ("\\.json$"         all-the-icons-fonts "json")
+    ("\\.html?$"        all-the-icons-fonts "html" :face '(:foreground "#E44F26"))
+    ("\\.css$"          all-the-icons-fonts "css" :face '(:foreground "#1572B6"))
+    ("\\.scss$"         all-the-icons-fonts "scss" :face '(:foreground "#CD6799"))
+    ("-?spec\\.ts$"     all-the-icons-fonts "ts" :face '(:foreground "#007ACC"))
+    ("-?test\\.ts$"     all-the-icons-fonts "ts" :face '(:foreground "#007ACC"))
+    ("\\.d\\.ts$"       all-the-icons-fonts "ts" :face '(:foreground "#007ACC"))
+    ("\\.ts$"           all-the-icons-fonts "ts" :face '(:foreground "#007ACC"))
+    ("-?spec\\.js$"     all-the-icons-fonts "js" :face '(:foreground "#F5DE19"))
+    ("-?test\\.js$"     all-the-icons-fonts "js" :face '(:foreground "#F5DE19"))
+    ("\\.js$"           all-the-icons-fonts "js" :face '(:foreground "#F5DE19"))
+    ("\\.vue$"          all-the-icons-fonts "vue" :face '(:foreground "#41B883"))
+    ("\\.json$"         all-the-icons-fonts "json" :face '(:foreground "#F5DE19"))
 
-    ("^\\."             all-the-icons-fonts "default")
-    ("."                all-the-icons-fonts "default")))
+    ("^\\."             all-the-icons-fonts "default" :v-adjust -0.1)
+    ("."                all-the-icons-fonts "default" :v-adjust -0.1)))
 
 (defvar all-the-icons-dir-icon-alist
   '(
-    ("\\.git"           all-the-icons-fonts "folder_git")
-    ("\\node_modules"   all-the-icons-fonts "folder_npm")
-    ("\\."              all-the-icons-fonts "folder")
-    ("."                all-the-icons-fonts "folder")
+    ("\\.git"           all-the-icons-fonts "folder_git" :face '(:foreground "#BBBBBB"))
+    ("\\node_modules"   all-the-icons-fonts "folder_npm" :face '(:foreground "#8EBF55"))
+    ("\\."              all-the-icons-fonts "folder" :face '(:foreground "#C09553"))
+    ("."                all-the-icons-fonts "folder" :face '(:foreground "#C09553"))
     ))
 
 ;; ====================
@@ -167,12 +172,14 @@
   "Format an icon for DIR with CHEVRON similar to tree based directories."
   (let* ((matcher (all-the-icons-match-to-alist (file-name-base dir) all-the-icons-dir-icon-alist))
          (path (expand-file-name dir))
+         (chevron (if chevron (all-the-icons-fonts (format "chevron-%s" chevron) :height 0.8 :v-adjust -0.1) ""))
          (padding (or padding "\t"))
          (icon (cond
                 ((file-exists-p (format "%s/.git" path))
                  (format "%s" (all-the-icons-fonts "folder_git" :height 1.1)))
                 (t (apply (car matcher) (cdr matcher))))))
-    (format "%s%s%s" padding icon padding)))
+    ;;(format "%s%s%s" padding icon padding)))
+    (format "%s%s%s%s%s" padding chevron padding icon padding)))
 
 ;;;###autoload
 (defun all-the-icons-icon-for-file (file &rest arg-overrides)
@@ -289,8 +296,8 @@ When FAMILY is non-nil, limit the candidates to the icon set matching it."
      (defun ,(all-the-icons--function-name name) (icon-name &rest args)
        (let ((icon (cdr (assoc icon-name ,alist)))
              (other-face (when all-the-icons-color-icons (plist-get args :face)))
-             (height (or (plist-get args :height) 1.0))
-             (v-adjust (or (plist-get args :v-adjust) all-the-icons-default-adjust))
+             (height  (* all-the-icons-scale-factor (or (plist-get args :height) 1.0)))
+             (v-adjust (* all-the-icons-scale-factor (or (plist-get args :v-adjust) all-the-icons-default-adjust)))
              (family ,family))
          (unless icon
            (error (format "Unable to find icon with name `%s' in icon set `%s'" icon-name (quote ,name))))
