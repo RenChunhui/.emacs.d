@@ -31,6 +31,12 @@
 (setq gc-cons-threshold (* 128 1024 1024)
       gc-cons-percentage 0.9)
 
+;; No backup file
+(setq-default make-backup-files nil)
+
+  ;; Warn when opening files bigger then 10MB
+(setq large-file-warning-threshold 10000000)
+
 ;; Turn on debugging and turn off after init
 (setq debug-on-error t)
 (add-hook 'after-init-hook (lambda ()
@@ -52,7 +58,6 @@
 		   "core/core-load-paths.el"))
 
 (require 'core-emacs)
-(require 'core-startup)
 
 (require 'server)
 (unless (server-running-p)

@@ -14,23 +14,18 @@
 
 ;;; Code:
 
-(require 'init-evil)
-(require 'init-completion)
-(require 'init-ivy)
-(require 'init-base)
+(with-temp-message ""
+  (require 'all-the-icons)
+  (require 'powerline)
+  (require 'init-evil)
+  (require 'init-ivy)
+  (require 'init-base)
+  (require 'gnus-bindings))
 
-;; lang
-(require 'init-css)
-(require 'init-html)
-(require 'init-javascript)
-(require 'init-typescript)
-(require 'init-json)
-(require 'init-markdown)
-(require 'init-scss)
-(require 'init-shell)
-(require 'init-yaml)
-(require 'init-vim)
-(require 'init-org)
+(run-with-idle-timer 2 nil
+  #'(lambda ()
+    (require 'init-completion)
+    (require 'init-after)))
 
 (provide 'core-layers)
 
