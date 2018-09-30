@@ -17,6 +17,18 @@
 ;; 标记 calendar 上有 diary 的日期
 (setq-default mark-diary-entries-in-calendar t)
 
+;; 设置星期一为每周的第一天
+(setq-default calendar-week-start-day 1)
+
+;; 让calendar自动标记出节假日的日期
+(setq-default calendar-mark-holidays-flag t)
+
+;; 让calendar自动标记出记有待办事项的日期
+(setq-default calendar-mark-diary-entries-flag t)
+
+;; 在mode-line上显示还有多少分钟到约会的倒计时
+(setq-default appt-display-mode-line t)
+
 ;; 关注的节日
 (setq-default calendar-holidays
 	      '((holiday-fixed 1 1 "元旦节")
