@@ -25,7 +25,18 @@
 (run-with-idle-timer 2 nil
   #'(lambda ()
     (require 'init-completion)
-    (require 'init-after)))
+    (require 'init-after)
+    (require 'init-css)
+    (require 'init-html)
+    (require 'init-javascript)
+    (require 'init-json)
+    (require 'init-markdown)
+    (require 'init-org)
+    (require 'init-scss)
+    (require 'init-shell)
+    (require 'init-typescript)
+    (require 'init-vim)
+    (require 'init-yaml)))
 
 (provide 'core-layers)
 
