@@ -39,7 +39,7 @@
 
 (mapc 'add-to-load-path
       `(,emacs-lisp-directory
-    ,(concat emacs-lisp-directory "basic/")
+    ,(concat emacs-lisp-directory "ext/")
 	,(concat emacs-lisp-directory "lang/")))
 
 ;; themes
