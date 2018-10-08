@@ -14,29 +14,26 @@
 
 ;;; Code:
 
-(with-temp-message ""
-  (require 'all-the-icons)
-  (require 'powerline)
-  (require 'init-evil)
-  (require 'init-ivy)
-  (require 'init-base)
-  (require 'gnus-bindings))
+(require 'all-the-icons)
+(require 'powerline)
+(require 'init-evil)
+(require 'init-ivy)
+(require 'init-base)
+(require 'gnus-bindings)
 
-(run-with-idle-timer 2 nil
-  #'(lambda ()
-    (require 'init-completion)
-    (require 'init-after)
-    (require 'init-css)
-    (require 'init-html)
-    (require 'init-javascript)
-    (require 'init-json)
-    (require 'init-markdown)
-    (require 'init-org)
-    (require 'init-scss)
-    (require 'init-shell)
-    (require 'init-typescript)
-    (require 'init-vim)
-    (require 'init-yaml)))
+(require 'init-completion)
+(require 'init-after)
+(require 'init-css)
+(require 'init-html)
+(require 'init-javascript)
+(require 'init-json)
+(require 'init-markdown)
+(require 'init-org)
+(require 'init-scss)
+(require 'init-shell)
+(require 'init-typescript)
+(require 'init-vim)
+(require 'init-yaml)
 
 (provide 'core-layers)
 

@@ -34,8 +34,8 @@
 (mapc 'add-to-load-path
       `(,emacs-core-directory
     ,(concat emacs-core-directory "gnus/")
-	,(concat emacs-core-directory "libs/")
-	,(concat emacs-core-directory "libs/themes/")))
+	,(concat emacs-core-directory "vendor/")
+	,(concat emacs-core-directory "vendor/themes/")))
 
 (mapc 'add-to-load-path
       `(,emacs-lisp-directory
@@ -44,7 +44,7 @@
 
 ;; themes
 (add-to-list 'custom-theme-load-path (concat emacs-core-directory
-					     "libs/themes/"))
+					     "vendor/themes/"))
 
 (provide 'core-load-paths)
 
