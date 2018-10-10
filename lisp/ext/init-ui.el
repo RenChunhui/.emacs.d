@@ -14,8 +14,6 @@
 
 ;;; Code:
 
-
-
 (use-package neotree
   :ensure t
   :init
@@ -37,33 +35,9 @@
       "fT" 'neotree-show
       "pt" 'neotree-find-project-root)))
 
-(use-package flycheck
-  :ensure t
-  :init
-  (global-flycheck-mode t)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
-
-(use-package yasnippet
-  :ensure t
-  :init
-  (setq yas-snippet-dirs
-	'("~/.emacs.d/private/snippets"))
-  (yas-global-mode 1)
-  :config
-  (yas-reload-all)
-  (global-set-key (kbd "M-/") 'company-yasnippet))
-
-(use-package magit
-  :ensure t
-  :config
-  (global-auto-revert-mode -1))
-
-(use-package editorconfig
-  :ensure t
-  :config
-  (editorconfig-mode))
-
-(provide 'init-after)
 
 
-;;; init-after.el ends here
+(provide 'init-ui)
+
+
+;;; init-ui.el ends here

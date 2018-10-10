@@ -18,11 +18,10 @@
 (require 'remember)
 (require 'org-mouse)
 
-(setq-default org-agenda-files (list "~/.org/bill.org"
+(setq-default org-agenda-files (list
 				     "~/.org/calendar.org"
 				     "~/.org/gtd.org"
 				     "~/.org/notes.org"
-				     "~/.org/tasks.org"
 				     "~/.org/todos.org"))
 
 ;; I want files with the extension ".org" to open in org-mode.
