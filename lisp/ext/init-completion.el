@@ -23,6 +23,16 @@
 	    (setq company-tooltip-limit 10)
 	    (setq company-minimum-prefix-length 2)))
 
+(use-package yasnippet
+  :ensure t
+  :init
+  (setq yas-snippet-dirs
+	'("~/.emacs.d/private/snippets"))
+  (yas-global-mode 1)
+  :config
+  (yas-reload-all)
+  (global-set-key (kbd "M-/") 'company-yasnippet))
+
 (use-package which-key
   :ensure t
   :config

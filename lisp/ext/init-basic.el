@@ -49,7 +49,23 @@
     (define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
     (define-key winum-keymap (kbd "M-9") 'winum-select-window-9)
     (winum-mode)))
-  
-(provide 'init-base)
 
-;;; init-base.el ends here
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode t)
+  (add-hook 'after-init-hook #'global-flycheck-mode))
+
+(use-package magit
+  :ensure t
+  :config
+  (global-auto-revert-mode -1))
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode))
+  
+(provide 'init-basic)
+
+;;; init-basic.el ends here

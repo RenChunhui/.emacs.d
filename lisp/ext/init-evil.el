@@ -37,15 +37,7 @@
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>")
     (evil-leader/set-key
-    "G" #'goto-line))
-
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode))
-
-  (use-package evil-indent-textobject
-    :ensure t))
+    "G" #'goto-line)))
 
 (provide 'init-evil)
 
