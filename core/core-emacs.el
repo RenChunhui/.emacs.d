@@ -14,8 +14,8 @@
 
 ;;; Code:
 
-(require 'core-startup)
 (require 'core-layers)
+(require 'dashboard)
 
 (defun emacs//remove-gui-elements ()
   "Remove the menu bar, tool bar and scrool bars."

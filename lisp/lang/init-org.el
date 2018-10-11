@@ -20,9 +20,39 @@
   (evil-leader/set-key
     "a" 'org-agenda
     "c" 'org-capture
+    
     "dd" 'org-deadline
     "ds" 'org-schedule
-    "dt" 'org-time-stamp))
+    "dt" 'org-time-stamp
+    "dT" 'org-time-stamp-inactive
+    "ee" 'org-export-dispatch
+    "fi" 'org-feed-goto-inbox
+    "fu" 'org-feed-update-all
+
+    "Cc" 'org-clock-cancel
+    "Cd" 'org-clock-display
+    "Ce" 'org-evaluate-time-range
+    "Cg" 'org-clock-goto
+    "Ci" 'org-clock-in
+    "CI" 'org-clock-in-last
+    "Cj" 'org-clock-jump-to-current-clock
+    "Co" 'org-clock-out
+    "CR" 'org-clock-report
+    "Cr" 'org-resolve-clocks
+
+    "Tc" 'org-toggle-checkbox
+    "Te" 'org-toggle-pretty-entities
+    "Ti" 'org-toggle-inline-images
+    "Tl" 'org-toggle-link-display
+    "Tt" 'org-show-todo-tree
+    "TT" 'org-todo
+
+    "L" 'org-shiftright
+    "H" 'org-shiftleft
+    "J" 'org-shiftdown
+    "K" 'org-shiftup
+    
+    ":" 'org-set-tags))
 
 (use-package org-bullets
   :ensure t

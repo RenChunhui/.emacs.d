@@ -65,6 +65,18 @@
   :ensure t
   :config
   (editorconfig-mode))
+
+(use-package osx-dictionary
+  :ensure t
+  :init
+  (global-set-key (kbd "C-c d") 'osx-dictionary-search-word-at-point))
+  ;; :config
+  ;; (progn
+  ;;   (evil-leader/set-key
+  ;;     "q" 'osx-dictionary-quit
+  ;;     "r" 'osx-dictionary-read-word
+  ;;     "s" 'osx-dictionary-search-input
+  ;;     "o" 'osx-dictionary-open-dictionary.app)))
   
 (provide 'init-basic)
 

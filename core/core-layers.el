@@ -17,6 +17,7 @@
 (require 'all-the-icons)
 (require 'powerline)
 (require 'gnus-bindings)
+(require 'gnus-org)
 
 (require 'init-evil)
 (require 'init-basic)

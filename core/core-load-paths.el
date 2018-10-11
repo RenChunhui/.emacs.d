@@ -35,6 +35,7 @@
       `(,emacs-core-directory
     ,(concat emacs-core-directory "gnus/")
 	,(concat emacs-core-directory "vendor/")
+  ,(concat emacs-core-directory "vendor/startup-buffer")
 	,(concat emacs-core-directory "vendor/themes/")))
 
 (mapc 'add-to-load-path
