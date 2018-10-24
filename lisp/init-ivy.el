@@ -21,10 +21,7 @@
     (evil-leader/set-key
       "ff" 'counsel-find-file
       "fel" 'counsel-find-library
-      "fL" 'counsel-locate
-      "?" 'counsel-descbinds
-      "ry" 'counsel-yank-pop
-      "rm" 'counsel-mark-ring))
+      "fL" 'counsel-locate))
   :config
   (progn
     (define-key counsel-find-file-map (kbd "C-h") 'counsel-up-directory)
@@ -32,10 +29,13 @@
 
 (use-package counsel-projectile
   :ensure t
-  :config
+  :defer t
+  :init
   (evil-leader/set-key
     "pf" 'counsel-projectile-find-file
-    "pb" 'counsel-projectile-switch-to-buffer))
+    "pb" 'counsel-projectile-switch-to-buffer
+    "pd" 'counsel-projectile-find-dir
+    "pp" 'counsel-projectile-switch-project))
 
 (use-package swiper
   :ensure t

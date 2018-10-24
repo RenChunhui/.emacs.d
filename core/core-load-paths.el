@@ -24,7 +24,7 @@
   "Emacs core directory.")
 (defconst emacs-lisp-directory
   (expand-file-name (concat user-emacs-directory "lisp/"))
-  "Emacs lisp directory.")
+  "Emacs LISP directory.")
 
 (defconst emacs-private-directory
   (expand-file-name (concat user-emacs-directory "private/"))
@@ -39,9 +39,7 @@
 	,(concat emacs-core-directory "vendor/themes/")))
 
 (mapc 'add-to-load-path
-      `(,emacs-lisp-directory
-    ,(concat emacs-lisp-directory "ext/")
-	,(concat emacs-lisp-directory "lang/")))
+      `(,emacs-lisp-directory))
 
 ;; themes
 (add-to-list 'custom-theme-load-path (concat emacs-core-directory

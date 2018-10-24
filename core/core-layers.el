@@ -20,22 +20,20 @@
 (require 'gnus-org)
 
 (require 'init-evil)
-(require 'init-basic)
+(require 'init-extensions)
 (require 'init-completion)
 (require 'init-ivy)
-(require 'init-ui)
 
-(require 'init-html)
-(require 'init-css)
-(require 'init-scss)
-(require 'init-javascript)
-(require 'init-typescript)
-(require 'init-json)
-(require 'init-yaml)
-(require 'init-org)
-(require 'init-markdown)
-(require 'init-shell)
-(require 'init-vim)
+(require 'init-languages)
+
+(defvar mage-init-time 'nil)
+(defun emacs//display-summary()
+  (message "%s packages loaded in %.03fs"
+           (length package-activated-list)
+           (or mage-init-time
+               (setq mage-init-time
+                     (float-time (time-subtract (current-time) before-init-time))))))
+(add-hook 'emacs-startup-hook #'emacs//display-summary)
 
 (provide 'core-layers)
 

@@ -66,3 +66,8 @@
 (provide 'init)
 
 ;;; init.el ends here
+
+;; Local Variables:
+;; coding: utf-8
+;; no-byte-compile: t
+;; End:
