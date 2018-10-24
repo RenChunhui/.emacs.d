@@ -14,8 +14,45 @@
 
 ;;; Code:
 
+(use-package neotree
+  :ensure t
+  :init
+  (progn
+    (setq-default neo-window-width 32
+		  neo-create-file-auto-open t
+		  neo-banner-message "Press ? for neotree help"
+		  neo-show-updir-line nil
+		  neo-mode-line-type 'neotree
+		  neo-smart-open t
+		  neo-show-hidden-files t
+		  neo-auto-indent-point t
+		  neo-modern-sidebar t
+		  neo-vc-integration nil)
+    (setq neo-default-system-application "open")
+    (setq neo-theme 'icons)
+    (evil-leader/set-key
+      "ft" 'neotree-toggle
+      "fT" 'neotree-show
+      "pt" 'neotree-find-project-root)))
+
 (use-package projectile
   :ensure t
+  :init
+  (progn
+    (evil-leader/set-key
+      "pb" 'projectile-switch-to-buffer
+      "pd" 'projectile-find-dir
+      "pf" 'projectile-find-file
+      "pr" 'projectile-recentf
+      "pp" 'projectile-switch-project
+      "pv" 'projectile-vc
+
+      "p!" 'projectile-run-shell-command-in-root
+      "p&" 'projectile-run-async-shell-command-in-root
+      "p%" 'projectile-replace-regexp
+      "pD" 'projectile-dired
+      "pk" 'projectile-kill-buffers
+      "pR" 'projectile-replace))
   :config
   (projectile-mode)
   (setq projectile-completion-system 'ivy))
@@ -28,36 +65,30 @@
 	  winum-auto-setup-mode-line nil
 	  winum-ignored-buffers '(" *which-key*"))
     (evil-leader/set-key
-      "0" 'winum-select-window-0-or-10
-      "1" 'winum-select-window-1
-      "2" 'winum-select-window-2
-      "3" 'winum-select-window-3
-      "4" 'winum-select-window-4
-      "5" 'winum-select-window-4
-      "6" 'winum-select-window-6
-      "7" 'winum-select-window-7
-      "8" 'winum-select-window-8
-      "9" 'winum-select-window-9)
-    (define-key winum-keymap (kbd "M-0") 'winum-select-window-0-or-10)
+      "1" 'select-window-1
+      "2" 'select-window-2
+      "3" 'select-window-3
+      "4" 'select-window-4
+      "5" 'select-window-5)
     (define-key winum-keymap (kbd "M-1") 'winum-select-window-1)
     (define-key winum-keymap (kbd "M-2") 'winum-select-window-2)
     (define-key winum-keymap (kbd "M-3") 'winum-select-window-3)
     (define-key winum-keymap (kbd "M-4") 'winum-select-window-4)
     (define-key winum-keymap (kbd "M-5") 'winum-select-window-5)
-    (define-key winum-keymap (kbd "M-6") 'winum-select-window-6)
-    (define-key winum-keymap (kbd "M-7") 'winum-select-window-7)
-    (define-key winum-keymap (kbd "M-8") 'winum-select-window-8)
-    (define-key winum-keymap (kbd "M-9") 'winum-select-window-9)
     (winum-mode)))
 
 (use-package flycheck
   :ensure t
+  :defer t
   :init
-  (global-flycheck-mode t)
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  (progn
+    (setq flycheck-standard-error-navigation nil
+	  flycheck-global-modes nil)
+    (global-flycheck-mode 1)))
 
 (use-package magit
   :ensure t
+  :defer t
   :config
   (global-auto-revert-mode -1))
 
@@ -68,6 +99,7 @@
 
 (use-package osx-dictionary
   :ensure t
+  :defer t
   :init
   (global-set-key (kbd "C-c d") 'osx-dictionary-search-word-at-point))
   ;; :config
@@ -78,6 +110,6 @@
   ;;     "s" 'osx-dictionary-search-input
   ;;     "o" 'osx-dictionary-open-dictionary.app)))
   
-(provide 'init-basic)
+(provide 'init-extensions)
 
-;;; init-basic.el ends here
+;;; init-extensions.el ends here

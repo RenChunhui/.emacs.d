@@ -93,30 +93,30 @@
 							   (powerline-current-separator)
 							   (cdr powerline-default-separator-dir))))
 
-			  (lhs (list (powerline-raw evil-mode-line-tag face0 'l)
-				     (powerline-raw " " face0)
+			  (lhs (list (powerline-raw evil-mode-line-tag face2 'l)
+				     (powerline-raw " " face2)
 				     (powerline-window-number face1 'l)
-					 (funcall separator-right face1 face0)
+					 (funcall separator-left face1 face0)
 				     (powerline-raw "%b" face0 'l)
 					 (powerline-raw " " face0)
 					 (funcall separator-left face0 face1)
 				     (powerline-major-mode face1 'l)
 					 (powerline-raw " " face1)
-					 (funcall separator-right face1 face0)
-				     (powerline-flycheck face0 'l)
+					 (funcall separator-left face1 face0)
+				     (powerline-raw (flycheck-mode-line-status-text) face0 'l)
 					 (powerline-raw " " face0)
 					 (funcall separator-left face0 face1)
 				     ))
 			  (rhs (list (funcall separator-right face1 face0)
 				     (powerline-time face0 'r)
-				     (funcall separator-left face0 face1)
+				     (funcall separator-right face0 face1)
 				     (powerline-raw " " face1)
 				     (powerline-raw "Ln %l" face1 'r)
 				     (funcall separator-right face1 face0)
 				     (powerline-raw " " face0)
 				     (powerline-encoding face0 'r)
 				     ))
-			  
+
 			  (center (list (powerline-vc face1))))
 
 		     (concat (powerline-render lhs)
@@ -124,7 +124,6 @@
 			     (powerline-render center)
 			     (powerline-fill face1 (powerline-width rhs))
 			     (powerline-render rhs)))))))
-
 
 (powerline-custom-theme)
 

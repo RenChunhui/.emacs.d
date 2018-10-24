@@ -31,7 +31,7 @@
 (defun emacs//default-theme ()
   "Load default theme."
   (interactive)
-  (load-theme 'chunhui t))
+  (load-theme 'spacemacs-dark t))
 
 (defun emacs//env-path ()
   "Develop path."
@@ -71,20 +71,14 @@
   (setq linum-format " %d ")
   (electric-pair-mode t))
 
-(defun emacs//auto-save-enable ()
-    "Auto save file."
-    (interactive)
-    (run-with-idle-timer 30 t #'auto-save-buffers))
-
 (defun emacs//monospace ()
   "中英文等宽."
-  ;;(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
+  (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
 
-  (set-face-attribute 'default nil :font "FuraMono Nerd Font Mono-13")
+  (set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13")
 
-  ;;(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
-  ;;(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei")))
-  )
+  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
 
 (defun emacs/init ()
   "Perform startup initialization."
@@ -94,7 +88,6 @@
   (emacs//env-path)
   (emacs//toggle-fullscreen)
   (emacs//display)
-  (emacs//auto-save-enable)
   (emacs//monospace))
 
 (emacs/init)
