@@ -15,7 +15,6 @@
 ;;; Code:
 
 (use-package neotree
-  :ensure t
   :init
   (progn
     (setq-default neo-window-width 32
@@ -36,7 +35,6 @@
       "pt" 'neotree-find-project-root)))
 
 (use-package projectile
-  :ensure t
   :init
   (progn
     (evil-leader/set-key
@@ -58,7 +56,6 @@
   (setq projectile-completion-system 'ivy))
 
 (use-package winum
-  :ensure t
   :config
   (progn
     (setq winum-auto-assign-0-to-minibuffer nil
@@ -78,7 +75,6 @@
     (winum-mode)))
 
 (use-package flycheck
-  :ensure t
   :defer t
   :init
   (progn
@@ -87,18 +83,15 @@
     (global-flycheck-mode 1)))
 
 (use-package magit
-  :ensure t
   :defer t
   :config
   (global-auto-revert-mode -1))
 
 (use-package editorconfig
-  :ensure t
   :config
   (editorconfig-mode))
 
 (use-package osx-dictionary
-  :ensure t
   :defer t
   :init
   (global-set-key (kbd "C-c d") 'osx-dictionary-search-word-at-point))
@@ -109,7 +102,7 @@
   ;;     "r" 'osx-dictionary-read-word
   ;;     "s" 'osx-dictionary-search-input
   ;;     "o" 'osx-dictionary-open-dictionary.app)))
-  
+
 (provide 'init-extensions)
 
 ;;; init-extensions.el ends here

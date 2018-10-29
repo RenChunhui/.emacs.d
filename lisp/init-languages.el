@@ -19,7 +19,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package web-mode
-  :ensure t
   :mode ("\\.html\\'" . web-mode)
   :init
   (setq web-mode-markup-indent-offset 2
@@ -33,7 +32,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package css-mode
-  :ensure t
   :mode ("\\.css\\'" . css-mode))
 
 ;;----------------------------------------------------------------------------
@@ -41,7 +39,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package scss-mode
-  :ensure t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
@@ -50,12 +47,10 @@
 ;;----------------------------------------------------------------------------
 
 (use-package js2-mode
-  :ensure t
   :mode ("\\.js\\'" . js2-mode)
   :hook (js2-mode . js2-imenu-extras-mode))
 
 (use-package tern
-  :ensure t
   :init
   (setq tern-command '("/usr/local/bin/tern" "--no-port-file"))
   :config
@@ -64,7 +59,6 @@
 			     (company-mode))))
 
 (use-package company-tern
-  :ensure t
   :config (progn
 	    (add-to-list 'company-backends 'company-tern)
 	    (setq company-tern-meta-as-single-line t)
@@ -75,7 +69,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package tide
-  :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
 	 (typescript-mode . tide-hl-identifier-mode)
@@ -86,7 +79,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package json-mode
-  :ensure t
   :mode ("\\.json\\'" . json-mode))
 
 ;;----------------------------------------------------------------------------
@@ -105,7 +97,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
 	 ("\\.md\\'" . markdown-mode))
@@ -122,7 +113,7 @@
   (evil-leader/set-key
     "oa" 'org-agenda
     "oc" 'org-capture
-    
+
     ;; "dd" 'org-deadline
     ;; "ds" 'org-schedule
     ;; "dt" 'org-time-stamp
@@ -153,12 +144,11 @@
     ;; "H" 'org-shiftleft
     ;; "J" 'org-shiftdown
     ;; "K" 'org-shiftup
-    
+
     ;; ":" 'org-set-tags)
   ))
 
 (use-package org-bullets
-  :ensure t
   :config
   (add-hook 'org-mode-hook (lambda ()
 			     (org-bullets-mode 1))))
@@ -175,7 +165,6 @@
 ;;----------------------------------------------------------------------------
 
 (use-package vimrc-mode
-  :ensure t
   :mode "\\.vim[rc]?\\'")
 
 (provide 'init-languages)

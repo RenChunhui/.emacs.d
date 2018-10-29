@@ -52,7 +52,7 @@
       (background (if (true-color-p) "#282c34" "#333333"))
       (background-dark (if (true-color-p) "#24282f" "#222222"))
       (background-darker (if (true-color-p) "#22252c" "#222222"))
-      (mode-line-inactive (if "#1c2129" "#222222"))
+      (mode-line-inactive (if (true-color-p) "#1c2129" "#222222"))
       (mode-line-active (if (true-color-p) "#6f337e" "#875f87"))
       (background-lighter (if (true-color-p) "#3a3f4b" "#5f5f5f"))
       (background-red (if (true-color-p) "#4c3840" "#5f5f5f"))
@@ -84,7 +84,7 @@
       (diff-removed-refined-background (if (true-color-p) "#b33c49" "#b33c49"))
       (diff-current-background (if (true-color-p) "#29457b" "#29457b"))
       (diff-current-refined-background (if (true-color-p) "#4174ae" "#4174ae")))
-      
+
   (custom-theme-set-faces
    'chunhui
    `(default ((,class (:background ,background :foreground ,default))))
