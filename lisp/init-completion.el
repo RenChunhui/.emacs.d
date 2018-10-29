@@ -15,7 +15,6 @@
 ;;; Code:
 
 (use-package company
-  :ensure t
   :defer t
   :init
   (progn
@@ -25,7 +24,6 @@
     (add-hook 'after-init-hook 'global-company-mode)))
 
 (use-package yasnippet
-  :ensure t
   :init
   (setq yas-snippet-dirs
 	'("~/.emacs.d/private/snippets"))
@@ -35,7 +33,6 @@
   (global-set-key (kbd "M-/") 'company-yasnippet))
 
 (use-package which-key
-  :ensure t
   :init
   (progn
     (setq which-key-allow-multiple-replacements t)

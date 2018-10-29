@@ -15,7 +15,6 @@
 ;;; Code:
 
 (use-package evil
-  :ensure t
   :init
   (setq-default evil-want-inter nil)
   (setq-default evil-search-module 'evil-search)
@@ -32,7 +31,6 @@
   (evil-mode 1)
 
   (use-package evil-leader
-    :ensure t
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>")))

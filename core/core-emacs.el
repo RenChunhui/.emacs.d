@@ -15,7 +15,7 @@
 ;;; Code:
 
 (require 'core-layers)
-(require 'dashboard)
+;;(require 'dashboard)
 
 (defun emacs//remove-gui-elements ()
   "Remove the menu bar, tool bar and scrool bars."
@@ -31,7 +31,7 @@
 (defun emacs//default-theme ()
   "Load default theme."
   (interactive)
-  (load-theme 'spacemacs-dark t))
+  (load-theme 'chunhui t))
 
 (defun emacs//env-path ()
   "Develop path."
@@ -54,7 +54,7 @@
 
   ;; enable syntax highlighting
   (global-font-lock-mode 1)
-  
+
   (setq fill-column 80)
   ;; 高亮当前行
   (global-hl-line-mode 1)
