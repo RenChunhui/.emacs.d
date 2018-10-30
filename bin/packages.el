@@ -1,3 +1,5 @@
+(setq package-user-dir "~/.emacs.d/.cache/elpa")
+
 (package-initialize)
 
 (setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
@@ -17,6 +19,8 @@
     magit
     editorconfig
     osx-dictionary
+
+    ;; chinese
     pyim
     pyim-wbdict
     youdao-dictionary
