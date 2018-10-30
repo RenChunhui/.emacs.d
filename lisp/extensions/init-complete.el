@@ -1,4 +1,4 @@
-;;; init-completion.el --- compl
+;;; init-complete.el --- complete configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -58,7 +58,6 @@
   (progn
     (which-key-mode)))
 
+(provide 'init-complete)
 
-(provide 'init-completion)
-
-;;; init-completion.el ends here
+;;; init-complete.el ends here

@@ -1,4 +1,4 @@
-;;; gnus-bindings.el --- custom mode line
+;;; init-status-bar.el --- custom mode line
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -127,6 +127,6 @@
 
 (powerline-custom-theme)
 
-(provide 'gnus-bindings)
+(provide 'init-status-bar)
 
-;;; gnus-bindings.el ends here
+;;; init-status-bar.el ends here

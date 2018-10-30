@@ -1,4 +1,4 @@
-;;; core-emacs.el --- core configuration
+;;; init-config.el --- init config
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,8 +14,13 @@
 
 ;;; Code:
 
-(require 'core-layers)
-;;(require 'dashboard)
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (setq gc-cons-threshold (* 128 1024 1024)
+		  gc-cons-percentage 0.9)))
+
+;; Warn when opening files bigger then 10MB
+(setq large-file-warning-threshold 10000000)
 
 (defun emacs//remove-gui-elements ()
   "Remove the menu bar, tool bar and scrool bars."
@@ -51,10 +56,8 @@
   ;; splash screen
   (setq-default inhibit-splash-screen t
 		initial-scratch-message nil)
-
   ;; enable syntax highlighting
   (global-font-lock-mode 1)
-
   (setq fill-column 80)
   ;; 高亮当前行
   (global-hl-line-mode 1)
@@ -92,6 +95,15 @@
 
 (emacs/init)
 
-(provide 'core-emacs)
+(defvar mage-init-time 'nil)
+(defun emacs//display-summary()
+  (message "%s packages loaded in %.03fs"
+           (length package-activated-list)
+           (or mage-init-time
+               (setq mage-init-time
+                     (float-time (time-subtract (current-time) before-init-time))))))
+(add-hook 'emacs-startup-hook #'emacs//display-summary)
 
-;;; core-emacs.el ends here
+(provide 'init-config)
+
+;;; init-config.el ends here

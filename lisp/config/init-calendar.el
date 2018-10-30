@@ -1,19 +1,3 @@
-;;; gnus-calendar.el --- calendar
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
-
-;;; Commentary:
-
-;;; Code:
-
 ;; 标记 calendar 上有 diary 的日期
 (setq-default mark-diary-entries-in-calendar t)
 
@@ -46,6 +30,4 @@
 
 (setq-default diary-date-forms chinese-date-diary-pattern)
 
-(provide 'gnus-calendar)
-
-;;; gnus-calendar.el ends here
+(provide 'init-calendar)
