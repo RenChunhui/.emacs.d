@@ -12,18 +12,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
 
-;; Some basic keybindings.
-
-;; (global-set-key "C-cl" 'org-store-link)
-;; (global-set-key "C-ca" 'org-agenda)
-
 (setq-default org-todo-keywords
 	      '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
-
-;; I use org's tag feature to implement contexts.
 
 (setq org-tag-alist '(("@home" . ?h)
 		      ("@computer . ?c")
 		      ("@telphone . ?t")))
 
-(provide 'init-org)
+(provide 'init-org-mode)

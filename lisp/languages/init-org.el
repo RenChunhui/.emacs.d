@@ -17,43 +17,29 @@
 (use-package org
   :defer t
   :config
+  (which-key-add-major-mode-key-based-replacements 'org-mode
+    "SPC d" "date"
+    "SPC c" "clock"
+    "SPC :" "set tags")
+  (evil-leader/set-key-for-mode 'org-mode
+    "dd" 'org-deadline
+    "ds" 'org-schedule
+    "dt" 'org-time-stamp
+    "dT" 'org-time-stamp-inactive
+    "cc" 'org-clock-cancel
+    "cd" 'org-clock-display
+    "ce" 'org-evaluate-time-range
+    "cg" 'org-clock-goto
+    "ci" 'org-clock-in
+    "cI" 'org-clock-in-last
+    "cj" 'org-clock-jump-to-current-clock
+    "co" 'org-clock-out
+    "cR" 'org-clock-report
+    "cr" 'org-resolve-clocks
+    ":" 'org-set-tags)
   (evil-leader/set-key
     "oa" 'org-agenda
-    "oc" 'org-capture
-
-    ;; "dd" 'org-deadline
-    ;; "ds" 'org-schedule
-    ;; "dt" 'org-time-stamp
-    ;; "dT" 'org-time-stamp-inactive
-    ;; "ee" 'org-export-dispatch
-    ;; "fi" 'org-feed-goto-inbox
-    ;; "fu" 'org-feed-update-all
-
-    ;; "Cc" 'org-clock-cancel
-    ;; "Cd" 'org-clock-display
-    ;; "Ce" 'org-evaluate-time-range
-    ;; "Cg" 'org-clock-goto
-    ;; "Ci" 'org-clock-in
-    ;; "CI" 'org-clock-in-last
-    ;; "Cj" 'org-clock-jump-to-current-clock
-    ;; "Co" 'org-clock-out
-    ;; "CR" 'org-clock-report
-    ;; "Cr" 'org-resolve-clocks
-
-    ;; "Tc" 'org-toggle-checkbox
-    ;; "Te" 'org-toggle-pretty-entities
-    ;; "Ti" 'org-toggle-inline-images
-    ;; "Tl" 'org-toggle-link-display
-    ;; "Tt" 'org-show-todo-tree
-    ;; "TT" 'org-todo
-
-    ;; "L" 'org-shiftright
-    ;; "H" 'org-shiftleft
-    ;; "J" 'org-shiftdown
-    ;; "K" 'org-shiftup
-
-    ;; ":" 'org-set-tags)
-  ))
+    "oc" 'org-capture))
 
 (use-package org-bullets
   :config

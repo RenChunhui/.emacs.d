@@ -19,6 +19,12 @@
 (require 'youdao-dictionary)
 
 (pyim-wbdict-v98-enable)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
+
+;; 启动时加载
+(add-hook 'emacs-startup-hook
+  #'(lambda ()
+      (pyim-restart-1 t)))
 
 (use-package youdao-dictionary
   :defer t

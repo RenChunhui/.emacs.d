@@ -16,13 +16,12 @@
 
 (require 'package)
 
-(setq package-user-dir "~/.emacs.d/.cache/elpa")
-(setq package-enable-at-startup nil)
-
-;; Initialize use-package
+;; Initialize package
 (setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
                          ("org-cn"   . "http://elpa.emacs-china.org/org/")
-                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/"))
+      package-enable-at-startup nil
+      package-user-dir "~/.emacs.d/.cache/elpa")
 
 (package-initialize)
 
@@ -38,10 +37,12 @@
 		   "lisp/init-load-paths.el"))
 
 (require 'init-status-bar)
-(require 'init-org)
+(require 'init-org-mode)
 (require 'init-calendar)
 
 (require 'init-config)
+(require 'init-startup)
+(require 'init-keymap)
 (require 'init-complete)
 (require 'init-evil)
 (require 'init-ivy)

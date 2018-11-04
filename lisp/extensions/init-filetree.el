@@ -1,4 +1,5 @@
 (use-package neotree
+  :defer t
   :init
   (progn
     (setq-default neo-window-width 32
