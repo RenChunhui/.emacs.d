@@ -15,6 +15,7 @@
 ;;; Code:
 
 (use-package counsel
+  :defer t
   :init
   (progn
     (evil-leader/set-key
@@ -36,6 +37,7 @@
     "pp" 'counsel-projectile-switch-project))
 
 (use-package swiper
+  :defer t
   :config
   (ivy-mode 1)
   (evil-leader/set-key

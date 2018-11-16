@@ -1,18 +1,23 @@
-;;; init-org.el --- org mode configuration
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
+(require 'org)
+(require 'remember)
+(require 'org-mouse)
 
-;;; Commentary:
+(setq-default org-agenda-files (list
+				     "~/Dropbox/org/calendar.org"
+				     "~/Dropbox/org/gtd.org"
+				     "~/Dropbox/org/notes.org"
+				     "~/Dropbox/org/todos.org"))
 
-;;; Code:
+;; I want files with the extension ".org" to open in org-mode.
+
+(add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
+
+(setq-default org-todo-keywords
+	      '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
+
+(setq org-tag-alist '(("@home" . ?h)
+		      ("@computer . ?c")
+		      ("@telphone . ?t")))
 
 (use-package org
   :defer t
@@ -45,7 +50,5 @@
   :config
   (add-hook 'org-mode-hook (lambda ()
 			     (org-bullets-mode 1))))
-
+                 
 (provide 'init-org)
-
-;;; init-org.el ends here

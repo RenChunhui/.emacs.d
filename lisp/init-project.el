@@ -1,4 +1,5 @@
 (use-package projectile
+  :defer t
   :init
   (progn
     (evil-leader/set-key
@@ -24,4 +25,4 @@
   (projectile-mode)
   (setq projectile-completion-system 'ivy))
 
-(provide 'init-projectile)
+(provide 'init-project)

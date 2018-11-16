@@ -12,11 +12,9 @@
 		  neo-auto-indent-point t
 		  neo-modern-sidebar t
 		  neo-vc-integration nil)
-    (setq neo-default-system-application "open")
-    (setq neo-theme 'icons)
     (evil-leader/set-key
       "ft" 'neotree-toggle
       "fT" 'neotree-show
       "pt" 'neotree-find-project-root)))
 
-(provide 'init-filetree)
+(provide 'init-directory)
