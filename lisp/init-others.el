@@ -1,8 +1,3 @@
-(use-package magit
-  :defer t
-  :config
-  (global-auto-revert-mode -1))
-
 (use-package editorconfig
   :config
   (editorconfig-mode))
@@ -25,5 +20,5 @@
     (define-key winum-keymap (kbd "M-4") 'winum-select-window-4)
     (define-key winum-keymap (kbd "M-5") 'winum-select-window-5)
     (winum-mode)))
-
-(provide 'init-editor)
+    
+(provide 'init-others)

@@ -15,5 +15,5 @@
     (add-to-list 'recentf-exclude
       (expand-file-name emacs-cache-directory))
     (add-to-list 'recentf-exclude (expand-file-name package-user-dir))))
-
-(provide 'init-cache)
+    
+(provide 'init-recentf)

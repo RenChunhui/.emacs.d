@@ -15,6 +15,7 @@
 ;;; Code:
 
 (use-package evil
+  :defer t
   :init
   (setq-default evil-want-inter nil)
   (setq-default evil-search-module 'evil-search)
@@ -22,15 +23,16 @@
   (setq-default evil-vsplit-window-right t)
   (setq-default evil-split-window-below t)
   (setq-default evil-shift-round nil)
-  (setq-default evil-normal-state-tag "Ⓝ"
-		evil-insert-state-tag "Ⓘ"
-		evil-visual-state-tag "Ⓥ"
-		evil-motion-state-tag "Ⓜ"
-		evil-emacs-state-tag  "Ⓔ")
+  (setq-default evil-normal-state-tag "NORMAL"
+		evil-insert-state-tag "INSERT"
+		evil-visual-state-tag "VISUAL"
+		evil-motion-state-tag "MOTION"
+		evil-emacs-state-tag  "EMACS")
   :config
   (evil-mode 1)
 
   (use-package evil-leader
+    :defer t
     :config
     (global-evil-leader-mode)
     (evil-leader/set-leader "<SPC>")))

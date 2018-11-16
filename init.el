@@ -14,55 +14,26 @@
 
 ;;; Code:
 
-(require 'package)
+(setq package-enable-at-startup nil)
 
-;; Initialize package
-(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-                         ("org-cn"   . "http://elpa.emacs-china.org/org/")
-                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/"))
-      package-enable-at-startup nil
-      package-user-dir "~/.emacs.d/.cache/elpa")
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(package-initialize)
+(require 'init-const)
+(require 'init-emacs)
+(require 'init-package)
 
-;; No backup file
-(setq-default make-backup-files nil)
-
-;; Stop Emacs from useing init.el for customization code
-(setq custom-file
-      (concat user-emacs-directory "custom.el"))
-
-;; Bootstrap config
-(load-file (concat (file-name-directory load-file-name)
-		   "lisp/init-load-paths.el"))
-
-(require 'init-status-bar)
-(require 'init-org-mode)
-(require 'init-calendar)
-
-(require 'init-config)
-(require 'init-startup)
-(require 'init-keymap)
-(require 'init-complete)
 (require 'init-evil)
+(require 'init-completion)
 (require 'init-ivy)
-(require 'init-cache)
-(require 'init-chinese)
-(require 'init-editor)
-(require 'init-filetree)
+(require 'init-project)
+(require 'init-recentf)
+(require 'init-directory)
 (require 'init-flycheck)
-(require 'init-projectile)
-
-(require 'init-html)
-(require 'init-css)
-(require 'init-scss)
-(require 'init-javascript)
-(require 'init-typescript)
-(require 'init-json)
-(require 'init-yaml)
+(require 'init-vc)
+(require 'init-others)
 (require 'init-org)
-(require 'init-markdown)
-(require 'init-shell)
+(require 'init-calendar)
+(require 'init-filetype)
 
 (require 'server)
 (unless (server-running-p)

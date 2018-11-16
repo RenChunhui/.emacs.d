@@ -1,4 +1,4 @@
-;;; init-json.el --- json mode configuration
+;;; init-const.el --- 常量
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,9 +14,12 @@
 
 ;;; Code:
 
-(use-package json-mode
-  :mode ("\\.json\\'" . json-mode))
+(defconst emacs-cache-directory
+  (expand-file-name (concat user-emacs-directory ".cache/"))
+  "Emacs storage area for persistent files")
 
-(provide 'init-json)
+(defconst emacs-lite t)
 
-;;; init-json.el ends here
+(provide 'init-const)
+
+;;; init-const ends here
