@@ -2,9 +2,8 @@
 
 (package-initialize)
 
-(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-                         ("org-cn"   . "http://elpa.emacs-china.org/org/")
-                         ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")))
 
 (package-refresh-contents)
 
@@ -12,13 +11,22 @@
   '(use-package
     company
     yasnippet
-    which-key
+    ;;which-key
+    hydra
     neotree
     flycheck
     winum
     magit
     editorconfig
     osx-dictionary
+    atom-one-dark-theme
+
+    ;; startup
+    dashboard
+
+    ;; modeline
+    spaceline
+    diminish
 
     ;; chinese
     pyim

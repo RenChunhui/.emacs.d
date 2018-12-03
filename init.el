@@ -14,26 +14,14 @@
 
 ;;; Code:
 
-(setq package-enable-at-startup nil)
+(defconst rookie-emacs-version "1.0.0" "Rookie Emacs version.")
+(defconst rookie-emacs-min-version "26.1" "Minimal version of Emacs.")
 
+(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(require 'init-const)
-(require 'init-emacs)
-(require 'init-package)
-
-(require 'init-evil)
-(require 'init-completion)
-(require 'init-ivy)
-(require 'init-project)
-(require 'init-recentf)
-(require 'init-directory)
-(require 'init-flycheck)
-(require 'init-vc)
-(require 'init-others)
-(require 'init-org)
-(require 'init-calendar)
-(require 'init-filetype)
+(require 'core-emacs)
+(emacs/init)
 
 (require 'server)
 (unless (server-running-p)
@@ -42,8 +30,17 @@
 (provide 'init)
 
 ;;; init.el ends here
-
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
-;; End:
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (which-key evil winum counsel-projectile counsel yasnippet company use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
