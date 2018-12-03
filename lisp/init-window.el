@@ -1,4 +1,10 @@
+(use-package winum
+  :ensure t
+  :config
+  (winum-mode))
+
 (use-package neotree
+  :ensure t
   :defer t
   :init
   (progn
@@ -17,4 +23,4 @@
       "fT" 'neotree-show
       "pt" 'neotree-find-project-root)))
 
-(provide 'init-directory)
+(provide 'init-window)

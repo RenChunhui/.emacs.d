@@ -1,4 +1,4 @@
-;;; init-ivy.el --- ivy mode
+;;; init-ivy.el --- ivy configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -15,7 +15,8 @@
 ;;; Code:
 
 (use-package counsel
-  :defer t
+  :ensure t
+  :defer 2
   :init
   (progn
     (evil-leader/set-key
@@ -28,20 +29,24 @@
     (counsel-mode 1)))
 
 (use-package counsel-projectile
-  :defer t
+  :ensure t
+  :defer 2
   :init
-  (evil-leader/set-key
-    "pf" 'counsel-projectile-find-file
-    "pb" 'counsel-projectile-switch-to-buffer
-    "pd" 'counsel-projectile-find-dir
-    "pp" 'counsel-projectile-switch-project))
+  (progn
+    (evil-leader/set-key
+      "pf" 'counsel-projectile-find-file
+      "pb" 'counsel-projectile-switch-to-buffer
+      "pd" 'counsel-projectile-find-dir
+      "pp" 'counsel-projectile-switch-project)))
 
 (use-package swiper
-  :defer t
+  :ensure t
+  :init
+  (progn
+    (evil-leader/set-key
+      "ss" 'swiper))
   :config
-  (ivy-mode 1)
-  (evil-leader/set-key
-    "ss" 'swiper))
+  (ivy-mode 1))
 
 (provide 'init-ivy)
 
