@@ -14,8 +14,8 @@
 
 ;;; Code:
 
-(defconst rookie-emacs-version "1.0.0" "Rookie Emacs version.")
-(defconst rookie-emacs-min-version "26.1" "Minimal version of Emacs.")
+(defconst coffee-emacs-version "1.0.0" "Coffee Emacs version.")
+(defconst coffer-emacs-min-version "26.1" "Minimal version of Emacs.")
 
 (add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))

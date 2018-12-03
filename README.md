@@ -1,4 +1,4 @@
-<h3 align="center">Rookie Emacs</h3>
+<h3 align="center">Coffee Emacs</h3>
 
 <p align="center">
 适用于前端开发、自定义 mode line
