@@ -23,4 +23,12 @@
       "fT" 'neotree-show
       "pt" 'neotree-find-project-root)))
 
+(use-package powerline
+  :ensure t
+  :init
+  (progn
+    (setq ns-use-srgb-colorspace nil)
+    (setq powerline-default-separator 'slant)
+    (powerline-default-theme)))
+
 (provide 'init-window)

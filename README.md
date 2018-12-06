@@ -1,8 +1,8 @@
-<h3 align="center">Coffee Emacs</h3>
-
-<p align="center">
-适用于前端开发、自定义 mode line
-</p>
+<div align="center">
+    <img src="./assets/logo.svg">
+    <h1>Tea Emacs</h1>
+    <p>适用于前端开发、自定义 mode line</p>
+</div>
 
 - - -
 

@@ -14,11 +14,14 @@
 
 ;;; Code:
 
-(defconst coffee-emacs-version "1.0.0" "Coffee Emacs version.")
-(defconst coffer-emacs-min-version "26.1" "Minimal version of Emacs.")
+(defconst tea-emacs-version "1.0.0" "Coffee Emacs version.")
+(defconst tea-emacs-min-version "26.1" "Minimal version of Emacs.")
 
 (add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "core/themes/" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+;; themes
+(add-to-list 'custom-theme-load-path (expand-file-name "core/themes/" user-emacs-directory))
 
 (require 'core-emacs)
 (emacs/init)
@@ -30,17 +33,3 @@
 (provide 'init)
 
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (which-key evil winum counsel-projectile counsel yasnippet company use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
