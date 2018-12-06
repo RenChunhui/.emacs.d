@@ -6,6 +6,7 @@
   (require 'core-config)
   (require 'init-packages)
   (emacs//toggle-fullscreen)
+  (load-theme 'tea t)
   (emacs//general)
   (packages/initialize)
   (emacs//default-font)
@@ -28,7 +29,10 @@
 
 (defun emacs//default-font ()
   "Default font."
-  (set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13"))
+  (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+  (set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13")
+  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
+  (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
 
 (defun emacs//startup-screen ()
   "Startup screen."
@@ -37,6 +41,10 @@
 
 (defun emacs//general ()
   "General."
+  ;; Stop Emacs from useing init.el for customization code
+  (setq custom-file
+      (concat user-emacs-directory "custom.el"))
+
   (setq visible-bell t)
   (setq fill-column 120)
 
@@ -65,7 +73,10 @@
   (setq auto-save-default nil)
 
   ;; type y/n instead of yes/no
-  (defalias 'yes-or-no-p 'y-or-n-p))
+  (defalias 'yes-or-no-p 'y-or-n-p)
+  
+  (setq-default auto-save-list-file-name (concat emacs-cache-directory "autosave")
+	      url-configuration-directory (concat emacs-cache-directory "url/")))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))

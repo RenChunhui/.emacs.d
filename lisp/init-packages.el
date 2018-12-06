@@ -29,6 +29,7 @@
   (require 'init-yaml)
   (require 'init-markdown)
   (require 'init-org)
-  (require 'init-vc))
+  (require 'init-vc)
+  )
 
 (provide 'init-packages)
