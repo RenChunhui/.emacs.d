@@ -12,6 +12,7 @@
   (emacs//default-font)
   (emacs//startup-screen)
   (require 'core-keymap)
+  (require 'core-modeline)
   )
 
 (defun emacs//remove-gui-elements ()
