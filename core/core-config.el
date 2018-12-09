@@ -1,9 +1,25 @@
-;; 自定义常量初使化值
+;;; core-config.el --- config
+;;
+;; Copyright (c) 2018 Chunhui Ren
+;;
+;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
+;; URL     : https://github.com/RenChunhui/.emacs.d
+;; Version : 1.0.0
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
 
-(defvar emacs-maximized-at-startup t)
+;;; Commentary:
 
-(defconst emacs-cache-directory
-  (expand-file-name (concat user-emacs-directory ".cache/"))
-  "Emacs storage area for persistent files")
+;;; Code:
+
+(defconst tea-emacs-version "1.0.0"
+  "Tea Emacs version.")
+
+(defconst tea-emacs-min-version "26.1"
+  "Minimal version of Emacs.")
 
 (provide 'core-config)
+
+;;; core-config.el ends here

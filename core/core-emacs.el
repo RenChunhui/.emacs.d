@@ -1,83 +1,76 @@
+(require 'core-modeline)
 
-(defun emacs/init ()
-  "Perform startup initialization."
-  (emacs//remove-gui-elements)
-  (prefer-coding-system 'utf-8)
-  (require 'core-config)
-  (require 'init-packages)
-  (emacs//toggle-fullscreen)
-  (load-theme 'tea t)
-  (emacs//general)
-  (packages/initialize)
-  (emacs//default-font)
-  (emacs//startup-screen)
-  (require 'core-keymap)
-  (require 'core-modeline)
-  )
+(prefer-coding-system 'utf-8)
 
-(defun emacs//remove-gui-elements ()
-  "Remove the menu bar, tool bar and scroll bar."
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (tooltip-mode -1))
+;; Remove GUI elements
+(when (and (fboundp 'tool-bar-mode) (not (eq tool-bar-mode -1)))
+    (tool-bar-mode -1))
+(when (and (fboundp 'scroll-bar-mode) (not (eq scroll-bar-mode -1)))
+    (scroll-bar-mode -1))
+(when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
+    (tooltip-mode -1))
 
-(defun emacs//toggle-fullscreen ()
-  "Toggle full screen"
-  (interactive)
-  (set-frame-parameter
+;; Default font
+(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+(set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13")
+(set-fontset-font t 'han      (font-spec :family "STkaiti"))
+(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
+
+;; fullscreen
+(set-frame-parameter
      nil 'fullscreen
-     (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))
 
-(defun emacs//default-font ()
-  "Default font."
-  (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-  (set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13")
-  (set-fontset-font t 'han      (font-spec :family "STkaiti"))
-  (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti")))
+(setq-default ad-redefinition-action 'accept
+	      compilation-always-kill t
+	      compilation-ask-about-save nil
+	      compilation-scroll-output t
+	      confirm-nonexistent-file-or-buffer t
+	      enable-recursive-minibuffers nil
+	      idle-update-delay 2
+	      auto-save-default nil
+	      create-lockfiles nil
+	      history-length 500
+	      make-backup-files nil
 
-(defun emacs//startup-screen ()
-  "Startup screen."
-  (setq initial-buffer-choice nil)
-  (setq inhibit-startup-screen t))
+	      ;; files
+	      abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")
+	      auto-save-list-file-name (concat tea-emacs-cache-directory "autosave")
+	      backup-directory-alist (list (cons "." (concat tea-emacs-cache-directory "backup/")))
+	      server-auth-dir (concat tea-emacs-cache-directory "server/")
+	      url-cache-directory (concat tea-emacs-cache-directory "url/")
+	      url-configuration-directory (concat tea-emacs-cache-directory "url/"))
 
-(defun emacs//general ()
-  "General."
-  ;; Stop Emacs from useing init.el for customization code
-  (setq custom-file
-      (concat user-emacs-directory "custom.el"))
+(setq custom-file (concat user-emacs-directory "custom.el"))
 
-  (setq visible-bell t)
-  (setq fill-column 120)
+(setq inhibit-startup-message t
+      inhibit-startup-echo-area-message user-login-name
+      inhibit-default-init t
+      initial-major-mode 'fundamental-mode
+      initial-scratch-message nil
+      mode-line-format nil)
 
-  ;; Highlighting
-  (global-font-lock-mode t)
+(setq visible-bell t
+      fill-column 120)
 
-  ;; Highlighting current line
-  (global-hl-line-mode t)
+(setq mac-command-modifier 'meta
+      mac-option-modifier 'alt)
 
-  ;; Show line number
-  (global-display-line-numbers-mode)
+(global-font-lock-mode t)
+(global-hl-line-mode t)
+(display-time-mode t)
+(display-battery-mode t)
+(electric-pair-mode t)
+(column-number-mode t)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
-  ;; Auto insert closing bracket
-  (electric-pair-mode t)
-
-  ;; Show cursour position within line
-  (column-number-mode t)
-
-  ;; Display time
-  (display-time-mode t)
-
-  ;; stop creating those backup~ files
-  (setq make-backup-files nil)
-
-  ;; stop creating those #auto-save# files
-  (setq auto-save-default nil)
-
-  ;; type y/n instead of yes/no
-  (defalias 'yes-or-no-p 'y-or-n-p)
-  
-  (setq-default auto-save-list-file-name (concat emacs-cache-directory "autosave")
-	      url-configuration-directory (concat emacs-cache-directory "url/")))
+(eval-and-compile
+  (unless (or after-init-time noninteractive)
+    (setq gc-cons-threshold (* 128 1024 1024)
+	  gc-cons-percentage 0.6
+	  file-name-handler-alist nil))
+  (require 'cl-lib)
+  (load (concat tea-emacs-lisp-directory "init-packages") nil t))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
@@ -89,15 +82,6 @@
 	   (or init-time
 	       (setq init-time
 		     (float-time (time-subtract (current-time) before-init-time))))))
-
-(add-hook 'after-init-hook
-	  (lambda ()
-	    (setq gc-cons-threshold (* 128 1024 1024)
-		  gc-cons-percentage 0.9)
-	    ;; nice scrolling
-	    (setq scroll-margin 0
-		  scroll-conservatively 100000
-		  scroll-preserve-screen-position 1)))
 
 (add-hook 'emacs-startup-hook
 	  (lambda ()
