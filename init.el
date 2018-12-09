@@ -14,17 +14,11 @@
 
 ;;; Code:
 
-(defconst tea-emacs-version "1.0.0" "Coffee Emacs version.")
-(defconst tea-emacs-min-version "26.1" "Minimal version of Emacs.")
+(load-file (concat (file-name-directory load-file-name) 
+                    "core/core-load-paths.el"))
 
-(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "core/themes/" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-;; themes
-(add-to-list 'custom-theme-load-path (expand-file-name "core/themes/" user-emacs-directory))
-
+(require 'core-config)
 (require 'core-emacs)
-(emacs/init)
 
 (require 'server)
 (unless (server-running-p)
