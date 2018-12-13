@@ -15,6 +15,7 @@
 (require 'init-project)
 (require 'init-window)
 (require 'init-evil)
+(require 'init-flycheck)
 (require 'init-html)
 (require 'init-css)
 (require 'init-javascript)
@@ -25,5 +26,7 @@
 (require 'init-org)
 (require 'init-vc)
 (require 'init-line-number)
+(require 'init-lsp)
+(require 'init-dictionary)
 
 (provide 'init-packages)
