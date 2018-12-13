@@ -32,11 +32,14 @@
 (mapc 'add-to-load-path
       `(
         ,tea-emacs-core-directory
+        ,(concat tea-emacs-core-directory "vendor/")
         ,tea-emacs-lisp-directory
         ,tea-emacs-cache-directory
         ))
 
 ;; themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/core/themes")
+(load-theme 'dracula t)
 
 (provide 'core-load-path)
 

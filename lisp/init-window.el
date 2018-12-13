@@ -1,4 +1,5 @@
 (use-package winum
+  :ensure t
   :config
   (progn
     (setq winum-auto-assign-0-to-minibuffer nil

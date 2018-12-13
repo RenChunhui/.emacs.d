@@ -1,5 +1,3 @@
-(require 'core-modeline)
-
 (prefer-coding-system 'utf-8)
 
 ;; Remove GUI elements
@@ -53,9 +51,6 @@
 (setq visible-bell t
       fill-column 120)
 
-(setq mac-command-modifier 'meta
-      mac-option-modifier 'alt)
-
 (global-font-lock-mode t)
 (global-hl-line-mode t)
 (display-time-mode t)
@@ -70,7 +65,8 @@
 	  gc-cons-percentage 0.6
 	  file-name-handler-alist nil))
   (require 'cl-lib)
-  (load (concat tea-emacs-lisp-directory "init-packages") nil t))
+  (load (concat tea-emacs-lisp-directory "init-packages") nil t)
+  (require 'core-modeline))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))

@@ -20,6 +20,13 @@
 (defconst tea-emacs-min-version "26.1"
   "Minimal version of Emacs.")
 
+(defconst theme-warning "#FFC107"
+  "Theme warning.")
+
+(defconst theme-error "#DC3545"
+  "Theme error.")
+
+
 (provide 'core-config)
 
 ;;; core-config.el ends here

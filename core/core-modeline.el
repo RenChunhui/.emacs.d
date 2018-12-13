@@ -15,10 +15,10 @@
 ;;; Code:
 
 ;; 背景色
-(set-face-background 'mode-line "#6C5194")
+;;(set-face-background 'mode-line "#6C5194")
 
 ;; 前景色
-(set-face-foreground 'mode-line "#FFFFFF")
+;;(set-face-foreground 'mode-line "#FFFFFF")
 
 (defun mode-line-fill-right (face reserve)
   "Return empty space using FACE and leaving RESERVE space on the right."
@@ -51,45 +51,54 @@
   "右端排列."
   (+ RIGHT_PADDING (length (format-mode-line mode-line-align-right))))
 
-(defun modeline-mode-icon ()
-  "Major mode 类型图标."
-  (cond
-   ((string= major-mode "emacs-lisp-mode") (propertize "" 'face '(:foreground "#A52ECB")))
-   ((string= major-mode "lisp-interaction-mode") (propertize "" 'face '(:foreground "#A52ECB")))
-   ((string= major-mode "json-mode") (propertize "" 'face '(:foreground "#FBC02D")))
-   ((string= major-mode "python-mode") (propertize "" 'face '(:foreground "#387EB8")))
-   ((string= major-mode "css-mode") (propertize "" 'face '(:foreground "#1572B6")))
-   ((string= major-mode "scss-mode") "\xe603")
-   ((string= major-mode "js2-mode") "")
-   ((string= major-mode "markdown-mode") "")
-   ((string= major-mode "org-mode") (propertize "" 'face '(:foreground "#77AA99")))
-   ((string= major-mode "web-mode") (propertize "" 'face '(:foreground "#E44F26")))
-   (t (format "%s" major-mode))))
+(defun powerline--unicode-number (str)
+  "Return a nice unicode representation of a single-digit number STR."
+  (powerline-raw
+   (format-mode-line
+    (concat
+     (cond
+      ((string= "1" str) "① ")
+      ((string= "2" str) "② ")
+      ((string= "3" str) "③ ")
+      ((string= "4" str) "④ ")
+      ((string= "5" str) "⑤ ")
+      ((string= "6" str) "⑥ ")
+      ((string= "7" str) "⑦ ")
+      ((string= "8" str) "⑧ ")
+      ((string= "9" str) "⑨ ")
+      ((string= "0" str) "⑩ "))))))
 
-(defun modeline-flycheck-status ()
-  "自定义 flycheck 状态."
-  (let* ((text (pcase flycheck-last-status-change
-		 (`finished (if flycheck-current-errors
-				(let ((count (let-alist (flycheck-count-errors flycheck-current-errors)
-					       (+ (or .warning 0) (or .error 0)))))
-				  (propertize (format "✖ %s Issue%s" count (if (eq 1 count) "" "s"))
-					      'face '(:foreground "#ff6c6b")))
-			      (propertize "✔ No Issues"
-					  'face '(:foreground "#61afef"))))
+(defun powerline-window-number ()
+  (when (bound-and-true-p winum-mode)
+    (let* ((num (winum-get-number))
+	   (str (when num (int-to-string num))))
+      (powerline--unicode-number str))))
 
-		 (`running (propertize "⟲ Running"
-				       'face '(:foreground "#da8548")))
-		 (`no-checker (propertize "⚠ No Checke"
-					  'face '(:foreground "#da8548")))
-		 (`not-checked "✖ Disabled")
-		 (`errored (propertize "⚠ Error" 'face '(:foreground "#ff6c6b")))
-		 (`interrupted "⛔ Interrupted")
-		 (`suspicious  ""))))
-    (propertize text
-		'help-echo "Show Flycheck Errors"
-		'mouse-face '(:box 1)
-		'local-map (make-mode-line-mouse-map
-			    'mouse-1 (lambda () (interactive) (flycheck-list-errors))))))
+(defun modeline-flycheck ()
+  "Flycheck mode line."
+  (pcase flycheck-last-status-change
+            (`not-checked nil)
+            (`no-checker nil)
+            (`running (propertize "• ⟲" 'face 'success))
+            (`errored (propertize "• ✖" 'face 'error))
+
+            (`finished
+             (let* ((error-counts (flycheck-count-errors flycheck-current-errors))
+                    (no-errors (cdr (assq 'error error-counts)))
+                    (no-warnings (cdr (assq 'warning error-counts)))
+                    (face (cond (no-errors '(:foreground "#DC3545"))
+                                (no-warnings '(:foreground "#FFC107"))
+                                (t 'success))))
+               (concat
+                (propertize " • ")
+                (propertize (format "✖ %s" (or no-errors 0)) 'face (cond (no-errors '(:foreground "#DC3545"))
+									 (t '(:foreground "#FFFFFF"))))
+                (propertize (format " ⚠ %s" (or no-warnings 0)) 'face (cond (no-warnings '(:foreground "#FFC107"))
+									   (t '(:foreground "#FFFFFF")))))
+             ))
+
+            (`interrupted "⛔")
+            (`suspicious '(propertize "?" 'face 'warning))))
 
 (defun modeline-git-vc ()
   "自定义 git 状态."
@@ -98,36 +107,39 @@
      ((string-match "Git[:-]" vc-mode)
       (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
 	(concat
-	 (propertize "\xf418")
+	 (propertize "• \xf418")
 	 (propertize (format " %s" branch) 'face `(:height 0.9)))))
      (t (format "%s" vc-mode)))))
 
 (defun modeline-time ()
   "自定义时间显示."
   (concat
-   (propertize "" 'face `(:height 0.9))
-   (propertize (format-time-string " %H:%M") 'face `(:height 0.9))
+   (propertize (format-time-string "• %H:%M") 'face `(:height 0.9))
    ))
 
 (defvar mode-line-align-left
   '("%e"
     (:eval
      (concat
+      (propertize (format " %s • " evil-mode-line-tag))
+      (powerline-window-number)
+      (modeline-git-vc)
+      (modeline-flycheck)
       "%2 "
-      (modeline-mode-icon)
-      (propertize " %b" 'face 'bold)
-      "%2 "
-      (modeline-flycheck-status)))))
+      ))))
 
 (defvar mode-line-align-middle
   '(""
-    (:eval (modeline-git-vc))))
+    (:eval
+     (concat
+      (propertize " %b" 'face 'bold)))))
 
 (defvar mode-line-align-right
   '(""
-    "(%l,%c)"
-    "%2 "
-    (:eval (modeline-time))))
+    (:eval
+      (concat
+        (propertize "%l:%c ")
+        (modeline-time)))))
 
 
 (setq-default mode-line-format
