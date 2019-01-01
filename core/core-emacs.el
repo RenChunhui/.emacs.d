@@ -48,7 +48,8 @@
       initial-scratch-message nil
       mode-line-format nil)
 
-(setq visible-bell t
+(setq visible-bell nil
+	  ring-bell-function 'ignore
       fill-column 120)
 
 (global-font-lock-mode t)

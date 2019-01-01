@@ -28,5 +28,6 @@
 (require 'init-line-number)
 (require 'init-lsp)
 (require 'init-dictionary)
+(require 'init-editorconfig)
 
 (provide 'init-packages)

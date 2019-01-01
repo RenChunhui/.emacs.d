@@ -13,7 +13,7 @@
 (add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
 
 (setq-default org-todo-keywords
-	      '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
+	      '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
 
 (setq org-tag-alist '(("@home" . ?h)
 		      ("@computer . ?c")
