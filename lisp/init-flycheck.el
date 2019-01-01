@@ -16,17 +16,13 @@
 
 (require 'flycheck)
 
-(add-hook 'after-init-hook 'global-flycheck-mode)
-
-(set-face-attribute 'flycheck-warning nil
-                    :background theme-warning
-                    :foreground "#262626"
-                    :underline nil)
-
-(set-face-attribute 'flycheck-error nil
-                    :background theme-error
-                    :foreground "#262626"
-                    :underline nil)
+(dolist (hook (list
+	       'lisp-mode-hook
+	       'css-mode-hook
+	       'scss-mode-hook
+	       'js2-mode-hook
+	       'typescript-mode-hook))
+  (add-hook hook '(lambda () (flycheck-mode 1))))
 
 (provide 'init-flycheck)
 

@@ -7,6 +7,9 @@
 	  company-minimum-prefix-length 1)
     (add-hook 'after-init-hook 'global-company-mode)))
 
+(use-package popup
+  :ensure t)
+
 (use-package yasnippet
   :ensure t
   :init
@@ -33,3 +36,5 @@
     (which-key-mode)))
 
 (provide 'init-completion)
+
+;;; init-completion.el ends here
