@@ -13,11 +13,12 @@
 (add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
 
 (setq-default org-todo-keywords
-	      '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)")))
+	      '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)" "SOMEDAY(s)")))
 
 (setq org-tag-alist '(("@home" . ?h)
 		      ("@computer . ?c")
-		      ("@telphone . ?t")))
+		      ("@telphone . ?t")
+		      ("@park . ?p")))
 
 (use-package org
   :defer t
@@ -49,7 +50,6 @@
 (use-package org-bullets
   :ensure t
   :config
-  (add-hook 'org-mode-hook (lambda ()
-			     (org-bullets-mode 1))))
+  (add-hook 'org-mode-hook 'org-bullets-mode))
                  
 (provide 'init-org)
