@@ -12,4 +12,4 @@ before_install:
 script:
   - emacs --version
   - cd ~/.emacs.d
-  - emacs --batch -l init.el -f batch-byte-compile init.el
+  - emacs -batch -l bin/packages.el
