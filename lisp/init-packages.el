@@ -1,8 +1,8 @@
 (setq package--init-file-ensured t
       package-user-dir (expand-file-name "elpa" tea-emacs-cache-directory)
       package-enable-at-startup nil
-      package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("gnu"   . "https://elpa.gnu.org/packages/")))
+      package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
+			 ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
 
 (package-initialize)
 

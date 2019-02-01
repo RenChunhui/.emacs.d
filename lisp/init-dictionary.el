@@ -15,7 +15,7 @@
 ;;; Code:
 
 (use-package osx-dictionary
-  :ensure t)
+  )
 
 (provide 'init-dictionary)
 

@@ -15,8 +15,6 @@
 ;;; Code:
 
 (use-package counsel
-  :ensure t
-  :defer 2
   :init
   (progn
     (evil-leader/set-key
@@ -29,8 +27,6 @@
     (counsel-mode 1)))
 
 (use-package counsel-projectile
-  :ensure t
-  :defer 2
   :init
   (progn
     (evil-leader/set-key
@@ -40,7 +36,6 @@
       "pp" 'counsel-projectile-switch-project)))
 
 (use-package swiper
-  :ensure t
   :init
   (progn
     (evil-leader/set-key
