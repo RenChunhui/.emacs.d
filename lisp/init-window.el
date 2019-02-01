@@ -1,5 +1,4 @@
 (use-package winum
-  :ensure t
   :config
   (progn
     (setq winum-auto-assign-0-to-minibuffer nil
@@ -19,7 +18,6 @@
     (winum-mode)))
 
 (use-package neotree
-  :ensure t
   :defer t
   :init
   (progn

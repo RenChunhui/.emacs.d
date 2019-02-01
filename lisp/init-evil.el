@@ -1,5 +1,4 @@
 (use-package evil
-  :ensure t
   :init
   (progn
   	(setq-default evil-vsplit-window-right t
@@ -13,7 +12,6 @@
   (evil-mode 1))
 
 (use-package evil-leader
-  :ensure t
   :config
   (progn
     (global-evil-leader-mode)

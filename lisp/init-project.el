@@ -15,8 +15,6 @@
 ;;; Code:
 
 (use-package projectile
-  :ensure t
-  :defer 2
   :init
   (progn
     (setq projectile-sort-order 'recentf

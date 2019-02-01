@@ -1,5 +1,4 @@
 (use-package company
-  :ensure t
   :init
   (progn
     (setq company-idle-delay 0.1
@@ -7,11 +6,7 @@
 	  company-minimum-prefix-length 1)
     (add-hook 'after-init-hook 'global-company-mode)))
 
-(use-package popup
-  :ensure t)
-
 (use-package yasnippet
-  :ensure t
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
   (yas-global-mode 1)
@@ -20,7 +15,6 @@
   (global-set-key (kbd "M-/") 'company-yasnippet))
 
 (use-package which-key
-  :ensure t
   :init
   (progn
     (which-key-add-key-based-replacements

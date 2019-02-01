@@ -10,7 +10,7 @@
 
 ;; Default font
 (setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-(set-face-attribute 'default nil :font "DroidSansMono Nerd Font Mono-13")
+(set-face-attribute 'default nil :font "DroidSansMono Nerd Font-13")
 (set-fontset-font t 'han      (font-spec :family "STkaiti"))
 (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
 
@@ -39,7 +39,7 @@
 	      url-cache-directory (concat tea-emacs-cache-directory "url/")
 	      url-configuration-directory (concat tea-emacs-cache-directory "url/"))
 
-(setq custom-file (concat user-emacs-directory "custom.el"))
+(setq custom-file (concat tea-emacs-cache-directory "custom.el"))
 
 (setq inhibit-startup-message t
       inhibit-startup-echo-area-message user-login-name
@@ -66,8 +66,8 @@
 	  gc-cons-percentage 0.6
 	  file-name-handler-alist nil))
   (require 'cl-lib)
-  (load (concat tea-emacs-lisp-directory "init-packages") nil t)
-  (require 'core-modeline))
+  (load (concat tea-emacs-lisp-directory "init-packages") nil t))
+  ;;(require 'core-modeline))
 
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))

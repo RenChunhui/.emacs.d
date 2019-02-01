@@ -2,8 +2,8 @@
 
 (package-initialize)
 
-(setq package-archives '(("gnu" . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+(setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
+                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
 
 (package-refresh-contents)
 
@@ -11,21 +11,15 @@
   '(use-package
     company
     yasnippet
-    ;;which-key
-    hydra
+    which-key
     neotree
     flycheck
     winum
     magit
     editorconfig
     osx-dictionary
-    atom-one-dark-theme
-
-    ;; startup
-    dashboard
 
     ;; modeline
-    spaceline
     diminish
 
     ;; chinese

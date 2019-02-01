@@ -1,10 +1,8 @@
 (use-package js2-mode
-  :ensure t
   :mode ("\\.js\\'" . js2-mode)
   :hook (js2-mode . js2-imenu-extras-mode))
 
 (use-package tern
-  :ensure t
   :init
   (setq tern-command '("/usr/local/bin/tern" "--no-port-file"))
   :config
@@ -13,14 +11,12 @@
 			     (company-mode))))
 
 (use-package company-tern
-  :ensure t
   :config (progn
 	    (add-to-list 'company-backends 'company-tern)
 	    (setq company-tern-meta-as-single-line t)
 	    (setq company-tooltip-align-annotations t)))
 
 (use-package js-doc
-  :ensure t
   :config
   (progn
     (setq js-doc-mail-address "renchunhui2008@gmail.com"
