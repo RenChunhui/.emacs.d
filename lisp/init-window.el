@@ -36,4 +36,18 @@
       "fT" 'neotree-show
       "pt" 'neotree-find-project-root)))
 
+(use-package diminish
+  :after (editorconfig company)
+  :diminish company-mode
+  :diminish counsel-mode
+  :diminish evil-org-mode
+  :diminish editorconfig-mode
+  :diminish eldoc-mode
+  :diminish flycheck-mode
+  :diminish ivy-mode
+  :diminish projectile-mode
+  :diminish undo-tree-mode
+  :diminish which-key-mode
+  :diminish yas-minor-mode)
+
 (provide 'init-window)

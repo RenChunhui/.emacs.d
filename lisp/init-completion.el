@@ -27,6 +27,11 @@
       "SPC s" "Search"))
   :config
   (progn
+    (setq which-key-sort-order #'which-key-prefix-then-key-order
+	  which-key-sort-uppercase-first nil
+	  which-key-add-column-padding 1
+	  which-key-max-display-columns nil
+	  which-key-min-display-lines 5)
     (which-key-mode)))
 
 (provide 'init-completion)

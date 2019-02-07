@@ -16,6 +16,7 @@
 
 (load-file (concat (file-name-directory load-file-name)
                     "core/core-load-paths.el"))
+(load (concat (file-name-directory load-file-name) "core/core-functions"))
 
 (require 'core-config)
 (require 'core-emacs)
