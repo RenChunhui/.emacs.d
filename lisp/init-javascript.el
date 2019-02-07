@@ -16,12 +16,4 @@
 	    (setq company-tern-meta-as-single-line t)
 	    (setq company-tooltip-align-annotations t)))
 
-(use-package js-doc
-  :config
-  (progn
-    (setq js-doc-mail-address "renchunhui2008@gmail.com"
-	  js-doc-author (format "Ren Chunhui <%s>" js-doc-mail-address)
-	  js-doc-url "http://renchunhui.github.io"
-	  js-doc-license "MIT License")))
-
 (provide 'init-javascript)

@@ -14,6 +14,15 @@
 
 ;;; Code:
 
+(use-package ivy
+  :after (magit yasnippet)
+  :config
+  (progn
+    (setq ivy-height 12
+	  ivy-wrap t
+	  ivy-fixed-height-minibuffer t
+	  projectile-completion-system 'ivy)))
+
 (use-package counsel
   :init
   (progn

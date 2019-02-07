@@ -1,65 +1,81 @@
+;; prefer coding
 (prefer-coding-system 'utf-8)
 
-;; Remove GUI elements
-(when (and (fboundp 'tool-bar-mode) (not (eq tool-bar-mode -1)))
-    (tool-bar-mode -1))
-(when (and (fboundp 'scroll-bar-mode) (not (eq scroll-bar-mode -1)))
-    (scroll-bar-mode -1))
-(when (and (fboundp 'tooltip-mode) (not (eq tooltip-mode -1)))
-    (tooltip-mode -1))
+;; remove tool bar
+(tool-bar-mode -1)
 
-;; Default font
-(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-(set-face-attribute 'default nil :font "DroidSansMono Nerd Font-13")
-(set-fontset-font t 'han      (font-spec :family "STkaiti"))
-(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
+;; remove scroll bar
+(scroll-bar-mode -1)
 
-;; fullscreen
-(set-frame-parameter
-     nil 'fullscreen
-     (when (not (frame-parameter nil 'fullscreen)) 'fullboth))
+;; remove tooltip
+(tooltip-mode -1)
 
-(setq-default ad-redefinition-action 'accept
-	      compilation-always-kill t
-	      compilation-ask-about-save nil
-	      compilation-scroll-output t
-	      confirm-nonexistent-file-or-buffer t
-	      enable-recursive-minibuffers nil
-	      idle-update-delay 2
-	      auto-save-default nil
-	      create-lockfiles nil
-	      history-length 500
-	      make-backup-files nil
+;; y/n instead of yes/no
+(fset 'yes-or-no-p 'y-or-n-p)
 
-	      ;; files
-	      abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")
-	      auto-save-list-file-name (concat tea-emacs-cache-directory "autosave")
-	      backup-directory-alist (list (cons "." (concat tea-emacs-cache-directory "backup/")))
-	      server-auth-dir (concat tea-emacs-cache-directory "server/")
-	      url-cache-directory (concat tea-emacs-cache-directory "url/")
-	      url-configuration-directory (concat tea-emacs-cache-directory "url/"))
+;; show line number
+(global-linum-mode t)
 
-(setq custom-file (concat tea-emacs-cache-directory "custom.el"))
+;; auto insert closing bracket
+(electric-pair-mode t)
 
-(setq inhibit-startup-message t
+;; turn on highlighting current line
+(global-hl-line-mode t)
+
+;; enable syntax highlighting
+(global-font-lock-mode 1)
+
+;; wrap long lines by word boundary, and arrow up/down move by visual line, etc
+(global-visual-line-mode 1)
+
+;; display current time in modeline
+(display-time-mode t)
+
+;; set options
+(setq user-full-name "Ren Chunhui"
+      user-mail-address "renchunhui2008@gmail.com"
+
+      ;; Splash Screen
+      inhibit-splash-screen t
+      inhibit-startup-message t
       inhibit-startup-echo-area-message user-login-name
       inhibit-default-init t
-      initial-major-mode 'fundamental-mode
       initial-scratch-message nil
-      mode-line-format nil)
+      initial-major-mode 'fundamental-mode
 
-(setq visible-bell nil
-	  ring-bell-function 'ignore
-      fill-column 120)
+      ;; Custom file
+      custom-file (concat tea-emacs-cache-directory "custom.el")
 
-(global-font-lock-mode t)
-(global-hl-line-mode t)
-(display-time-mode t)
-(display-battery-mode t)
-(electric-pair-mode t)
-(column-number-mode t)
-(defalias 'yes-or-no-p 'y-or-n-p)
+      ;; Indentation
+      tab-width 2
+      indent-tabs-mode nil
 
+      ;; Error message
+      visible-bell nil
+      ring-bell-function 'ignore
+
+      ;; Backup files
+      make-backup-files nil
+      backup-directory-alist (list (cons "." (concat tea-emacs-cache-directory "backup/")))
+
+      ;; Fullscreen
+      ns-use-native-fullscreen nil
+
+      ;; number mode
+      column-number-mode t
+
+      ;; Cache
+      abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")
+      auto-save-list-file-name (concat tea-emacs-cache-directory "autosave")
+      server-auth-dir (concat tea-emacs-cache-directory "server/")
+      url-cache-directory (concat tea-emacs-cache-directory "url/")
+      url-configuration-directory (concat tea-emacs-cache-directory "url/"))
+
+;; path
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
+;; load packages
 (eval-and-compile
   (unless (or after-init-time noninteractive)
     (setq gc-cons-threshold (* 128 1024 1024)
@@ -67,22 +83,9 @@
 	  file-name-handler-alist nil))
   (require 'cl-lib)
   (load (concat tea-emacs-lisp-directory "init-packages") nil t))
-  ;;(require 'core-modeline))
-
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
-
-(defvar init-time 'nil)
-(defun emacs//display-summary()
-  (message "%s packages loaded in %.03fs"
-	   (length package-activated-list)
-	   (or init-time
-	       (setq init-time
-		     (float-time (time-subtract (current-time) before-init-time))))))
 
 (add-hook 'emacs-startup-hook
 	  (lambda ()
-	    (emacs//display-summary)
-	    ))
+	    (emacs//display-summary)))
 
 (provide 'core-emacs)

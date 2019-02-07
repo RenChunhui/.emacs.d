@@ -25,7 +25,6 @@
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-vc)
-(require 'init-line-number)
 (require 'init-lsp)
 (require 'init-dictionary)
 (require 'init-editorconfig)
