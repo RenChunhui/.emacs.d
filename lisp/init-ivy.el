@@ -21,7 +21,8 @@
     (setq ivy-height 12
 	  ivy-wrap t
 	  ivy-fixed-height-minibuffer t
-	  projectile-completion-system 'ivy)))
+	  projectile-completion-system 'ivy)
+    (add-hook 'after-init-hook 'ivy-mode)))
 
 (use-package counsel
   :init
@@ -29,16 +30,17 @@
     (evil-leader/set-key
       "ff" 'counsel-find-file
       "fel" 'counsel-find-library
-      "fL" 'counsel-locate))
+      "fL" 'counsel-locate)
+    (add-hook 'after-init-hook 'counsel-mode))
   :config
   (progn
-    (define-key counsel-find-file-map (kbd "C-h") 'counsel-up-directory)
-    (counsel-mode 1)))
+    (define-key counsel-find-file-map (kbd "C-h") 'counsel-up-directory)))
 
 (use-package counsel-projectile
   :init
   (progn
     (evil-leader/set-key
+      "bf" 'indent-buffer
       "pf" 'counsel-projectile-find-file
       "pb" 'counsel-projectile-switch-to-buffer
       "pd" 'counsel-projectile-find-dir
@@ -48,9 +50,7 @@
   :init
   (progn
     (evil-leader/set-key
-      "ss" 'swiper))
-  :config
-  (ivy-mode 1))
+      "ss" 'swiper)))
 
 (provide 'init-ivy)
 

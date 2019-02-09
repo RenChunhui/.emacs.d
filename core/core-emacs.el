@@ -88,4 +88,8 @@
 	  (lambda ()
 	    (emacs//display-summary)))
 
+;; fullscreen
+(when (fboundp 'toggle-frame-fullscreen)
+  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
+
 (provide 'core-emacs)

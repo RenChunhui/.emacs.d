@@ -14,17 +14,28 @@
 
 ;;; Code:
 
+;; Produce backtraces when errors occur
+(setq debug-on-error t)
+
 (load-file (concat (file-name-directory load-file-name)
                     "core/core-load-paths.el"))
 (load (concat (file-name-directory load-file-name) "core/core-functions"))
 
 (require 'core-config)
+(require 'core-keymap)
 (require 'core-emacs)
 
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+;; Allow assets from emacsclient
+(add-hook 'after-init-hook
+	  (lambda ()
+	    (require 'server)
+	    (unless (server-running-p)
+	      (server-start))))
 
 (provide 'init)
 
+;; Local Variables:
+;; coding: utf-8
+;; no-byte-compile: t
+;; End:
 ;;; init.el ends here
