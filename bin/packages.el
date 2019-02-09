@@ -10,6 +10,7 @@
 (defconst ora-packages
   '(use-package
     company
+    company-quickhelp
     yasnippet
     which-key
     neotree

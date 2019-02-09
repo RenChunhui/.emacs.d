@@ -6,3 +6,8 @@
 	   (or init-time
 	       (setq init-time
 		     (float-time (time-subtract (current-time) before-init-time))))))
+
+(defun indent-buffer ()
+  (interactive)
+  (save-excursion
+    (indent-region (point-min) (point-max) nil)))

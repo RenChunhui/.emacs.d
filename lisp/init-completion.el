@@ -1,10 +1,17 @@
 (use-package company
+  :after (diminish)
   :init
   (progn
     (setq company-idle-delay 0.1
 	  company-tooltip-limit 10
 	  company-minimum-prefix-length 1)
     (add-hook 'after-init-hook 'global-company-mode)))
+
+(use-package company-quickhelp
+  :after (company)
+  :init
+  (progn
+    (add-hook 'after-init-hook 'company-quickhelp-mode)))
 
 (use-package yasnippet
   :init
