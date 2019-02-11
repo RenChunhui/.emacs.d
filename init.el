@@ -17,13 +17,21 @@
 ;; Produce backtraces when errors occur
 (setq debug-on-error t)
 
-(load-file (concat (file-name-directory load-file-name)
-                    "core/core-load-paths.el"))
-(load (concat (file-name-directory load-file-name) "core/core-functions"))
+(load (concat (file-name-directory load-file-name) "lisp/init-values"))
 
-(require 'core-config)
-(require 'core-keymap)
-(require 'core-emacs)
+(when (version< emacs-version tea-emacs-min-version)
+  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+
+(add-to-list 'load-path (expand-file-name tea-emacs-lisp-directory user-emacs-directory))
+
+(require 'init-functions)
+(require 'init-package)
+(require 'init-exec-path)
+(require 'init-emacs)
+
+
+;;(require 'core-keymap)
+;;(require 'core-emacs)
 
 ;; Allow assets from emacsclient
 (add-hook 'after-init-hook
