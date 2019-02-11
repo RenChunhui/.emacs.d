@@ -22,6 +22,7 @@
 
     ;; modeline
     diminish
+    dracula-theme
 
     ;; chinese
     pyim

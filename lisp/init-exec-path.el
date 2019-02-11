@@ -1,4 +1,4 @@
-;;; init-themes.el --- Default theme 
+;;; init-exec-path.el --- path configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,6 +14,9 @@
 
 ;;; Code:
 
-(provide 'init-themes)
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 
-;;; init-themes.el ends here
+(provide 'init-exec-path)
+
+;;; init-exec-path.el ends here
