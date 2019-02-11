@@ -29,6 +29,8 @@
 (require 'init-exec-path)
 (require 'init-emacs)
 
+(require 'init-evil)
+(require 'init-company)
 
 ;;(require 'core-keymap)
 ;;(require 'core-emacs)
