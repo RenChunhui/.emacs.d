@@ -14,13 +14,23 @@
 
 ;;; Code:
 
-(require 'evil)
-(require 'evil-leader)
+(use-package evil
+  :init
+  (progn
+  	(setq-default evil-vsplit-window-right t
+		evil-split-window-below t
+		evil-normal-state-tag "Ⓝ • "
+		evil-insert-state-tag "Ⓘ • "
+		evil-visual-state-tag "Ⓥ • "
+		evil-emacs-state-tag "Ⓔ • "))
+  :config
+  (evil-mode 1))
 
-(evil-leader/set-leader "<SPC>")
-
-(add-hook 'after-init-hook 'evil-mode)
-(add-hook 'after-init-hook 'global-evil-leader-mode)
+(use-package evil-leader
+  :config
+  (progn
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")))
 
 (provide 'init-evil)
 

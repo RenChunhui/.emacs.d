@@ -36,6 +36,8 @@
 (require 'init-exec-path)
 (require 'init-emacs)
 
+(require 'init-window)
+(require 'init-modeline)
 (require 'init-evil)
 (require 'init-keymap)
 (require 'init-company)

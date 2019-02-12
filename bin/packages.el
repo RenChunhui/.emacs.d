@@ -15,12 +15,14 @@
     which-key
     neotree
     flycheck
+    flycheck-pos-tip
     winum
     magit
     editorconfig
     osx-dictionary
 
     ;; modeline
+    powerline
     diminish
     dracula-theme
 
@@ -50,8 +52,7 @@
     json-mode
     yaml-mode
     markdown-mode
-    org-bullets
-    vimrc-mode)
+    org-bullets)
   "List of packages that I like.")
 
 ;; install required

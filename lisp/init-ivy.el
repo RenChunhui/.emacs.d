@@ -15,7 +15,6 @@
 ;;; Code:
 
 (use-package ivy
-  :after (magit yasnippet)
   :config
   (progn
     (setq ivy-height 12
