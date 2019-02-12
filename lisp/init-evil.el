@@ -19,10 +19,10 @@
   (progn
   	(setq-default evil-vsplit-window-right t
 		evil-split-window-below t
-		evil-normal-state-tag "Ⓝ • "
-		evil-insert-state-tag "Ⓘ • "
-		evil-visual-state-tag "Ⓥ • "
-		evil-emacs-state-tag "Ⓔ • "))
+		evil-normal-state-tag " NORMAL "
+		evil-insert-state-tag " INSERT "
+		evil-visual-state-tag " VISUAL"
+		evil-emacs-state-tag " EMACS "))
   :config
   (evil-mode 1))
 

@@ -33,6 +33,11 @@
 (when (fboundp 'menu-bar-mode)
   (menu-bar-mode -1))
 
+;; macOS title bar
+(let ((no-border '(internal-border-width . 0)))
+  (add-to-list 'default-frame-alist no-border)
+  (add-to-list 'initial-frame-alist no-border))
+
 ;; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
 
