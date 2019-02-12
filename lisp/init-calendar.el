@@ -24,7 +24,8 @@
 		(holiday-chinese 1 15 "元宵节")
 		(holiday-chinese 5 5  "端午节")
 		(holiday-chinese 8 15 "中秋节")
-		(holiday-chinese 10 2 "母亲生日")))
+		(holiday-chinese 10 2 "母亲生日")
+		(holiday-chinese 12 18 "陶源生日")))
 
 (defvar chinese-date-diary-pattern
   `((year "年" month "月" day "日")))

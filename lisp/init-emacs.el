@@ -57,6 +57,12 @@
 ;; load theme
 (load-theme 'dracula t)
 
+;; Default font
+(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
+(set-fontset-font t 'han      (font-spec :family "STkaiti"))
+(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
+
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"
 
@@ -88,6 +94,10 @@
 
       ;; number mode
       column-number-mode t
+
+      ;; render
+      inhibit-compacting-font-caches t
+      ns-use-srgb-colorspace nil
 
       ;; Cache
       abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")

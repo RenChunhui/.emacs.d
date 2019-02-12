@@ -14,14 +14,20 @@
 
 ;;; Code:
 
+(use-package pos-tip)
+
 (use-package company
-  :after (diminish)
+  :diminish company-mode
+  :hook (after-init . global-company-mode)
   :init
   (progn
     (setq company-idle-delay 0.1
 	  company-tooltip-limit 10
-	  company-minimum-prefix-length 1)
-    (add-hook 'after-init-hook 'global-company-mode)))
+	  company-minimum-prefix-length 1)))
+
+(use-package company-quickhelp
+  :hook (global-company-mode . company-quickhelp-mode)
+  :init (setq company-quickhelp-delay 0.8))
 
 (provide 'init-company)
 
