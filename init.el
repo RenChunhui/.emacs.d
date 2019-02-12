@@ -24,16 +24,42 @@
 
 (add-to-list 'load-path (expand-file-name tea-emacs-lisp-directory user-emacs-directory))
 
+(eval-and-compile
+  (unless (or after-init-time noninteractive)
+    (setq gc-cons-threshold (* 128 1024 1024)
+	  gc-cons-percentage 0.6
+	  file-name-handler-alist nil))
+  (require 'cl-lib))
+
 (require 'init-functions)
 (require 'init-package)
 (require 'init-exec-path)
 (require 'init-emacs)
 
 (require 'init-evil)
+(require 'init-keymap)
 (require 'init-company)
+(require 'init-yasnippet)
+(require 'init-which-key)
+(require 'init-ivy)
+(require 'init-project)
+(require 'init-flycheck)
+(require 'init-editorconfig)
+(require 'init-vc)
 
-;;(require 'core-keymap)
-;;(require 'core-emacs)
+(require 'init-calendar)
+(require 'init-html)
+(require 'init-css)
+(require 'init-javascript)
+(require 'init-typescript)
+(require 'init-json)
+(require 'init-yaml)
+(require 'init-org)
+(require 'init-markdown)
+
+(add-hook 'emacs-startup-hook
+	  (lambda ()
+	    (emacs//display-summary)))
 
 ;; Allow assets from emacsclient
 (add-hook 'after-init-hook
