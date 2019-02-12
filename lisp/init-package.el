@@ -24,6 +24,10 @@
 
 (package-initialize)
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (provide 'init-package)
 
 ;;; init-package.el ends here

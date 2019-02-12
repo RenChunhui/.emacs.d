@@ -14,15 +14,14 @@
 
 ;;; Code:
 
-(require 'company)
-
-(setq company-idle-delay 0.1
-      company-tooltip-limit 10
-      company-minimum-prefix-length 1)
-
-(global-set-key (kbd "M-/") 'company-complete)
-
-(add-hook 'after-init-hook 'global-company-mode)
+(use-package company
+  :after (diminish)
+  :init
+  (progn
+    (setq company-idle-delay 0.1
+	  company-tooltip-limit 10
+	  company-minimum-prefix-length 1)
+    (add-hook 'after-init-hook 'global-company-mode)))
 
 (provide 'init-company)
 
