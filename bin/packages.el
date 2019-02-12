@@ -23,6 +23,7 @@
 
     ;; modeline
     powerline
+    powerline-evil
     diminish
     dracula-theme
 
