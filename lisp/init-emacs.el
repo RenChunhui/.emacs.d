@@ -63,10 +63,12 @@
 (load-theme 'dracula t)
 
 ;; Default font
-(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
-(set-fontset-font t 'han      (font-spec :family "STkaiti"))
-(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
+(add-to-list 'default-frame-alist '(font . "Dejavusansmono Nerd Font-13"))
+
+;;(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
+;;(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
+;;(set-fontset-font t 'han      (font-spec :family "STkaiti"))
+;;(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"

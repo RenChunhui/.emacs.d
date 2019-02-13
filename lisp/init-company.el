@@ -17,7 +17,6 @@
 (use-package pos-tip)
 
 (use-package company
-  :diminish company-mode
   :hook (after-init . global-company-mode)
   :init
   (progn

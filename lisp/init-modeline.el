@@ -1,71 +1,25 @@
-;;(require 'powerline-evil)
-
-(defun mode-line-render (left right)
-  "Return a string of `window-width' length containing LEFT, and RIGHT
- aligned respectively."
-  (let* ((available-width (- (window-width) (length left) 2)))
-    (format (format " %%s %%%ds " available-width) left right)))
-
-(defun replace-evil-mode ()
-  (format-mode-line
-   '(:eval
-     (propertize (format "%s" (evil-generate-mode-line-tag evil-state))))))
-
-(defun format-major-mode ()
-  (let* ((major-mode (format-mode-line "%m"))
-	 (replace-table '(Emacs-Lisp "𝝀"
-				     Fundamental "ℱ"))
-	 (replace-name (plist-get replace-table (intern major-name))))
-    (if replace-name replace-name major-name)))
-
-(defun unicode-number (str)
-  (format-mode-line
-   (concat
-    (cond
-     ((string= "1" str) "① ")
-     ((string= "2" str) "② ")
-     ((string= "3" str) "③ ")
-     ((string= "4" str) "④ ")
-     ((string= "5" str) "⑤ ")
-     ((string= "6" str) "⑥ ")
-     ((string= "7" str) "⑦ ")
-     ((string= "8" str) "⑧ ")
-     ((string= "9" str) "⑨ ")
-     ((string= "0" str) "⑩")
-     ))))
-
-(defun replace-winum-mode ()
-  (when (bound-and-true-p winum-mode)
-    (let* ((num (winum-get-number))
-	   (str (when num (int-to-string num))))
-      (unicode-number str))))
 
 
+(defmacro diminish-major-mode (mode-hook abbrev)
+  "Macro for diminish major mode with MODE-HOOK and ABBREV."
+  `(add-hook ,mode-hook
+             (lambda () (setq mode-name ,abbrev))))
 
-(defun powerline--unicode-number (str)
-  "Return a nice unicode representation of a single-digit number STR."
-  (powerline-raw
-   (format-mode-line
-    (concat
-     (cond
-      ((string= "1" str) "➀ ")
-      ((string= "2" str) "➁ ")
-      ((string= "3" str) "➂ ")
-      ((string= "4" str) "➃ ")
-      ((string= "5" str) "➄ ")
-      ((string= "6" str) "➅ ")
-      ((string= "7" str) "➆ ")
-      ((string= "8" str) "➇ ")
-      ((string= "9" str) "➈ ")
-      ((string= "0" str) "➉ "))))))
+(diminish-major-mode 'text-mode-hook (propertize "\x612"))
+(diminish-major-mode 'fundamental-mode-hook "\xe612")
+(diminish-major-mode 'emacs-lisp-mode-hook (propertize "\xe612"))
+(diminish-major-mode 'lisp-interaction-mode-hook (propertize "\xe612"))
+(diminish-major-mode 'web-mode-hook (propertize " \xf81c " 'face '(:background "#E44D26")))
+(diminish-major-mode 'css-mode-hook (propertize " \xe749 " 'face '(:background "#ebebeb")))
+(diminish-major-mode 'scss-mode-hook (propertize " \xe603 " 'face '(:background "#cd6799")))
+(diminish-major-mode 'js2-mode-hook (propertize " \xe74e " 'face '(:background "#f5de19")))
+(diminish-major-mode 'typescript-mode-hook (propertize " \xe628 " 'face '(:background "#007acc")))
+(diminish-major-mode 'tide-mode-hook (propertize " \xe628 " 'face '(:background "#007acc")))
+(diminish-major-mode 'json-mode-hook (propertize " \xe60b " 'face '(:background "#f5de19")))
+(diminish-major-mode 'yaml-mode-hook (propertize " \xe612 " 'face '(:background "#fbc02d")))
+(diminish-major-mode 'markdown-mode-hook (propertize " \xf853 " 'face '(:background "#755838")))
 
-(defpowerline powerline-window-number
-  (when (bound-and-true-p winum-mode)
-    (let* ((num (winum-get-number))
-	   (str (when num (int-to-string num))))
-      (powerline--unicode-number str))))
-
-(defpowerline powerline-vc
+(defpowerline replace-vc-mode
   (when vc-mode
     (powerline-raw
      (format-mode-line
@@ -73,10 +27,11 @@
        ((string-match "Git[:-]" vc-mode)
 	(let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
 	  (concat
-	   (propertize (format " %s " branch)))))
+	   (propertize "" 'face `(:height 1.2) 'display '(raise -0.1))
+	   (propertize (format " %s " branch) 'face `(:height 0.9)))))
        (t (format "%s" vc-mode)))))))
 
-(defpowerline powerline-flycheck
+(defpowerline replace-flycheck
   (powerline-raw
    (format-mode-line
     '(:eval
@@ -91,12 +46,6 @@
 	(`not-checked "✖ Disabled")
 	(`errored (propertize "⚠ Error"))
 	(`interrupted "⛔ Interrupted"))))))
-
-(defpowerline powerline-time
-  (powerline-raw
-   (format-mode-line
-    (concat
-     (propertize (format-time-string " %H:%M"))))))
 
 ;;;###autoload
 (defun powerline-custom-theme ()
@@ -115,45 +64,59 @@
                           (separator-right (intern (format "powerline-%s-%s"
                                                            (powerline-current-separator)
                                                            (cdr powerline-default-separator-dir))))
-                          (lhs (list (let ((evil-face (powerline-evil-face)))
+
+			  ;; left
+                          (lhs (list (powerline-raw " " face1)
+				                             (powerline-raw (format-mode-line '(:eval (format "%s" (winum-get-number-string)))) face1)
+                                     (powerline-raw " " face1)
+                                     (let ((evil-face (powerline-evil-face)))
                                        (if evil-mode
                                            (powerline-raw (powerline-evil-tag) evil-face)))
-                                     (powerline-buffer-id `(mode-line-buffer-id ,mode-line) 'l)
-                                     ;;(powerline-raw "[" mode-line 'l)
-                                     ;;(powerline-major-mode mode-line)
-                                     ;;(powerline-process mode-line)
-                                     ;;(powerline-raw "]" mode-line)
-                                     (when (buffer-modified-p)
-                                       (powerline-raw "[+]" mode-line))
-                                     (when buffer-read-only
-                                       (powerline-raw "[RO]" mode-line))
-                                     (powerline-raw "[%z]" mode-line)
-                                     ;; (powerline-raw (concat "[" (mode-line-eol-desc) "]") mode-line)
-                                     (when (and (boundp 'which-func-mode) which-func-mode)
-                                       (powerline-raw which-func-format nil 'l))
+				                             (powerline-raw " %b ")
+                                     (powerline-major-mode)
+				     (powerline-raw " " mode-line)
+                                     (when (and (boundp 'vc-mode) vc-mode)
+                                       (replace-vc-mode))
+                                     
+                                     (powerline-raw " " mode-line)
+                                     (replace-flycheck)
+                                     (powerline-raw " " mode-line)
+
                                      (when (boundp 'erc-modified-channels-object)
                                        (powerline-raw erc-modified-channels-object face1 'l))
-                                     (powerline-raw "[" mode-line 'l)
-                                     (powerline-minor-modes mode-line)
-                                     (powerline-raw "%n" mode-line)
-                                     (powerline-raw "]" mode-line)
-                                     (when (and vc-mode buffer-file-name)
-                                       (let ((backend (vc-backend buffer-file-name)))
-                                         (when backend
-                                           (concat (powerline-raw "[" mode-line 'l)
-                                                   (powerline-raw (format "%s / %s" backend (vc-working-revision buffer-file-name backend)))
-                                                   (powerline-raw "]" mode-line)))))))
-                          (rhs (list (powerline-raw '(10 "%i"))
-                                     (powerline-raw global-mode-string mode-line 'r)
-                                     (powerline-raw "%l," mode-line 'l)
-                                     (powerline-raw (format-mode-line '(10 "%c")))
-                                     (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) mode-line 'r))))
+
+				     ))
+
+			  ;; right
+                          (rhs (list (powerline-raw (format-mode-line '(:eval (propertize (format-time-string " %H:%M")))))
+                                     (powerline-raw " " mode-line)
+                                     
+                                     (powerline-raw " " mode-line)
+                                     (powerline-raw "%l:%c " mode-line)
+                                     (powerline-raw " " face2)
+                                     (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) face2 'r))))
+		     
                      (concat (powerline-render lhs)
                              (powerline-fill mode-line (powerline-width rhs))
                              (powerline-render rhs)))))))
 
+(use-package diminish
+  :after (editorconfig company)
+  :diminish company-mode
+  :diminish counsel-mode
+  :diminish evil-org-mode
+  :diminish editorconfig-mode
+  :diminish eldoc-mode
+  :diminish flycheck-mode
+  :diminish ivy-mode
+  :diminish projectile-mode
+  :diminish undo-tree-mode
+  :diminish which-key-mode
+  :diminish yas-minor-mode)
+
 (use-package powerline
   :init
+  (setq powerline-default-separator 'slant)
   (powerline-custom-theme))
 
 (provide 'init-modeline)
