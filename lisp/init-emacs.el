@@ -34,9 +34,12 @@
   (menu-bar-mode -1))
 
 ;; macOS title bar
-(let ((no-border '(internal-border-width . 0)))
-  (add-to-list 'default-frame-alist no-border)
-  (add-to-list 'initial-frame-alist no-border))
+;; (let ((no-border '(internal-border-width . 0)))
+;;   (add-to-list 'default-frame-alist no-border)
+;;   (add-to-list 'initial-frame-alist no-border))
+
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 ;; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -59,20 +62,23 @@
 ;; display current time in modeline
 (display-time-mode t)
 
+(global-visual-line-mode 1)
+
 ;; load theme
 (load-theme 'dracula t)
 
 ;; Default font
-(add-to-list 'default-frame-alist '(font . "Dejavusansmono Nerd Font-13"))
-
-;;(setq face-font-rescale-alist `(("STkaiti" . ,(/ 16.0 13))))
-;;(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
-;;(set-fontset-font t 'han      (font-spec :family "STkaiti"))
-;;(set-fontset-font t 'cjk-misc (font-spec :family "STkaiti"))
+;;(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
+(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
+;;(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
+;;(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"
 
+      fill-column 120
+      word-wrap t
+      
       ;; Splash Screen
       inhibit-splash-screen t
       inhibit-startup-message t

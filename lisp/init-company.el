@@ -14,8 +14,6 @@
 
 ;;; Code:
 
-(use-package pos-tip)
-
 (use-package company
   :hook (after-init . global-company-mode)
   :init

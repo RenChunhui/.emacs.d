@@ -21,15 +21,33 @@
 	  ivy-wrap t
 	  ivy-fixed-height-minibuffer t
 	  projectile-completion-system 'ivy)
+    (evil-leader/set-key
+      ;; buffer
+      "bb" 'ivy-switch-buffer)
     (add-hook 'after-init-hook 'ivy-mode)))
 
 (use-package counsel
   :init
   (progn
     (evil-leader/set-key
+      ;; files
       "ff" 'counsel-find-file
       "fel" 'counsel-find-library
-      "fL" 'counsel-locate)
+      "fL" 'counsel-locate
+
+      ;; help
+      "?" 'counsel-descbinds
+      "hdf" 'counsel-describe-function
+      "hdF" 'counsel-describe-face
+      "hdv" 'counsel-describe-variable
+      "hi" 'counsel-info-lookup-symbol
+
+      ;; insert
+      "iu" 'counsel-unicode-char
+
+      ;; register/ring
+      "ry" 'counsel-yank-pop
+      "rm" 'counsel-mark-ring)
     (add-hook 'after-init-hook 'counsel-mode))
   :config
   (progn
@@ -39,7 +57,6 @@
   :init
   (progn
     (evil-leader/set-key
-      "bf" 'indent-buffer
       "pf" 'counsel-projectile-find-file
       "pb" 'counsel-projectile-switch-to-buffer
       "pd" 'counsel-projectile-find-dir
