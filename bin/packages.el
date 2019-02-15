@@ -43,6 +43,7 @@
     evil-leader
 
     ;; language
+    dash
     web-mode
     css-mode
     scss-mode

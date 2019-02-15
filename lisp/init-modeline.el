@@ -6,9 +6,10 @@
              (lambda () (setq mode-name ,abbrev))))
 
 (diminish-major-mode 'text-mode-hook (propertize "\x612"))
-(diminish-major-mode 'fundamental-mode-hook "\xe612")
-(diminish-major-mode 'emacs-lisp-mode-hook (propertize "\xe612"))
-(diminish-major-mode 'lisp-interaction-mode-hook (propertize "\xe612"))
+(diminish-major-mode 'fundamental-mode-hook "\xe926")
+(diminish-major-mode 'emacs-lisp-mode-hook (propertize " \xe926 " 'face '(:background "#A52ECB")))
+(diminish-major-mode 'lisp-interaction-mode-hook (propertize " \xe612 " 'face '(:background "#A52ECB")))
+(diminish-major-mode 'org-mode-hook (propertize " \xe917 " 'face '(:background "#77AA99")))
 (diminish-major-mode 'web-mode-hook (propertize " \xf81c " 'face '(:background "#E44D26")))
 (diminish-major-mode 'css-mode-hook (propertize " \xe749 " 'face '(:background "#ebebeb")))
 (diminish-major-mode 'scss-mode-hook (propertize " \xe603 " 'face '(:background "#cd6799")))
@@ -41,11 +42,25 @@
 				      (+ (or .warning 0) (or .error 0)))))
 			 (propertize (format "✖ %s Issue%s" count (if (eq 1 count) "" "s"))))
 		     (propertize "✔ No Issues")))
-	(`running (propertize "⟲ Running"))
-	(`no-checker (propertize "⚠ No Checke"))
+	(`running (propertize "⟲ Running..."))
+	(`no-checker (propertize "⚠ No Checker"))
 	(`not-checked "✖ Disabled")
 	(`errored (propertize "⚠ Error"))
 	(`interrupted "⛔ Interrupted"))))))
+
+(defun replace-buffer-encoding ()
+  "Display the encoding and eol style of the buffer the same way atom does."
+  (propertize
+   (concat (pcase (coding-system-eol-type buffer-file-coding-system)
+	     (0 " LF")
+	     (1 " RLF")
+	     (2 " CR"))
+	   (let ((sys (coding-system-plist buffer-file-coding-system)))
+	     (cond ((memq (plist-get sys :category)
+			  '(coding-category-undecided coding-category-utf-8))
+		    " UTF-8 ")
+		   (t (upcase (symbol-name (plist-get sys :name))))))
+	   " ")))
 
 ;;;###autoload
 (defun powerline-custom-theme ()
@@ -67,12 +82,12 @@
 
 			  ;; left
                           (lhs (list (powerline-raw " " face1)
-				                             (powerline-raw (format-mode-line '(:eval (format "%s" (winum-get-number-string)))) face1)
+				     (powerline-raw (format-mode-line '(:eval (format "%s" (winum-get-number-string)))) face1)
                                      (powerline-raw " " face1)
                                      (let ((evil-face (powerline-evil-face)))
                                        (if evil-mode
                                            (powerline-raw (powerline-evil-tag) evil-face)))
-				                             (powerline-raw " %b ")
+				     (powerline-raw " %b ")
                                      (powerline-major-mode)
 				     (powerline-raw " " mode-line)
                                      (when (and (boundp 'vc-mode) vc-mode)
@@ -93,7 +108,9 @@
                                      
                                      (powerline-raw " " mode-line)
                                      (powerline-raw "%l:%c " mode-line)
-                                     (powerline-raw " " face2)
+                                     
+				     (powerline-raw (replace-buffer-encoding))
+				     (powerline-raw " " face2)
                                      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) face2 'r))))
 		     
                      (concat (powerline-render lhs)
