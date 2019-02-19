@@ -14,20 +14,35 @@
 
 ;;; Code:
 
-(defvar init-time 'nil)
-
-(defun emacs//display-summary()
-  (message "%s packages loaded in %.03fs"
-	   (length package-activated-list)
-	   (or init-time
-	       (setq init-time
-		     (float-time (time-subtract (current-time) before-init-time))))))
 
 (defun indent-buffer ()
   "Indent current buffer."
   (interactive)
   (save-excursion
     (indent-region (point-min) (point-max) nil)))
+
+(defun delete-this-file ()
+  "Delete the current file.and kill thie buffer."
+  (interactive)
+  (unless (buffer-file-name)
+    (error "No file is currently beingedited"))
+  (when (yes-or-no-p (format "Really delete '%s'?"
+			     (file-name-nondirectory buffer-file-name)))
+    (delete-file (buffer-file-name))
+    (kill-this-buffer)))
+
+(defun rename-this-file (new-name)
+  "Rename both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+	(filename (buffer-file-name)))
+    (unless filename
+      (error "Buffer '%s' is not visiting a file!" name))
+    (progn
+      (when (file-exists-p filename)
+	(rename-file filename new-name 1))
+      (set-visited-file-name new-name)
+      (rename-buffer new-name))))
 
 ;; (defun kill-buffer ()
 ;;   "Kill current buffer."

@@ -33,11 +33,6 @@
 (when (fboundp 'menu-bar-mode)
   (menu-bar-mode -1))
 
-;; macOS title bar
-;; (let ((no-border '(internal-border-width . 0)))
-;;   (add-to-list 'default-frame-alist no-border)
-;;   (add-to-list 'initial-frame-alist no-border))
-
 (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
 (add-to-list 'default-frame-alist '(ns-appearance . dark))
 
@@ -68,10 +63,14 @@
 (load-theme 'dracula t)
 
 ;; Default font
-;;(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
+(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
 (set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
-;;(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
-;;(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
+(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
+(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
+
+;; fullscreen
+(when (fboundp 'toggle-frame-fullscreen)
+  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"
@@ -118,7 +117,6 @@
       server-auth-dir (concat tea-emacs-cache-directory "server/")
       url-cache-directory (concat tea-emacs-cache-directory "url/")
       url-configuration-directory (concat tea-emacs-cache-directory "url/"))
-
 
 (provide 'init-emacs)
 

@@ -1,4 +1,4 @@
-;;; init-yasnippet.el --- yasnippet
+;;; init-yasnippet.el --- yasnippet configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -17,12 +17,13 @@
 (use-package yasnippet
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
-  (dolist (hook (list
-               'emacs-lisp-mode-hook
-			   'js2-mode-hook
-			   'web-mode
-               ))
-  (add-hook hook '(lambda () (yas-minor-mode -1))))
+  (dolist (hook (list 'emacs-lisp-mode-hook
+		      'js2-mode-hook
+		      'web-mode-hook
+		      'css-mode-hook
+		      'tide-mode-hook
+		      'typescript-mode-hook))
+    (add-hook hook '(lambda () (yas-minor-mode 1))))
   :config
   (yas-reload-all)
   (global-set-key (kbd "M-/") 'company-yasnippet))

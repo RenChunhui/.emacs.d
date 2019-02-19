@@ -34,10 +34,12 @@
 (require 'init-functions)
 (require 'init-package)
 (require 'init-exec-path)
+(require 'init-startup)
 (require 'init-emacs)
 
 (require 'init-window)
 (require 'init-modeline)
+
 (require 'init-evil)
 (require 'init-keymap)
 (require 'init-company)
@@ -48,6 +50,7 @@
 (require 'init-flycheck)
 (require 'init-editorconfig)
 (require 'init-vc)
+;;(require 'init-chinese)
 
 (require 'init-calendar)
 (require 'init-html)
@@ -58,10 +61,6 @@
 (require 'init-yaml)
 (require 'init-org)
 (require 'init-markdown)
-
-(add-hook 'emacs-startup-hook
-	  (lambda ()
-	    (emacs//display-summary)))
 
 ;; Allow assets from emacsclient
 (add-hook 'after-init-hook

@@ -21,10 +21,11 @@
     editorconfig
     osx-dictionary
 
-    ;; modeline
+    ;; ui
     powerline
     powerline-evil
     diminish
+    dashboard
     dracula-theme
 
     ;; chinese

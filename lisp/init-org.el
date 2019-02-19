@@ -2,26 +2,34 @@
 (require 'remember)
 (require 'org-mouse)
 
-(setq-default org-agenda-files (list
-				     "~/Dropbox/org/calendar.org"
-				     "~/Dropbox/org/gtd.org"
-				     "~/Dropbox/org/notes.org"
-				     "~/Dropbox/org/todos.org"))
-
 ;; I want files with the extension ".org" to open in org-mode.
 
-(add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
+;; (add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
 
-(setq-default org-todo-keywords
-	      '((sequence "TODO(t)" "WAITING(w)" "|" "DONE(d)" "CANCELED(c)" "SOMEDAY(s)")))
 
-(setq org-tag-alist '(("@home" . ?h)
-		      ("@computer . ?c")
-		      ("@telphone . ?t")
-		      ("@park . ?p")))
+(setq org-hide-emphasis-markers t)
 
 (use-package org
   :defer t
+  :mode ("\\.org$\\'" . org-mode)
+  :init
+  (progn
+    (setq-default org-todo-keywords
+		  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(c)" "|" "SOMEDAY(s)"))
+
+		  org-directory (expand-file-name "~/OneDrive")
+		  org-default-notes-file (concat org-directory "/gtd.org")
+		  org-agenda-files (list
+				    "~/OneDrive/org/calendar.org"
+				    "~/OneDrive/org/gtd.org"
+				    "~/OneDrive/org/notes.org"
+				    "~/OneDrive/org/todos.org")
+		  org-tag-alist '(("@home" . ?h)
+				  ("@computer . ?c")
+				  ("@phone . ?p"))
+		  )
+    (add-hook 'org-mode-hook 'org-hide-block-all))
+							     
   :config
   (which-key-add-major-mode-key-based-replacements 'org-mode
     "SPC d" "date"
