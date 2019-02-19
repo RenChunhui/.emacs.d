@@ -22,10 +22,18 @@
 
 (defconst tea-emacs-lisp-directory
   (expand-file-name (concat user-emacs-directory "lisp/"))
-  "Emacs lisp directory.")
+  "Emacs LISP directory.")
 
 (defconst tea-emacs-cache-directory
   (expand-file-name (concat user-emacs-directory ".cache/"))
   "Emacs cache directory.")
+
+(defconst emacs-start-time (current-time))
+
+(defvar tea-emacs-startup-time nil
+  "Eemacs full startup duration.")
+
+(defvar tea-emacs-startup-buffer-responsive t
+  "Not nil if the home buffer should respond to resize events.")
 
 ;;; init-values.el ends here

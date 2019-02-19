@@ -6,7 +6,7 @@
              (lambda () (setq mode-name ,abbrev))))
 
 (diminish-major-mode 'text-mode-hook (propertize "\x612"))
-(diminish-major-mode 'fundamental-mode-hook "\xe926")
+(diminish-major-mode 'fundamental-mode-hook (propertize "\xe612"))
 (diminish-major-mode 'emacs-lisp-mode-hook (propertize " \xe926 " 'face '(:background "#A52ECB")))
 (diminish-major-mode 'lisp-interaction-mode-hook (propertize " \xe612 " 'face '(:background "#A52ECB")))
 (diminish-major-mode 'org-mode-hook (propertize " \xe917 " 'face '(:background "#77AA99")))
@@ -117,23 +117,8 @@
                              (powerline-fill mode-line (powerline-width rhs))
                              (powerline-render rhs)))))))
 
-(use-package diminish
-  :after (editorconfig company)
-  :diminish company-mode
-  :diminish counsel-mode
-  :diminish evil-org-mode
-  :diminish editorconfig-mode
-  :diminish eldoc-mode
-  :diminish flycheck-mode
-  :diminish ivy-mode
-  :diminish projectile-mode
-  :diminish undo-tree-mode
-  :diminish which-key-mode
-  :diminish yas-minor-mode)
-
 (use-package powerline
   :init
-  (setq powerline-default-separator 'slant)
   (powerline-custom-theme))
 
 (provide 'init-modeline)

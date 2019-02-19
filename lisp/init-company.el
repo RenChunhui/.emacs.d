@@ -1,4 +1,4 @@
-;;; init-company.el --- Completion with company
+;;; init-company.el --- company mode configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -24,7 +24,10 @@
 
 (use-package company-quickhelp
   :hook (global-company-mode . company-quickhelp-mode)
-  :init (setq company-quickhelp-delay 0.8))
+  :init
+  (progn
+    (setq company-quickhelp-delay 0.8
+	  company-quickhelp-max-lines 10)))
 
 (provide 'init-company)
 

@@ -1,4 +1,4 @@
-;;; init-flycheck.el --- flyche
+;;; init-flycheck.el --- flycheck configuration
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -17,15 +17,16 @@
 (require 'flycheck)
 
 (dolist (hook (list
+	       'emacs-lisp-mode-hook
 	       'lisp-mode-hook
 	       'css-mode-hook
 	       'scss-mode-hook
 	       'js2-mode-hook
+	       'tide-mode-hook
 	       'typescript-mode-hook))
   (add-hook hook '(lambda () (flycheck-mode 1))))
 
 (use-package flycheck-pos-tip
-  :disabled t
   :after flycheck
   :config
   (flycheck-pos-tip-mode))

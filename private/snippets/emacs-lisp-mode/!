@@ -2,7 +2,6 @@
 # name: doctype
 # key: !
 # --
-
 ;;; ${1:packageName}.el --- $2
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
