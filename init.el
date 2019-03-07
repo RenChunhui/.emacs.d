@@ -1,4 +1,4 @@
-;;; init.el --- core paths
+;;; init.el --- Initialization configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
