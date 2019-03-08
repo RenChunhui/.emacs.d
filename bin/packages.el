@@ -10,28 +10,18 @@
 (defconst ora-packages
   '(use-package
     company
-    company-quickhelp
     yasnippet
     which-key
+    hydra
     neotree
     flycheck
-    flycheck-pos-tip
     winum
     magit
     editorconfig
-    osx-dictionary
 
     ;; ui
     powerline
-    powerline-evil
-    diminish
-    dashboard
     dracula-theme
-
-    ;; chinese
-    pyim
-    pyim-wbdict
-    youdao-dictionary
 
     ;; ivy
     project
@@ -44,7 +34,6 @@
     evil-leader
 
     ;; language
-    dash
     web-mode
     css-mode
     scss-mode
@@ -54,8 +43,7 @@
     tide
     json-mode
     yaml-mode
-    markdown-mode
-    org-bullets)
+    markdown-mode)
   "List of packages that I like.")
 
 ;; install required

@@ -1,13 +1,18 @@
-(require 'org)
-(require 'remember)
-(require 'org-mouse)
+;;; init-org.el --- org mode configuration
+;;
+;; Copyright (c) 2018 Chunhui Ren
+;;
+;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
+;; URL     : https://github.com/RenChunhui/.emacs.d
+;; Version : 1.0.0
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
 
-;; I want files with the extension ".org" to open in org-mode.
+;;; Commentary:
 
-;; (add-to-list 'auto-mode-alist '("\\.org$\\'" . org-mode))
-
-
-(setq org-hide-emphasis-markers t)
+;;; Code:
 
 (use-package org
   :defer t
@@ -20,10 +25,9 @@
 		  org-directory (expand-file-name "~/OneDrive")
 		  org-default-notes-file (concat org-directory "/gtd.org")
 		  org-agenda-files (list
-				    "~/OneDrive/org/calendar.org"
+				    "~/OneDrive/org/life.org"
 				    "~/OneDrive/org/gtd.org"
-				    "~/OneDrive/org/notes.org"
-				    "~/OneDrive/org/todos.org")
+				    "~/OneDrive/org/journal.org")
 		  org-tag-alist '(("@home" . ?h)
 				  ("@computer . ?c")
 				  ("@phone . ?p"))
@@ -61,3 +65,5 @@
   (add-hook 'org-mode-hook 'org-bullets-mode))
                  
 (provide 'init-org)
+
+;;; init-org.el ends here

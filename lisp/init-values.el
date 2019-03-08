@@ -1,4 +1,4 @@
-;;; init-values.el --- set values
+;;; init-values.el --- set values -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,16 +14,6 @@
 
 ;;; Code:
 
-(defconst tea-emacs-version "1.0.0"
-  "Tea Emacs version.")
-
-(defconst tea-emacs-min-version "26.1"
-  "Minimal version of Emacs.")
-
-(defconst tea-emacs-lisp-directory
-  (expand-file-name (concat user-emacs-directory "lisp/"))
-  "Emacs LISP directory.")
-
 (defconst tea-emacs-cache-directory
   (expand-file-name (concat user-emacs-directory ".cache/"))
   "Emacs cache directory.")
@@ -35,5 +25,7 @@
 
 (defvar tea-emacs-startup-buffer-responsive t
   "Not nil if the home buffer should respond to resize events.")
+
+(provide 'init-values)
 
 ;;; init-values.el ends here
