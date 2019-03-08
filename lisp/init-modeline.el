@@ -41,25 +41,25 @@
 		       (let ((count (let-alist (flycheck-count-errors flycheck-current-errors)
 				      (+ (or .warning 0) (or .error 0)))))
 			 (propertize (format "✖ %s Issue%s" count (if (eq 1 count) "" "s"))))
-		     (propertize "✔ No Issues")))
-	(`running (propertize "⟲ Running..."))
-	(`no-checker (propertize "⚠ No Checker"))
-	(`not-checked "✖ Disabled")
-	(`errored (propertize "⚠ Error"))
+		     (propertize "✔" 'face 'success)))
+	(`running (propertize "⟲" 'face 'info))
+	(`no-checker (propertize "⚠" 'face 'warning))
+	(`not-checked "✖" 'face 'error)
+	(`errored (propertize "⚠" 'face 'error))
 	(`interrupted "⛔ Interrupted"))))))
 
 (defun replace-buffer-encoding ()
   "Display the encoding and eol style of the buffer the same way atom does."
   (propertize
-   (concat (pcase (coding-system-eol-type buffer-file-coding-system)
-	     (0 " LF")
-	     (1 " RLF")
-	     (2 " CR"))
-	   (let ((sys (coding-system-plist buffer-file-coding-system)))
+   (concat (let ((sys (coding-system-plist buffer-file-coding-system)))
 	     (cond ((memq (plist-get sys :category)
 			  '(coding-category-undecided coding-category-utf-8))
 		    " UTF-8 ")
 		   (t (upcase (symbol-name (plist-get sys :name))))))
+	   (pcase (coding-system-eol-type buffer-file-coding-system)
+	     (0 "LF")
+	     (1 "RLF")
+	     (2 "CR"))
 	   " ")))
 
 ;;;###autoload
@@ -87,12 +87,10 @@
                                      (let ((evil-face (powerline-evil-face)))
                                        (if evil-mode
                                            (powerline-raw (powerline-evil-tag) evil-face)))
-				     (powerline-raw " %b ")
-                                     (powerline-major-mode)
-				     (powerline-raw " " mode-line)
+				                             (powerline-raw " %b ")
+                                     
                                      (when (and (boundp 'vc-mode) vc-mode)
                                        (replace-vc-mode))
-                                     
                                      (powerline-raw " " mode-line)
                                      (replace-flycheck)
                                      (powerline-raw " " mode-line)
@@ -103,15 +101,11 @@
 				     ))
 
 			  ;; right
-                          (rhs (list (powerline-raw (format-mode-line '(:eval (propertize (format-time-string " %H:%M")))))
+                          (rhs (list (powerline-raw (replace-buffer-encoding))
+                                     (powerline-major-mode)
                                      (powerline-raw " " mode-line)
-                                     
-                                     (powerline-raw " " mode-line)
-                                     (powerline-raw "%l:%c " mode-line)
-                                     
-				     (powerline-raw (replace-buffer-encoding))
-				     (powerline-raw " " face2)
-                                     (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))) face2 'r))))
+                                     (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
+                                     (powerline-raw " " mode-line))))
 		     
                      (concat (powerline-render lhs)
                              (powerline-fill mode-line (powerline-width rhs))
