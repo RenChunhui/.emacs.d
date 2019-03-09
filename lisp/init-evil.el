@@ -1,4 +1,4 @@
-;;; init-evil.el --- evil configuration
+;;; init-evil.el --- evil configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -15,18 +15,20 @@
 ;;; Code:
 
 (use-package evil
+  :defer 1
   :init
   (progn
   	(setq-default evil-vsplit-window-right t
 		evil-split-window-below t
-		evil-normal-state-tag " 🅽 "
-		evil-insert-state-tag " 🅸 "
-		evil-visual-state-tag " 🆅 "
-		evil-emacs-state-tag " 🅴 "))
+		evil-normal-state-tag "NORMAL"
+		evil-insert-state-tag "INSERT"
+		evil-visual-state-tag "VISUAL"
+		evil-emacs-state-tag "EMACS"))
   :config
   (evil-mode 1))
 
 (use-package evil-leader
+  :after evil
   :config
   (progn
     (global-evil-leader-mode)

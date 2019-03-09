@@ -20,8 +20,8 @@
 - - -
 
 **目录**
-- [简介](#简介)
-- [安装](#安装)
+- [简介](#%E7%AE%80%E4%BB%8B)
+- [安装](#%E5%AE%89%E8%A3%85)
 
 # 简介
 
@@ -32,3 +32,11 @@
 ``` bash
 git clone https://github.com/renchunhui/.emacs.d
 ```
+
+- **init** 加载包之前执行
+- **config** 加载包之后执行
+- **command** 根据这些命令加载
+- **bind**
+- **defer** 延迟加载
+- **after** 延迟加载
+- **if** 根据条件加载

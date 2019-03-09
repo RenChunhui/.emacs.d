@@ -14,22 +14,14 @@
 
 ;;; Code:
 
-(require 'flycheck)
-
-(dolist (hook (list
-	       'emacs-lisp-mode-hook
-	       'lisp-mode-hook
-	       'css-mode-hook
-	       'scss-mode-hook
-	       'js2-mode-hook
-	       'tide-mode-hook
-	       'typescript-mode-hook))
-  (add-hook hook '(lambda () (flycheck-mode 1))))
-
-(use-package flycheck-pos-tip
-  :after flycheck
-  :config
-  (flycheck-pos-tip-mode))
+(use-package flycheck
+  :diminish flycheck-mode
+  :hook ((emacs-lisp-mode . flycheck-mode)
+	 (css-mode . flycheck-mode)
+	 (scss-mode . flycheck-mode)
+	 (js2-mode . flycheck-mode)
+	 (tide-mode . flycheck-mode)
+	 (typescript-mode . flycheck-mode)))
   
 (provide 'init-flycheck)
 

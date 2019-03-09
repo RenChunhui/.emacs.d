@@ -21,7 +21,10 @@
 (defconst emacs-start-time (current-time))
 
 (defvar tea-emacs-startup-time nil
-  "Eemacs full startup duration.")
+  "Emacs full startup duration.")
+
+(defvar is-mini t
+  "Show icon.")
 
 (defvar tea-emacs-startup-buffer-responsive t
   "Not nil if the home buffer should respond to resize events.")

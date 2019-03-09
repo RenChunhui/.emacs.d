@@ -1,4 +1,4 @@
-;;; init-which-key.el --- which-key
+;;; init-which-key.el --- which-key -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

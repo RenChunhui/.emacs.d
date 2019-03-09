@@ -1,4 +1,4 @@
-;;; init-org.el --- org mode configuration
+;;; init-org.el --- org mode configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

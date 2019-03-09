@@ -1,4 +1,4 @@
-;;; init-css.el --- css configuration
+;;; init-css.el --- css configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

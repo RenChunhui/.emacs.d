@@ -1,4 +1,4 @@
-;;; init-exec-path.el --- path configuration
+;;; init-exec-path.el --- path configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

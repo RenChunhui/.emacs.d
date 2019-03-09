@@ -1,4 +1,4 @@
-;;; init-functions.el --- functions
+;;; init-functions.el --- functions -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

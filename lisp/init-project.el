@@ -1,4 +1,4 @@
-;;; init-project.el --- project configuration
+;;; init-project.el --- project configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -15,13 +15,14 @@
 ;;; Code:
 
 (use-package projectile
+  :hook (after-init . projectile-mode)
+  :diminish projectile-mode
   :init
   (progn
     (setq projectile-sort-order 'recentf
 	  projectile-cache-file (concat tea-emacs-cache-directory "projectile.cache")
 	  projectile-known-projects-file (concat tea-emacs-cache-directory "projectile-bookmarks.eld")
-	  projectile-globally-ignored-files '(".DS_Store"))
-    (add-hook 'after-init-hook 'projectile-mode))
+	  projectile-globally-ignored-files '(".DS_Store")))
   :config
   (setq projectile-completion-system 'ivy))
 

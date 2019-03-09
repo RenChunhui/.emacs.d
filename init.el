@@ -1,4 +1,4 @@
-;;; init.el --- Initialization configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init.el --- Load the full configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -32,24 +32,22 @@
 (require 'init-values)
 (require 'init-functions)
 (require 'init-package)
-(require 'init-exec-path)
-(require 'init-startup)
 (require 'init-emacs)
+(require 'init-exec-path)
 
-(require 'init-window)
+(require 'init-startup)
 (require 'init-modeline)
 
 (require 'init-evil)
-(require 'init-keymap)
 (require 'init-company)
-(require 'init-yasnippet)
-(require 'init-which-key)
 (require 'init-ivy)
+(require 'init-yasnippet)
+(require 'init-hydra)
+
 (require 'init-project)
 (require 'init-flycheck)
 (require 'init-editorconfig)
 (require 'init-vc)
-;;(require 'init-chinese)
 
 (require 'init-calendar)
 (require 'init-html)

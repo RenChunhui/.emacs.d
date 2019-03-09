@@ -1,4 +1,4 @@
-;;; init-emacs.el --- Emacs initializtion configuration
+;;; init-emacs.el --- Emacs initializtion configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -63,10 +63,10 @@
 (load-theme 'dracula t)
 
 ;; Default font
-(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
-(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
-(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
-(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
+;; (setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
+(set-face-attribute 'default nil :font "SF Mono-13")
+;; (set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
+;; (set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
 
 ;; fullscreen
 (when (fboundp 'toggle-frame-fullscreen)
@@ -113,10 +113,7 @@
 
       ;; Cache
       abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")
-      auto-save-list-file-name (concat tea-emacs-cache-directory "autosave")
-      server-auth-dir (concat tea-emacs-cache-directory "server/")
-      url-cache-directory (concat tea-emacs-cache-directory "url/")
-      url-configuration-directory (concat tea-emacs-cache-directory "url/"))
+      auto-save-list-file-name (concat tea-emacs-cache-directory "autosave"))
 
 (provide 'init-emacs)
 

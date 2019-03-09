@@ -1,4 +1,4 @@
-;;; init-startup.el --- customuration startup screen
+;;; init-startup.el --- customuration startup screen -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
