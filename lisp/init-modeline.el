@@ -89,18 +89,13 @@
 									    (cdr powerline-default-separator-dir))))
 					   ;; left
 					   (lhs (list (powerline-raw (format-mode-line '(:eval (format " %s " (winum-get-number-string)))) face2)
-						      (let ((evil-face (powerline-evil-face)))
-							(if evil-mode
-							    (concat
-							     (powerline-raw " " evil-face)
-							     (powerline-raw (powerline-evil-tag) evil-face)
-							     (powerline-raw " " evil-face))))
+						      (powerline-raw evil-mode-line-tag)
 						      (powerline-raw " %b " mode-line)
 						      (replace-flycheck)))
 					   ;; center
 					   (center (list (powerline-vc)))
 					   ;; right
-					   (rhs (list (powerline-raw (replace-buffer-encoding) face1)
+					   (rhs (list (powerline-raw (replace-buffer-encoding))
 						      (powerline-major-mode)
 						      (powerline-raw " " mode-line)
 						      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
@@ -108,7 +103,7 @@
 						      )))
 				      
 				      (concat (powerline-render lhs)
-					      (powerline-fill-center face1 (/ (powerline-width center) 2.0))
+					      (powerline-fill-center mode-line (/ (powerline-width center) 2.0))
 					      (powerline-render center)
 					      (powerline-fill mode-line (powerline-width rhs))
 					      (powerline-render rhs)))))))
@@ -122,20 +117,6 @@
   :init
   (setq powerline-default-separator 'nil)
   (powerline-mini-theme))
-
-(use-package diminish
-  :after (editorconfig company)
-  :diminish company-mode
-  :diminish counsel-mode
-  :diminish evil-org-mode
-  :diminish editorconfig-mode
-  :diminish eldoc-mode
-  :diminish flycheck-mode
-  :diminish ivy-mode
-  :diminish projectile-mode
-  :diminish undo-tree-mode
-  :diminish which-key-mode
-  :diminish yas-minor-mode)
 
 (provide 'init-modeline)
 

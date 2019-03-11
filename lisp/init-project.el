@@ -16,7 +16,6 @@
 
 (use-package projectile
   :hook (after-init . projectile-mode)
-  :diminish projectile-mode
   :init
   (progn
     (setq projectile-sort-order 'recentf
@@ -24,7 +23,8 @@
 	  projectile-known-projects-file (concat tea-emacs-cache-directory "projectile-bookmarks.eld")
 	  projectile-globally-ignored-files '(".DS_Store")))
   :config
-  (setq projectile-completion-system 'ivy))
+  (progn
+    (setq projectile-completion-system 'ivy)))
 
 (provide 'init-project)
 

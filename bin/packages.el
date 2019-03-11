@@ -12,8 +12,6 @@
     company
     yasnippet
     which-key
-    general
-    hydra
     neotree
     flycheck
     winum

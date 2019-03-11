@@ -16,20 +16,15 @@
 
 (use-package ivy
   :hook (after-init . ivy-mode)
-  :diminish ivy-mode
   :config
   (progn
     (setq ivy-height 12
 	  ivy-wrap t
-	  ivy-fixed-height-minibuffer t
-	  projectile-completion-system 'ivy)))
+	  ivy-fixed-height-minibuffer t)
+    (setq-default projectile-completion-system 'ivy)))
 
 (use-package counsel
-  :hook (after-init . counsel-mode)
-  :diminish counsel-mode
-  :config
-  (progn
-    (define-key counsel-find-file-map (kbd "C-h") 'counsel-up-directory)))
+  :hook (after-init . counsel-mode))
 
 (use-package counsel-projectile)
 
