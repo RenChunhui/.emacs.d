@@ -19,12 +19,9 @@
   :hook (js2-mode . js2-imenu-extras-mode))
 
 (use-package tern
+  :hook (js2-mode . tern-mode)
   :init
-  (setq tern-command '("/usr/local/bin/tern" "--no-port-file"))
-  :config
-  (add-hook 'js2-mode-hook (lambda ()
-			     (tern-mode)
-			     (company-mode))))
+  (setq tern-command '("/usr/local/bin/tern" "--no-port-file")))
 
 (use-package company-tern
   :config (progn
