@@ -112,6 +112,7 @@
       ns-use-srgb-colorspace nil
 
       ;; Cache
+      recentf-save-file (concat tea-emacs-cache-directory "recentf")
       abbrev-file-name (concat tea-emacs-cache-directory "abbrev.el")
       auto-save-list-file-name (concat tea-emacs-cache-directory "autosave"))
 
