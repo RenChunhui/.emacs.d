@@ -21,6 +21,7 @@
 
 (diminish-major-mode 'text-mode-hook (propertize "Text"))
 (diminish-major-mode 'fundamental-mode-hook (propertize "Fundamental"))
+(diminish-major-mode 'dashboard-mode-hook (propertize " Dashboard " 'face '(:background "#672F14")))
 (diminish-major-mode 'emacs-lisp-mode-hook (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
 (diminish-major-mode 'org-mode-hook (propertize " Org-mode " 'face '(:background "#77AA99")))
 (diminish-major-mode 'web-mode-hook (propertize " HTML " 'face '(:background "#E44D26")))
