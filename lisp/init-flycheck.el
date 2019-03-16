@@ -22,7 +22,7 @@
 	 (js2-mode . flycheck-mode)
 	 (tide-mode . flycheck-mode)
 	 (typescript-mode . flycheck-mode)))
-  
+
 (provide 'init-flycheck)
 
 ;;; init-flycheck.el ends here

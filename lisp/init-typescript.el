@@ -21,7 +21,10 @@
   :after (typescript-mode company)
   :hook ((typescript-mode . tide-setup)
 	 (typescript-mode . tide-hl-identifier-mode)
-	 (before-save . tide-format-before-save)))
+	 (before-save . tide-format-before-save))
+  :init
+  (progn
+    (setq tide-tsserver-executable "/usr/local/bin/tsserver")))
 
 (provide 'init-typescript)
 

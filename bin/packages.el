@@ -17,6 +17,7 @@
     winum
     magit
     editorconfig
+    dired-k
 
     ;; ui
     powerline

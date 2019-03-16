@@ -15,15 +15,8 @@
 ;;; Code:
 
 (use-package editorconfig
-  :init
-  (progn
-    (dolist (hook (list
-		   'css-mode
-		   'scss-mode
-		   'typescript-mode
-		   'tide-mode
-		   'js2-mode))
-      (add-hook hook '(lamdba () (editorconfig-mode 1))))))
+  :config
+  (editorconfig-mode 1))
 
 (provide 'init-editor)
 

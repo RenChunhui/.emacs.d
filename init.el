@@ -21,7 +21,6 @@
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-;;(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (setq gc-cons-threshold (* 128 1024 1024))
 (add-hook 'emacs-startup-hook
@@ -36,12 +35,12 @@
 (require 'init-emacs)
 (require 'init-exec-path)
 
-(require 'init-startup)
+;;(require 'init-startup)
+(require 'init-dashboard)
 (require 'init-modeline)
 
 (require 'init-evil)
 (require 'init-company)
-(require 'init-lsp)
 (require 'init-ivy)
 (require 'init-yasnippet)
 (require 'init-which-key)
@@ -55,7 +54,7 @@
 (require 'init-html)
 (require 'init-css)
 (require 'init-javascript)
-;;(require 'init-typescript)
+(require 'init-typescript)
 (require 'init-json)
 (require 'init-yaml)
 (require 'init-org)
