@@ -19,8 +19,9 @@
   :mode ("\\.org$\\'" . org-mode)
   :init
   (progn
+    (setq org-hide-emphasis-markers t)
     (setq-default org-todo-keywords
-		  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(c)" "|" "SOMEDAY(s)"))
+		  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(c)" "|" "SOMEDAY(s)" "LATER(l)"))
 
 		  org-directory (expand-file-name "~/OneDrive")
 		  org-default-notes-file (concat org-directory "/gtd.org")

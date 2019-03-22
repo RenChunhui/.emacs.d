@@ -43,6 +43,7 @@
 (require 'init-company)
 (require 'init-ivy)
 (require 'init-yasnippet)
+;;(require 'init-hydra)
 (require 'init-which-key)
 
 (require 'init-project)

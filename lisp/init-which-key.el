@@ -18,9 +18,10 @@
   :init
   (progn
     (which-key-add-key-based-replacements
+      "SPC a" "Application"
       "SPC b" "Buffer"
-      "SPC c" "Code"
-      "SPC f" "Files"
+      "SPC d" "Dired"
+      "SPC f" "File"
       "SPC g" "Git"
       "SPC h" "Help"
       "SPC i" "Insert"
@@ -41,6 +42,8 @@
       ;; Buffer
       "bk" 'kill-current-buffer
       "bb" 'ivy-switch-buffer
+
+      ;; Dired
 
       ;; File
       "ff" 'counsel-find-file

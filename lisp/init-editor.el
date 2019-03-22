@@ -1,4 +1,4 @@
-;;; init-editor.el --- editor configuration -*- lexical-binding: t -*-
+ ;;; init-editor.el --- editor configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

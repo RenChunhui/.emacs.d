@@ -15,9 +15,11 @@
 ;;; Code:
 
 (use-package css-mode
+  :defer t
   :mode ("\\.css\\'" . css-mode))
 
 (use-package scss-mode
+  :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
