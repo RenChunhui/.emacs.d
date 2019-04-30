@@ -23,15 +23,20 @@
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (setq gc-cons-threshold (* 128 1024 1024))
+
 (add-hook 'emacs-startup-hook
 	  (lambda ()
 	    (setq gc-cons-threshold (* 20 1024 1024)
 		  gc-cons-percentage 0.6
 		  file-name-handler-alist nil)))
 
+(defconst emacs-cache-directory
+  (expand-file-name (concat user-emacs-directory ".cache/"))
+  "Emacs cache directory.")
+
 (require 'init-values)
 (require 'init-functions)
-(require 'init-package)
+(require 'init-elpa)
 (require 'init-exec-path)
 (require 'init-startup)
 (require 'init-emacs)

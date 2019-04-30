@@ -1,4 +1,4 @@
-;;; init-package.el --- init package
+;;; init-elpa.el --- packages -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -17,7 +17,7 @@
 (require 'package)
 
 (setq package--init-file-ensured t
-      package-user-dir (expand-file-name "elpa" tea-emacs-cache-directory)
+      package-user-dir (expand-file-name "elpa" emacs-cache-directory)
       package-enable-at-startup nil
       package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/")
 			 ("gnu"   . "http://elpa.emacs-china.org/gnu/")))
@@ -28,6 +28,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(provide 'init-package)
+(provide 'init-elpa)
 
-;;; init-package.el ends here
+;;; init-elpa.el ends here
