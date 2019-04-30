@@ -14,7 +14,11 @@
 
 ;;; Code:
 
-;; prefer coding
+;; UTF-8
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
 ;; remove tool bar
@@ -67,10 +71,6 @@
 (set-face-attribute 'default nil :font "SF Mono-13")
 ;; (set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
 ;; (set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
-
-;; fullscreen
-(when (fboundp 'toggle-frame-fullscreen)
-  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"

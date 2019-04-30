@@ -12,6 +12,8 @@
     company
     yasnippet
     which-key
+    hydra
+    general
     neotree
     flycheck
     winum
@@ -20,6 +22,7 @@
     dired-k
 
     ;; ui
+    dashboard
     powerline
     dracula-theme
 
@@ -34,6 +37,7 @@
     evil-leader
 
     ;; language
+    js-doc
     web-mode
     css-mode
     scss-mode

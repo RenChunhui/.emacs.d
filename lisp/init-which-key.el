@@ -20,17 +20,22 @@
     (which-key-add-key-based-replacements
       "SPC a" "Application"
       "SPC b" "Buffer"
+      "SPC c" "Comments"
       "SPC d" "Dired"
+      "SPC e" "Error"
       "SPC f" "File"
       "SPC g" "Git"
       "SPC h" "Help"
       "SPC i" "Insert"
+      "SPC j" "Jump"
       "SPC o" "Org mode"
       "SPC p" "Project"
       "SPC r" "Recent"
       "SPC s" "Search"
       "SPC t" "Toggle"
-      "SPC w" "Window"))
+      "SPC w" "Window"
+
+      "SPC ff" "Find File"))
   :config
   (progn
     (setq which-key-sort-order #'which-key-prefix-then-key-order
@@ -71,6 +76,9 @@
       "bss" 'ibuffer-do-sort-by-size
       "bsf" 'ibuffer-do-sort-by-filename/process
       "bsm" 'ibuffer-do-sort-by-major-mode
+
+      ;; Comments"
+      "cf" 'js-doc-insert-function-doc
 
       ;; Dired
 
