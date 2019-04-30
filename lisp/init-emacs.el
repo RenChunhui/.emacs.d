@@ -62,12 +62,6 @@
 ;; load theme
 (load-theme 'dracula t)
 
-;; Default font
-(setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
-(set-face-attribute 'default nil :font "DejaVuSansMono Nerd Font-13")
-(set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
-(set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
-
 ;; fullscreen
 (when (fboundp 'toggle-frame-fullscreen)
   (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
