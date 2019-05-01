@@ -34,29 +34,27 @@
   (expand-file-name (concat user-emacs-directory ".cache/"))
   "Emacs cache directory.")
 
-(require 'init-values)
-(require 'init-functions)
 (require 'init-elpa)
 (require 'init-exec-path)
-(require 'init-startup)
 (require 'init-emacs)
-
-(require 'init-window)
+(require 'init-linum-mode)
+(require 'init-startup)
 (require 'init-modeline)
 
+
 (require 'init-evil)
-(require 'init-keymap)
 (require 'init-company)
 (require 'init-yasnippet)
-(require 'init-which-key)
 (require 'init-ivy)
+
+(require 'init-editorconfig)
+
 (require 'init-project)
 (require 'init-flycheck)
-(require 'init-editorconfig)
+(require 'init-window)
 (require 'init-vc)
-;;(require 'init-chinese)
+(require 'init-which-key)
 
-(require 'init-calendar)
 (require 'init-html)
 (require 'init-css)
 (require 'init-javascript)

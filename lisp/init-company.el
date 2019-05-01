@@ -1,4 +1,4 @@
-;;; init-company.el --- company mode configuration
+;;; init-company.el --- company mode configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -16,18 +16,13 @@
 
 (use-package company
   :hook (after-init . global-company-mode)
-  :init
+  :diminish company-mode
+  :config
   (progn
     (setq company-idle-delay 0.1
+	  company-show-numbers t
 	  company-tooltip-limit 10
 	  company-minimum-prefix-length 1)))
-
-(use-package company-quickhelp
-  :hook (global-company-mode . company-quickhelp-mode)
-  :init
-  (progn
-    (setq company-quickhelp-delay 0.8
-	  company-quickhelp-max-lines 10)))
 
 (provide 'init-company)
 

@@ -15,14 +15,15 @@
 ;;; Code:
 
 (use-package evil
+  :defer 1
   :init
   (progn
   	(setq-default evil-vsplit-window-right t
 		evil-split-window-below t
-		evil-normal-state-tag " 🅽 "
-		evil-insert-state-tag " 🅸 "
-		evil-visual-state-tag " 🆅 "
-		evil-emacs-state-tag " 🅴 "))
+		evil-normal-state-tag (propertize " NORMAL " 'face '(:background "green" :foreground "white"))
+		evil-insert-state-tag (propertize " INSERT " 'face '(:background "blue" :foreground "white"))
+		evil-visual-state-tag (propertize " VISUAL " 'face '(:background "orange" :foreground "white"))
+		evil-emacs-state-tag (propertize " EMACS " 'face '(:background "violet" :foreground "white"))))
   :config
   (evil-mode 1))
 

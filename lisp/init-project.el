@@ -18,8 +18,8 @@
   :init
   (progn
     (setq projectile-sort-order 'recentf
-	  projectile-cache-file (concat tea-emacs-cache-directory "projectile.cache")
-	  projectile-known-projects-file (concat tea-emacs-cache-directory "projectile-bookmarks.eld")
+	  projectile-cache-file (concat emacs-cache-directory "projectile.cache")
+	  projectile-known-projects-file (concat emacs-cache-directory "projectile-bookmarks.eld")
 	  projectile-globally-ignored-files '(".DS_Store"))
     (add-hook 'after-init-hook 'projectile-mode))
   :config
