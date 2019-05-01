@@ -1,4 +1,4 @@
-;;; init-keymap.el --- keymap
+;;; init-linum-mode.el --- linum mode
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,6 +14,7 @@
 
 ;;; Code:
 
-(provide 'init-keymap)
 
-;;; init-keymap.el ends here
+(provide 'init-linum-mode)
+
+;;; init-linum-mode.el ends here
