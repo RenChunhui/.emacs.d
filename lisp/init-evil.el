@@ -28,6 +28,7 @@
   (evil-mode 1))
 
 (use-package evil-leader
+  :after evil
   :config
   (progn
     (global-evil-leader-mode)

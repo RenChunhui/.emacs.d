@@ -1,6 +1,6 @@
 ;;; init.el --- Initialization configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
-;; Copyright (c) 2018 Chunhui Ren
+;; Copyright (c) 2019 Chunhui Ren
 ;;
 ;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
 ;; URL     : https://github.com/RenChunhui/.emacs.d
@@ -21,6 +21,7 @@
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
 
 (setq gc-cons-threshold (* 128 1024 1024))
 
@@ -37,23 +38,16 @@
 (require 'init-elpa)
 (require 'init-exec-path)
 (require 'init-emacs)
-(require 'init-linum-mode)
-(require 'init-startup)
+(require 'init-osx)
 (require 'init-modeline)
+(require 'init-themes)
+(require 'init-line-number)
 
-
-(require 'init-evil)
 (require 'init-company)
 (require 'init-yasnippet)
+(require 'init-evil)
+(require 'init-keymap)
 (require 'init-ivy)
-
-(require 'init-editorconfig)
-
-(require 'init-project)
-(require 'init-flycheck)
-(require 'init-window)
-(require 'init-vc)
-(require 'init-which-key)
 
 (require 'init-html)
 (require 'init-css)
@@ -61,8 +55,8 @@
 (require 'init-typescript)
 (require 'init-json)
 (require 'init-yaml)
-(require 'init-org)
 (require 'init-markdown)
+;;(require 'init-org)
 
 ;; Allow assets from emacsclient
 (add-hook 'after-init-hook
