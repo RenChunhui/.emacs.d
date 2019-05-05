@@ -1,4 +1,4 @@
-;;; init-yasnippet.el --- yasnippet configuration
+;;; init-yasnippet.el --- yasnippet configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -15,15 +15,16 @@
 ;;; Code:
 
 (use-package yasnippet
+  :hook ((emacs-lisp-mode . yas-minor-mode)
+	 (js2-mode . yas-minor-mode)
+	 (web-mode . yas-minor-mode)
+	 (css-mode . yas-minor-mode)
+	 (scss-mode . yas-minor-mode)
+	 (tide-mode . yas-minor-mode)
+	 (typescript-mode . yas-minor-mode))
+  :diminish yas-minor-mode
   :init
   (setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
-  (dolist (hook (list 'emacs-lisp-mode-hook
-		      'js2-mode-hook
-		      'web-mode-hook
-		      'css-mode-hook
-		      'tide-mode-hook
-		      'typescript-mode-hook))
-    (add-hook hook '(lambda () (yas-minor-mode 1))))
   :config
   (yas-reload-all)
   (global-set-key (kbd "M-/") 'company-yasnippet))

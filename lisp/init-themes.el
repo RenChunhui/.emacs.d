@@ -1,4 +1,4 @@
-;;; init-linum-mode.el --- linum mode
+;;; init-themes.el --- Default for themes -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -14,7 +14,8 @@
 
 ;;; Code:
 
+(load-theme 'dracula t)
 
-(provide 'init-linum-mode)
+(provide 'init-themes)
 
-;;; init-linum-mode.el ends here
+;;; init-themes.el ends here

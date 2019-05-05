@@ -37,14 +37,8 @@
 (when (fboundp 'menu-bar-mode)
   (menu-bar-mode -1))
 
-(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-(add-to-list 'default-frame-alist '(ns-appearance . dark))
-
 ;; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
-
-;; show line number
-(global-linum-mode t)
 
 ;; auto insert closing brackket
 (electric-pair-mode t)
@@ -58,19 +52,8 @@
 ;; wrap long lines by word boundary, and arrow up/down move by visual line, etc
 (global-visual-line-mode 1)
 
-;; display current time in modeline
-(display-time-mode t)
-
-(global-visual-line-mode 1)
-
-;; load theme
-(load-theme 'dracula t)
-
 ;; Default font
-;; (setq face-font-rescale-alist `(("WenQuanYi Micro Hei" . ,(/ 16.0 13))))
 (set-face-attribute 'default nil :font "SF Mono-13")
-;; (set-fontset-font t 'han      (font-spec :family "WenQuanYi Micro Hei"))
-;; (set-fontset-font t 'cjk-misc (font-spec :family "WenQuanYi Micro Hei"))
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"

@@ -1,4 +1,4 @@
-;;; init-elpa.el --- packages -*- lexical-binding: t -*-
+;;; init-package.el --- init package -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;

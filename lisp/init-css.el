@@ -1,4 +1,4 @@
-;;; init-css.el --- css configuration
+;;; init-css.el --- css configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -15,9 +15,14 @@
 ;;; Code:
 
 (use-package css-mode
+  :defer t
   :mode ("\\.css\\'" . css-mode))
 
+(use-package skewer-mode
+  :hook (css-mode . 'skewer-css-mode))
+
 (use-package scss-mode
+  :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
