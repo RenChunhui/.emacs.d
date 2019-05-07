@@ -17,6 +17,11 @@
 ;; Menu bar is not annoying in OSX
 (menu-bar-mode 1)
 
+;; Set keys for Apple keyboard, for emacs in OS X
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'none)
+(setq mac-control-modifier 'control)
+
 ;; Make the browser the OSX default
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
@@ -25,7 +30,7 @@
 
 ;; Keybinding to toggle full screen mode
 (when (fboundp 'toggle-frame-fullscreen)
-  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
+  (global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen))
 
 ;; Ignore .DS_Store files with ido mode
 ;;(add-to-list 'ido-ignore-files "\\.DS_Store")

@@ -16,7 +16,16 @@
 
 (use-package js2-mode
   :mode ("\\.js\\'" . js2-mode)
-  :hook (js2-mode . js2-imenu-extras-mode))
+  :hook (js2-mode . js2-imenu-extras-mode)
+  :init
+  (add-hook 'js2-mode-hook
+	    (lambda ()
+	      (setq electric-pair-pairs
+		    '(
+		      (?\" . ?\")
+		      (?\( . ?\))
+		      (?\{ . ?\})
+		      )))))
 
 (use-package tern
   :hook (js2-mode . tern-mode)
