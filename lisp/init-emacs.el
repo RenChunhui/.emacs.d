@@ -52,6 +52,9 @@
 ;; wrap long lines by word boundary, and arrow up/down move by visual line, etc
 (global-visual-line-mode 1)
 
+;; make {copy, cut, paste, undo} have {C-c, C-x, C-v, C-z} keys
+(cua-mode 1)
+
 ;; Default font
 (set-face-attribute 'default nil :font "SF Mono-13")
 
