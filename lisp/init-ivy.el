@@ -14,21 +14,21 @@
 
 ;;; Code:
 
-(use-package ivy
-  :hook (after-init . ivy-mode)
-  :config
-  (progn
-    (setq ivy-height 12
-	  ivy-wrap t
-	  ivy-fixed-height-minibuffer t)
-    (setq-default projectile-completion-system 'ivy)))
+(require 'ivy)
+(require 'counsel)
+(require 'counsel-projectile)
+(require 'swiper)
 
-(use-package counsel
-  :hook (after-init . counsel-mode))
+(add-hook 'after-init-hook (lambda ()
+			     (ivy-mode)
+			     (counsel-mode)))
 
-(use-package counsel-projectile)
-
-(use-package swiper)
+(eval-after-load "ivy"
+  '(progn
+     (setq ivy-height 12
+	   ivy-wrap t
+	   ivy-fixed-height-minibuffer t)
+     (setq-default projectile-completion-system 'ivy)))
 
 (provide 'init-ivy)
 

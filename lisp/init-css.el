@@ -14,17 +14,11 @@
 
 ;;; Code:
 
-(use-package css-mode
-  :defer t
-  :mode ("\\.css\\'" . css-mode))
+(add-hook 'css-mode-hook 'rainbow-mode)
 
-(use-package skewer-mode
-  :hook (css-mode . 'skewer-css-mode))
-
-(use-package scss-mode
-  :defer t
-  :mode (("\\.scss\\'" . scss-mode)
-	 ("\\.postcss\\'" . scss-mode)))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+(add-to-list 'auto-mode-alist '("\\.postcss\\'" . scss-mode))
 
 (provide 'init-css)
 

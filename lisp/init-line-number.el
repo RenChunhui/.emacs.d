@@ -25,7 +25,7 @@
 	       'typescript-mode-hook
 	       'css-mode-hook
 	       'scss-mode-hook))
-  (add-hook hook (lambda () (display-line-numbers-mode))))
+  (add-hook hook (lambda () (linum-mode))))
 
 (provide 'init-line-number)
 
