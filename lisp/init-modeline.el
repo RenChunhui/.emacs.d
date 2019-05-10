@@ -50,7 +50,7 @@
 		     (propertize "✔" 'face 'success)))
 	
 	(`running (propertize "⟲" 'face 'info))
-	(`no-checker (propertize "☣" 'face 'warning))
+	(`no-checker (propertize "✖" 'face 'warning))
 	(`not-checked "☠" 'face 'error)
 	(`errored (propertize "⚠" 'face 'error))
 	(`interrupted "⛔ Interrupted"))))))

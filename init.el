@@ -1,10 +1,4 @@
-;;; init.el --- Initialization configuration -*- coding: utf-8; lexical-binding: t -*-
-;;
-;; Copyright (c) 2019 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
+;;; init.el --- Load the full configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -17,8 +11,12 @@
 ;; Produce backtraces when errors occur
 (setq debug-on-error t)
 
+(defconst emacs-cache-directory
+  (expand-file-name (concat user-emacs-directory ".cache/"))
+  "Emacs cache directory.")
+
 (when (version< emacs-version "26.1")
-  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+  (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
@@ -31,23 +29,25 @@
 		  gc-cons-percentage 0.6
 		  file-name-handler-alist nil)))
 
-(defconst emacs-cache-directory
-  (expand-file-name (concat user-emacs-directory ".cache/"))
-  "Emacs cache directory.")
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+(require 'init-utils)
+(require 'init-osx)
+(require 'init-emacs)
 (require 'init-elpa)
 (require 'init-exec-path)
-(require 'init-emacs)
-(require 'init-osx)
-(require 'init-modeline)
-(require 'init-themes)
-(require 'init-line-number)
+(require 'init-keybindings)
+(require 'init-which-key)
 
+(require 'init-themes)
+(require 'init-startup)
+(require 'init-modeline)
+(require 'init-line-number)
 (require 'init-company)
+(require 'init-ivy)
 (require 'init-yasnippet)
 (require 'init-evil)
-(require 'init-keymap)
-(require 'init-ivy)
+(require 'init-ctags)
 
 (require 'init-html)
 (require 'init-css)
@@ -56,19 +56,16 @@
 (require 'init-json)
 (require 'init-yaml)
 (require 'init-markdown)
-;;(require 'init-org)
 
-;; Allow assets from emacsclient
 (add-hook 'after-init-hook
 	  (lambda ()
 	    (require 'server)
 	    (unless (server-running-p)
 	      (server-start))))
 
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (provide 'init)
 
-;; Local Variables:
-;; coding: utf-8
-;; no-byte-compile: t
-;; End:
 ;;; init.el ends here

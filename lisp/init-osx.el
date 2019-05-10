@@ -1,4 +1,4 @@
-;;; init-osx.el --- OSX related configuration -*- lexical-binding: t -*-
+ ;;; init-osx.el --- OSX related configuration -*- lexical-binding: t -*-
 ;;
 ;; Copyright (c) 2018 Chunhui Ren
 ;;
@@ -18,9 +18,8 @@
 (menu-bar-mode 1)
 
 ;; Set keys for Apple keyboard, for emacs in OS X
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
-(setq mac-control-modifier 'control)
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
 
 ;; Make the browser the OSX default
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)

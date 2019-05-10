@@ -58,6 +58,8 @@
 ;; Default font
 (set-face-attribute 'default nil :font "SF Mono-13")
 
+(setq-default cursor-type 'bar)
+
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"
 
