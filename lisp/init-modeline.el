@@ -109,15 +109,18 @@
 					      (powerline-fill mode-line (powerline-width rhs))
 					      (powerline-render rhs)))))))
 
-(use-package winum
-  :config
-  (progn
-    (winum-mode)))
 
-(use-package powerline
-  :init
-  (setq powerline-default-separator 'nil)
-  (powerline-mini-theme))
+(require 'winum)
+(require 'powerline)
+
+(eval-after-load 'winum
+  '(progn
+     (winum-mode)))
+
+(eval-after-load 'powerline
+  '(progn
+     (setq powerline-default-separator 'nil)
+     (powerline-mini-theme)))
 
 (provide 'init-modeline)
 

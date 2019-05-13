@@ -19,6 +19,7 @@
 (eval-after-load 'which-key
   '(progn
      (which-key-mode)
+     (setq which-key-prefix-prefix "")
      (which-key-add-key-based-replacements
      "SPC a" "Application"
 
