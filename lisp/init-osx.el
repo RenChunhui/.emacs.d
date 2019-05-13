@@ -29,7 +29,7 @@
 
 ;; Keybinding to toggle full screen mode
 (when (fboundp 'toggle-frame-fullscreen)
-  (global-set-key (kbd "<M-return>") 'toggle-frame-fullscreen))
+  (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
 
 ;; Ignore .DS_Store files with ido mode
 ;;(add-to-list 'ido-ignore-files "\\.DS_Store")
