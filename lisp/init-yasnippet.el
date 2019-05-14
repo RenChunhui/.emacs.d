@@ -26,10 +26,11 @@
 (add-hook 'tide-mode-hook 'yas-minor-mode)
 (add-hook 'typescript-mode-hook 'yas-minor-mode)
 
-(eval-after-load 'yasnippet
-  '(progn
-     (yas-reload-all)
-     (global-set-key (kbd "M-/") 'company-yasnippet)))
+(add-hook 'after-init-hook (lambda ()
+			     (eval-after-load 'yasnippet
+			       '(progn
+				  (yas-reload-all)
+				  (global-set-key (kbd "M-/") 'company-yasnippet)))))
 
 (provide 'init-yasnippet)
 

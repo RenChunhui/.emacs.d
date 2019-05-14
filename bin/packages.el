@@ -18,6 +18,7 @@
     winum
     magit
     editorconfig
+    benchmark-init
 
     ;; ui
     powerline
