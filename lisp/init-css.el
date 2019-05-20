@@ -14,11 +14,14 @@
 
 ;;; Code:
 
-(add-hook 'css-mode-hook 'rainbow-mode)
+(use-package css-mode
+  :ensure t
+  :mode ("\\.css\\'" . css-mode))
 
-(add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-(add-to-list 'auto-mode-alist '("\\.postcss\\'" . scss-mode))
+(use-package scss-mode
+  :ensure t
+  :mode (("\\.scss\\'" . scss-mode)
+	 ("\\.postcss\\'" . scss-mode)))
 
 (provide 'init-css)
 

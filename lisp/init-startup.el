@@ -194,6 +194,16 @@ REFRESH if the buffer should be redrawn."
                                                (+ (length title) 1)) 2))) ?\s))
       (insert (format "%s\n\n" title))))
 
+;; (require 'benchmark-init)
+;; To disable collection of benchmark data after init is done.
+;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
+
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 (provide 'init-startup)
 
 ;;; init-startup.el ends here

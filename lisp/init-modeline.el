@@ -1,18 +1,8 @@
-;;; init-modeline.el --- modeline configuration -*- lexical-binding: t -*-
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
 
-;;; Commentary:
-
-;;; Code:
+;; debug
+;; battery
+;; email
+;; time
 
 (defmacro diminish-major-mode (mode-hook abbrev)
   "Macro for diminish major mode with MODE-HOOK and ABBREV."
@@ -20,7 +10,7 @@
              (lambda () (setq mode-name ,abbrev))))
 
 (diminish-major-mode 'text-mode-hook (propertize "Text"))
-(diminish-major-mode 'fundamental-mode-hook (propertize "Fundamental"))
+(diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
 (diminish-major-mode 'dashboard-mode-hook (propertize " Dashboard " 'face '(:background "#672F14")))
 (diminish-major-mode 'emacs-lisp-mode-hook (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
 (diminish-major-mode 'org-mode-hook (propertize " Org-mode " 'face '(:background "#77AA99")))
@@ -34,43 +24,10 @@
 (diminish-major-mode 'yaml-mode-hook (propertize " YAML " 'face '(:background "#fbc02d")))
 (diminish-major-mode 'markdown-mode-hook (propertize " Markdown " 'face '(:background "#755838")))
 
-(defpowerline replace-flycheck
-  (powerline-raw
-   (format-mode-line
-    '(:eval
-      (pcase flycheck-last-status-change
-	(`finished (if flycheck-current-errors
-		       (let-alist (flycheck-count-errors flycheck-current-errors)
-			 (let* ((fly-error (or .error 0))
-				(fly-warning (or .warning 0))
-				(fly-info (or .info )))
-			   (concat
-			    (propertize (format "✖ %s" fly-error) 'face 'error)
-			    (propertize (format " ⚠ %s" fly-warning 'face 'warning)))))
-		     (propertize "✔" 'face 'success)))
-	
-	(`running (propertize "⟲" 'face 'info))
-	(`no-checker (propertize "✖" 'face 'warning))
-	(`not-checked "☠" 'face 'error)
-	(`errored (propertize "⚠" 'face 'error))
-	(`interrupted "⛔ Interrupted"))))))
 
-(defun replace-buffer-encoding ()
-  "Display the encoding and eol style of the buffer the same way atom does."
-  (propertize
-   (concat (let ((sys (coding-system-plist buffer-file-coding-system)))
-	     (cond ((memq (plist-get sys :category)
-			  '(coding-category-undecided coding-category-utf-8))
-		    " UTF-8 ")
-		   (t (upcase (symbol-name (plist-get sys :name))))))
-	   (pcase (coding-system-eol-type buffer-file-coding-system)
-	     (0 "LF")
-	     (1 "RLF")
-	     (2 "CR"))
-	   " ")))
 
 ;;;###autoload
-(defun powerline-mini-theme ()
+(defun powerline-custom-theme ()
   "Mini powerline theme."
   (interactive)
   (setq-default mode-line-format '("%e"
@@ -89,18 +46,19 @@
 									    (powerline-current-separator)
 									    (cdr powerline-default-separator-dir))))
 					   ;; left
-					   (lhs (list (powerline-raw (format-mode-line '(:eval (format " %s " (winum-get-number-string)))) face2)
-						      (powerline-raw evil-mode-line-tag)
-						      (powerline-raw " %b " mode-line)
-						      (replace-flycheck)))
+					   (lhs (list 
+						 (powerline-raw (insert-winum-number))
+						 (powerline-raw (insert-version-control))
+						 (powerline-raw (insert-flycheck))))
+					   
 					   ;; center
-					   (center (list (powerline-vc)))
+					   (center (list (powerline-raw evil-mode-line-tag)))
+					   
 					   ;; right
-					   (rhs (list (powerline-raw (replace-buffer-encoding))
-						      (powerline-major-mode)
-						      (powerline-raw " " mode-line)
+					   (rhs (list (powerline-raw (insert-buffer-encoding))
+						      (powerline-raw (insert-major-mode))
 						      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
-									(powerline-raw " " mode-line)
+						      (powerline-raw " " mode-line)
 						      )))
 				      
 				      (concat (powerline-render lhs)
@@ -109,19 +67,75 @@
 					      (powerline-fill mode-line (powerline-width rhs))
 					      (powerline-render rhs)))))))
 
+(use-package winum
+  :ensure t
+  :init
+  (winum-mode))
 
-(require 'winum)
-(require 'powerline)
-
-(eval-after-load 'winum
-  '(progn
-     (winum-mode)))
-
-(eval-after-load 'powerline
-  '(progn
-     (setq powerline-default-separator 'nil)
-     (powerline-mini-theme)))
+(use-package powerline
+  :ensure t
+  :init
+  (progn
+    (setq powerline-default-separator 'nil)
+    (powerline-custom-theme))
+  :config
+  (progn
+    (defun insert-winum-number ()
+      "Window number."
+      (format-mode-line '(:eval (format " %s " (winum-get-number-string)))))
+    
+    (defun insert-version-control ()
+      "Git & SVN."
+      (format-mode-line
+       '(:eval
+	 (cond
+	  ((string-match "Git[:-]" vc-mode)
+	   (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
+	     (concat
+	      (propertize (format " Git: %s " branch)))))
+	  (t (format "%s" vc-mode))))))
+    
+    (defun insert-flycheck ()
+      "Flycheck."
+      (format-mode-line
+       '(:eval
+	 (pcase flycheck-last-status-change
+	   (`finished (if flycheck-current-errors
+			  (let-alist (flycheck-count-errors flycheck-current-errors)
+			    (let* ((fly-error (or .error 0))
+				   (fly-warning (or .warning 0))
+				   (fly-info (or .info )))
+			      (concat
+			       (propertize (format "✖ %s" fly-error) 'face 'error)
+			       (propertize (format " ⚠ %s" fly-warning 'face 'warning)))))
+			(propertize "✔" 'face 'success)))
+	   
+	   (`running (propertize "⟲" 'face 'info))
+	   (`no-checker (propertize "✖" 'face 'warning))
+	   (`not-checked "☠" 'face 'error)
+	   (`errored (propertize "⚠" 'face 'error))
+	   (`interrupted "⛔ Interrupted")))))
+    
+    (defun insert-evil-mode ()
+      "Evil mode."
+      (format-mode-line '(:eval (format " %s " (evil-mode-line-tag)))))
+    
+    (defun insert-buffer-encoding ()
+      "Display the encoding and eol style of the buffer the same way atom does."
+      (propertize
+       (concat (let ((sys (coding-system-plist buffer-file-coding-system)))
+		 (cond ((memq (plist-get sys :category)
+			      '(coding-category-undecided coding-category-utf-8))
+			" UTF-8 ")
+		       (t (upcase (symbol-name (plist-get sys :name))))))
+	       (pcase (coding-system-eol-type buffer-file-coding-system)
+		 (0 "LF")
+		 (1 "RLF")
+		 (2 "CR"))
+	       " ")))
+    
+    (defun insert-major-mode ()
+      "Major mode."
+			(format-mode-line '(:eval (format " %s " (powerline-major-mode)))))))
 
 (provide 'init-modeline)
-
-;;; init-modeline.el ends here

@@ -15,9 +15,11 @@
 ;;; Code:
 
 (use-package typescript-mode
+  :ensure t
   :mode "\\.ts$")
 
 (use-package tide
+  :ensure t
   :after (typescript-mode company)
   :hook ((typescript-mode . tide-setup)
 	 (typescript-mode . tide-hl-identifier-mode)

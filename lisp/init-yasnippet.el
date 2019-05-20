@@ -14,23 +14,21 @@
 
 ;;; Code:
 
-(require 'yasnippet)
-
-(setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
-
-(add-hook 'emacs-lisp-mode-hook 'yas-minor-mode)
-(add-hook 'js2-mode-hook 'yas-minor-mode)
-(add-hook 'web-mode-hook 'yas-minor-mode)
-(add-hook 'css-mode-hook 'yas-minor-mode)
-(add-hook 'scss-mode-hook 'yas-minor-mode)
-(add-hook 'tide-mode-hook 'yas-minor-mode)
-(add-hook 'typescript-mode-hook 'yas-minor-mode)
-
-(add-hook 'after-init-hook (lambda ()
-			     (eval-after-load 'yasnippet
-			       '(progn
-				  (yas-reload-all)
-				  (global-set-key (kbd "M-/") 'company-yasnippet)))))
+(use-package yasnippet
+  :ensure t
+  :hook ((emacs-lisp-mode . yas-minor-mode)
+	 (js2-mode . yas-minor-mode)
+	 (web-mode . yas-minor-mode)
+	 (css-mode . yas-minor-mode)
+	 (scss-mode . yas-minor-mode)
+	 (tide-mode . yas-minor-mode)
+	 (typescript-mode . yas-minor-mode))
+  :diminish yas-minor-mode
+  :init
+  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  :config
+  (yas-reload-all)
+  (global-set-key (kbd "M-/") 'company-yasnippet))
 
 (provide 'init-yasnippet)
 

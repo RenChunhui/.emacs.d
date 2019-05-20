@@ -1,10 +1,4 @@
-;;; init-tree.el --- Treemacs configuration
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
+;;; init-tree.el --- treemacs configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -15,20 +9,13 @@
 ;;; Code:
 
 (use-package treemacs
-  :commands (treemacs-select-window treemacs--window-number-ten
-               treemacs-current-visibility)
+  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
   :config
   (progn
-    (when treemacs-use-follow-mode
-        (treemacs-follow-mode t))
-      (when treemacs-use-filewatch-mode
-        (treemacs-filewatch-mode t))
-      (when (memq treemacs-use-git-mode '(simple extended deferred))
-        (treemacs-git-mode treemacs-use-git-mode))
     (setq treemacs-collapse-dirs                 (if (executable-find "python3") 3 0)
           treemacs-deferred-git-apply-delay      0.5
           treemacs-display-in-side-window        t
@@ -43,7 +30,7 @@
           treemacs-is-never-other-window         nil
           treemacs-max-git-entries               5000
           treemacs-missing-project-action        'ask
-          treemacs-no-png-images                 t
+          treemacs-no-png-images                 nil
           treemacs-no-delete-other-windows       t
           treemacs-project-follow-cleanup        nil
           treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
@@ -60,12 +47,14 @@
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
-          treemacs-width                         25)
+          treemacs-width                         35)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
     ;;(treemacs-resize-icons 44)
 
+    (treemacs-follow-mode t)
+    (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
     (pcase (cons (not (null (executable-find "git")))
                  (not (null (executable-find "python3"))))
@@ -92,6 +81,7 @@
 
 (use-package treemacs-icons-dired
   :after treemacs dired
+  :ensure t
   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit

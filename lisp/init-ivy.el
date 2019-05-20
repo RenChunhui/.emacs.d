@@ -1,35 +1,25 @@
-;;; init-ivy.el --- ivy configuration -*- coding: utf-8; lexical-binding: t -*-
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
-;;
-;; This file is not part of GNU Emacs.
-;;
-;;; License: GPLv3
 
-;;; Commentary:
+(use-package ivy
+  :ensure t
+  :hook (emacs-startup . ivy-mode)
+  :config
+  (progn
+    (setq ivy-height 12
+	  ivy-wrap t
+	  ivy-fixed-height-minibuffer t)
+    (setq-default projectile-completion-system 'ivy)))
 
-;;; Code:
+(use-package counsel
+  :ensure t
+  :defer .1
+  :bind (("M-x" . counsel-M-x)))
 
-(require 'ivy)
-(require 'counsel)
-(require 'counsel-projectile)
-(require 'swiper)
+(use-package counsel-projectile
+  :ensure t
+  :defer .1)
 
-(add-hook 'after-init-hook (lambda ()
-			     (ivy-mode)
-			     (counsel-mode)))
-
-(eval-after-load "ivy"
-  '(progn
-     (setq ivy-height 12
-	   ivy-wrap t
-	   ivy-fixed-height-minibuffer t)
-     (setq-default projectile-completion-system 'ivy)))
+(use-package swiper
+  :ensure t
+  :defer .1)
 
 (provide 'init-ivy)
-
-;;; init-ivy.el ends here
