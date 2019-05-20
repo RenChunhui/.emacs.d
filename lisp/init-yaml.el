@@ -1,4 +1,5 @@
 (use-package yaml-mode
+  :ensure t
   :mode (("\\.\\(yml\\|yaml\\)\\'" . yaml-mode)
 	 ("Procfile\\'" . yaml-mode))
   :config (add-hook 'yaml-mode-hook

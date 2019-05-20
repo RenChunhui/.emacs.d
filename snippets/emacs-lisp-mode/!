@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: doctype
+# key: !
+# --
+;;; ${1:packageName}.el --- $2 -*- coding: utf-8; lexical-binding: t -*-
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
+
+;;; Commentary:
+
+;;; Code:
+
+$0
+
+;;; ${packageName}.el ends here

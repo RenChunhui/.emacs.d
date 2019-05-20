@@ -14,15 +14,12 @@
 
 ;;; Code:
 
-;; Menu bar is not annoying in OSX
-(menu-bar-mode 1)
-
 ;; Set keys for Apple keyboard, for emacs in OS X
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
 
 ;; Make the browser the OSX default
-(setq browse-url-browser-function 'browse-url-default-macosx-browser)
+;; (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
 ;; In dired, move deletions to trash
 (setq delete-by-moving-to-trash t)
@@ -30,9 +27,6 @@
 ;; Keybinding to toggle full screen mode
 (when (fboundp 'toggle-frame-fullscreen)
   (global-set-key (kbd "<s-return>") 'toggle-frame-fullscreen))
-
-;; Ignore .DS_Store files with ido mode
-;;(add-to-list 'ido-ignore-files "\\.DS_Store")
 
 ;; Don't open files from the workspace in a new frame
 (setq ns-pop-up-frames nil)

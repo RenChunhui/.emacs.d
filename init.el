@@ -1,4 +1,4 @@
-;;; init.el --- Load the full configuration -*- lexical-binding: t; -*-
+;;; init.el --- Load all configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -8,7 +8,6 @@
 
 ;;; Code:
 
-;; Produce backtraces when errors occur
 (setq debug-on-error t)
 
 (defconst emacs-cache-directory
@@ -29,24 +28,21 @@
 (when (file-exists-p custom-file)
   (load custom-file))
 
-(require 'init-utils)
 (require 'init-osx)
-(require 'init-emacs)
+(require 'init-general)
 (require 'init-elpa)
-(require 'init-exec-path)
-(require 'init-keybindings)
-(require 'init-which-key)
 
-(require 'init-themes)
 (require 'init-startup)
+;;(require 'init-tab)
 (require 'init-modeline)
-;;(require 'init-tree)
-(require 'init-line-number)
-(require 'init-company)
+
+(require 'init-completion)
 (require 'init-ivy)
+(require 'init-project)
 (require 'init-yasnippet)
+(require 'init-flycheck)
 (require 'init-evil)
-(require 'init-ctags)
+(require 'init-keybindings)
 
 (require 'init-html)
 (require 'init-css)
@@ -55,6 +51,7 @@
 (require 'init-json)
 (require 'init-yaml)
 (require 'init-markdown)
+(require 'init-org)
 
 (add-hook 'after-init-hook
 	  (lambda ()

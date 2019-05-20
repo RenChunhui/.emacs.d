@@ -21,21 +21,13 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; remove tool bar
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
+
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
-
-;; remove scroll bar
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))
-
-;; remove tooltip
-(when (fboundp 'tooltip-mode)
-  (tooltip-mode -1))
-
-;; remove menu bar
-(when (fboundp 'menu-bar-mode)
-  (menu-bar-mode -1))
 
 ;; y/n instead of yes/no
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -52,13 +44,8 @@
 ;; wrap long lines by word boundary, and arrow up/down move by visual line, etc
 (global-visual-line-mode 1)
 
-;; make {copy, cut, paste, undo} have {C-c, C-x, C-v, C-z} keys
-(cua-mode 1)
-
-;; Default font
-(set-face-attribute 'default nil :font "SF Mono-13")
-
-(setq-default cursor-type 'bar)
+;; default theme
+(load-theme 'chunhui t)
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"
@@ -104,6 +91,4 @@
       abbrev-file-name (concat emacs-cache-directory "abbrev.el")
       auto-save-list-file-name (concat emacs-cache-directory "autosave"))
 
-(provide 'init-emacs)
-
-;;; init-emacs.el ends here
+(provide 'init-general)

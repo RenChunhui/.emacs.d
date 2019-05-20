@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: jsdoc comment
+# key: doc
+# --
+/**
+ * $0
+`(save-excursion 
+  (let* ((pos-fun (re-search-forward "\\<function\\s-*(\\([^)]*\\))"))
+         (argstr (and pos-fun (match-string 1)))
+         (args (and pos-fun (split-string argstr ",\\s-*"))))
+    (loop with params = nil
+          for arg in args
+          for nump = (string-match "s$" arg)
+          for param = (if nump (format " * @param {[]} %s - " arg)
+                        (format " * @param {} %s - " arg))
+          do
+          (if (< 0 (length arg))
+              (push param params))
+          finally return
+          (mapconcat 'identity (reverse (cons " * @return " params)) "\n"))))`
+ */

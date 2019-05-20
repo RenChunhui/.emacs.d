@@ -2,18 +2,25 @@
 
 (package-initialize)
 
-(setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+        ("org-cn"   . "http://elpa.emacs-china.org/org/")
+        ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
 
 (package-refresh-contents)
 
 (defconst ora-packages
   '(use-package
     company
+    lsp-mode
+    lsp-ui
+    company-lsp
     yasnippet
+    treemacs
+    treemacs-evil
+    treemacs-projectile
+    treemacs-icons-dired
+    treemacs-magit
     which-key
-    hydra
-    neotree
     flycheck
     winum
     magit
@@ -22,7 +29,6 @@
 
     ;; ui
     powerline
-    dracula-theme
 
     ;; ivy
     project
