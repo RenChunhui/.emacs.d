@@ -1,28 +1,29 @@
 
-;; debug
-;; battery
-;; email
-;; time
-
 (defmacro diminish-major-mode (mode-hook abbrev)
   "Macro for diminish major mode with MODE-HOOK and ABBREV."
   `(add-hook ,mode-hook
              (lambda () (setq mode-name ,abbrev))))
 
-(diminish-major-mode 'text-mode-hook (propertize "Text"))
-(diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
-(diminish-major-mode 'dashboard-mode-hook (propertize " Dashboard " 'face '(:background "#672F14")))
-(diminish-major-mode 'emacs-lisp-mode-hook (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
-(diminish-major-mode 'org-mode-hook (propertize " Org-mode " 'face '(:background "#77AA99")))
-(diminish-major-mode 'web-mode-hook (propertize " HTML " 'face '(:background "#E44D26")))
-(diminish-major-mode 'css-mode-hook (propertize " CSS " 'face '(:background "#ebebeb")))
-(diminish-major-mode 'scss-mode-hook (propertize " Sass " 'face '(:background "#cd6799")))
-(diminish-major-mode 'js2-mode-hook (propertize " JavaScript " 'face '(:background "#f5de19")))
-(diminish-major-mode 'typescript-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
-(diminish-major-mode 'tide-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
-(diminish-major-mode 'json-mode-hook (propertize " JSON " 'face '(:background "#f5de19")))
-(diminish-major-mode 'yaml-mode-hook (propertize " YAML " 'face '(:background "#fbc02d")))
-(diminish-major-mode 'markdown-mode-hook (propertize " Markdown " 'face '(:background "#755838")))
+
+
+(if *design-mode*
+    (progn
+      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " default))))
+  (progn
+    (diminish-major-mode 'text-mode-hook (propertize "Text"))
+    (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
+    (diminish-major-mode 'dashboard-mode-hook (propertize " Dashboard " 'face '(:background "#672F14")))
+    (diminish-major-mode 'emacs-lisp-mode-hook (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
+    (diminish-major-mode 'org-mode-hook (propertize " Org-mode " 'face '(:background "#77AA99")))
+    (diminish-major-mode 'web-mode-hook (propertize " HTML " 'face '(:background "#E44D26")))
+    (diminish-major-mode 'css-mode-hook (propertize " CSS " 'face '(:background "#ebebeb")))
+    (diminish-major-mode 'scss-mode-hook (propertize " Sass " 'face '(:background "#cd6799")))
+    (diminish-major-mode 'js2-mode-hook (propertize " JavaScript " 'face '(:background "#f5de19")))
+    (diminish-major-mode 'typescript-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
+    (diminish-major-mode 'tide-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
+    (diminish-major-mode 'json-mode-hook (propertize " JSON " 'face '(:background "#f5de19")))
+    (diminish-major-mode 'yaml-mode-hook (propertize " YAML " 'face '(:background "#fbc02d")))
+    (diminish-major-mode 'markdown-mode-hook (propertize " Markdown " 'face '(:background "#755838")))))
 
 
 
@@ -45,11 +46,14 @@
 					   (separator-right (intern (format "powerline-%s-%s"
 									    (powerline-current-separator)
 									    (cdr powerline-default-separator-dir))))
+
 					   ;; left
-					   (lhs (list 
-						 (powerline-raw (insert-winum-number))
-						 (powerline-raw (insert-version-control))
-						 (powerline-raw (insert-flycheck))))
+					   (lhs (list (powerline-raw " ")
+						      (powerline-raw (insert-winum-number))
+						      (powerline-raw " ")
+						      (powerline-raw (insert-version-control))
+						      (powerline-raw " ")
+						      (powerline-raw (insert-flycheck))))
 					   
 					   ;; center
 					   (center (list (powerline-raw evil-mode-line-tag)))
@@ -67,6 +71,22 @@
 					      (powerline-fill mode-line (powerline-width rhs))
 					      (powerline-render rhs)))))))
 
+(defun winum-unicode-number (str)
+  (format-mode-line
+   '(:eval 
+     (concat
+      (cond
+       ((string= "1" str) "➊")
+       ((string= "2" str) "➋")
+       ((string= "3" str) "➌")
+       ((string= "4" str) "➍")
+       ((string= "5" str) "➎")
+       ((string= "6" str) "➏")
+       ((string= "7" str) "➐")
+       ((string= "8" str) "➑")
+       ((string= "9" str) "➒")
+       ((string= "0" str) "➓"))))))
+
 (use-package winum
   :ensure t
   :init
@@ -82,7 +102,9 @@
   (progn
     (defun insert-winum-number ()
       "Window number."
-      (format-mode-line '(:eval (format " %s " (winum-get-number-string)))))
+      (if *design-mode*
+	  (winum-unicode-number (winum-get-number-string))
+	(format-mode-line '(:eval (format " %s " (winum-get-number-string))))))
     
     (defun insert-version-control ()
       "Git & SVN."
@@ -92,7 +114,7 @@
 	  ((string-match "Git[:-]" vc-mode)
 	   (let ((branch (mapconcat 'concat (cdr (split-string vc-mode "[:-]")) "-")))
 	     (concat
-	      (propertize (format " Git: %s " branch)))))
+	      (propertize (format " %s %s " git_branch branch)))))
 	  (t (format "%s" vc-mode))))))
     
     (defun insert-flycheck ()
@@ -106,8 +128,8 @@
 				   (fly-warning (or .warning 0))
 				   (fly-info (or .info )))
 			      (concat
-			       (propertize (format "✖ %s" fly-error) 'face 'error)
-			       (propertize (format " ⚠ %s" fly-warning 'face 'warning)))))
+			       (propertize (format "✖ %s " fly-error) 'face 'error)
+			       (propertize (format "⚠ %s" fly-warning 'face 'warning)))))
 			(propertize "✔" 'face 'success)))
 	   
 	   (`running (propertize "⟲" 'face 'info))

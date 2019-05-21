@@ -16,7 +16,8 @@
 
 (use-package flycheck
   :ensure t
-  :hook ((css-mode . flycheck-mode)
+  :hook ((emacs-lisp-mode . flycheck-mode)
+	 (css-mode . flycheck-mode)
 	 (scss-mode . flycheck-mode)
 	 (js2-mode . flycheck-mode)
 	 (tide-mode . flycheck-mode)

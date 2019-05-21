@@ -14,6 +14,8 @@
   (expand-file-name (concat user-emacs-directory ".cache/"))
   "Emacs cache directory.")
 
+(defconst *design-mode* t)
+
 (when (version< emacs-version "26.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
 
@@ -32,6 +34,7 @@
 (require 'init-general)
 (require 'init-elpa)
 
+(require 'init-styles)
 (require 'init-startup)
 ;;(require 'init-tab)
 (require 'init-modeline)
