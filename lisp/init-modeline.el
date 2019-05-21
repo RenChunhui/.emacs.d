@@ -8,22 +8,31 @@
 
 (if *design-mode*
     (progn
-      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " default))))
+      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " default)    'face 'warning))
+      (diminish-major-mode 'web-mode-hook        (propertize (format " %s " html)       'face 'html-face))
+      (diminish-major-mode 'css-mode-hook        (propertize (format " %s " css)        'face 'css-face))
+      (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " scss)       'face 'scss-face))
+      (diminish-major-mode 'js2-mode-hook        (propertize (format " %s " javaScript) 'face 'javaScript-face))
+      (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " typescript) 'face 'typescript-face))
+      (diminish-major-mode 'json-mode-hook       (propertize (format " %s " json)       'face 'json-face))
+      (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " yaml)       'face 'yaml-face))
+      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " org)        'face 'org-face))
+      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " markdown)   'face 'markdown-face)))
   (progn
     (diminish-major-mode 'text-mode-hook (propertize "Text"))
     (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
-    (diminish-major-mode 'dashboard-mode-hook (propertize " Dashboard " 'face '(:background "#672F14")))
-    (diminish-major-mode 'emacs-lisp-mode-hook (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
-    (diminish-major-mode 'org-mode-hook (propertize " Org-mode " 'face '(:background "#77AA99")))
-    (diminish-major-mode 'web-mode-hook (propertize " HTML " 'face '(:background "#E44D26")))
-    (diminish-major-mode 'css-mode-hook (propertize " CSS " 'face '(:background "#ebebeb")))
-    (diminish-major-mode 'scss-mode-hook (propertize " Sass " 'face '(:background "#cd6799")))
-    (diminish-major-mode 'js2-mode-hook (propertize " JavaScript " 'face '(:background "#f5de19")))
-    (diminish-major-mode 'typescript-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
-    (diminish-major-mode 'tide-mode-hook (propertize " TypeScript " 'face '(:background "#007acc")))
-    (diminish-major-mode 'json-mode-hook (propertize " JSON " 'face '(:background "#f5de19")))
-    (diminish-major-mode 'yaml-mode-hook (propertize " YAML " 'face '(:background "#fbc02d")))
-    (diminish-major-mode 'markdown-mode-hook (propertize " Markdown " 'face '(:background "#755838")))))
+    (diminish-major-mode 'dashboard-mode-hook   (propertize " Dashboard "  'face '(:background "#672F14")))
+    (diminish-major-mode 'emacs-lisp-mode-hook  (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
+    (diminish-major-mode 'org-mode-hook         (propertize " Org-mode "   'face 'org-face))
+    (diminish-major-mode 'web-mode-hook         (propertize " HTML "       'face 'html-face))
+    (diminish-major-mode 'css-mode-hook         (propertize " CSS "        'face 'css-face))
+    (diminish-major-mode 'scss-mode-hook        (propertize " Sass "       'face 'scss-face))
+    (diminish-major-mode 'js2-mode-hook         (propertize " JavaScript " 'face 'javaScript-face))
+    (diminish-major-mode 'typescript-mode-hook  (propertize " TypeScript " 'face 'typescript-face))
+    (diminish-major-mode 'tide-mode-hook        (propertize " TypeScript " 'face 'typescript-face))
+    (diminish-major-mode 'json-mode-hook        (propertize " JSON "       'face 'json-face))
+    (diminish-major-mode 'yaml-mode-hook        (propertize " YAML "       'face 'yaml-face))
+    (diminish-major-mode 'markdown-mode-hook    (propertize " Markdown "   'face 'markdown-face))))
 
 
 
@@ -51,6 +60,8 @@
 					   (lhs (list (powerline-raw " ")
 						      (powerline-raw (insert-winum-number))
 						      (powerline-raw " ")
+                  (powerline-raw " %b ")
+                  (powerline-raw (insert-major-mode))
 						      (powerline-raw (insert-version-control))
 						      (powerline-raw " ")
 						      (powerline-raw (insert-flycheck))))
@@ -60,7 +71,6 @@
 					   
 					   ;; right
 					   (rhs (list (powerline-raw (insert-buffer-encoding))
-						      (powerline-raw (insert-major-mode))
 						      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
 						      (powerline-raw " " mode-line)
 						      )))
