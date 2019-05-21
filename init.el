@@ -34,9 +34,8 @@
 (require 'init-general)
 (require 'init-elpa)
 
-(require 'init-styles)
+(require 'init-variables)
 (require 'init-startup)
-;;(require 'init-tab)
 (require 'init-modeline)
 
 (require 'init-completion)
