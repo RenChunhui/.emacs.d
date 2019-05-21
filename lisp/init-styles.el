@@ -48,11 +48,7 @@
       ("docker" . "\xe7b0")
       ("firefox" . "\xe745")
       ("git" . "\xe702")
-      ("git_branch" . "\xe725")
-      ("git_commit" . "\xe729")
-      ("git_compare" . "\xe728")
-      ("git_merge" . "\xe727")
-      ("git_pull_request" . "\xe726")
+      
 
       ("github" . "\xe70a")
       ("github_alt" . "\xe708")
@@ -141,7 +137,7 @@
       ("emoticon_neutral" . "\xf6f5")
       
       ("favicon" . "\xe623")
-      ("default" . "\xe612")
+      
       ("" . "\x")
       ("" . "\x")
       ("" . "\x")
@@ -156,6 +152,18 @@
       ("" . "\x")
       ("" . "\x")
       ))
+
+(defconst default     "\xe612")
+
+;; git status
+(defconst git_branch       "\xe725")
+(defconst git_commit       "\xe729")
+(defconst git_compare      "\xe728")
+(defconst git_merge        "\xe727")
+(defconst git_pull_request "\xe726")
+
+(defconst flycheck_error   "\xf658")
+(defconst flycheck_warning "\xf071")
 
 (provide 'init-styles)
 

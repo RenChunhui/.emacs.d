@@ -45,7 +45,7 @@
 (global-visual-line-mode 1)
 
 ;; default theme
-(load-theme 'chunhui t)
+(load-theme 'default-dark t)
 
 (setq user-full-name "Ren Chunhui"
       user-mail-address "renchunhui2008@gmail.com"

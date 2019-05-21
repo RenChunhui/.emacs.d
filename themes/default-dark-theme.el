@@ -1,7 +1,6 @@
-(deftheme chunhui)
+(deftheme default-dark)
 
 (let ((class '((class color) (min-colors 89)))
-      ;; chunhui palette colors.
       (fg1 "#f8f8f2")
       (fg2 "#e2e2dc")
       (fg3 "#ccccc7")
@@ -11,7 +10,8 @@
       (bg3 "#464752")
       (bg4 "#565761")
       (bg5 "#44475a")
-
+      (key2 "#0189cc")
+      (key3 "#ff79c6")
       (builtin "#ffb86c")
       (keyword "#ff79c6")
       (const   "#8be9fd")
@@ -20,17 +20,34 @@
       (str     "#f1fa8c")
       (type    "#bd93f9")
       (var     "#f8f8f2")
+      (warning "#ffb86c")
 
-      (primary "#C678DD")
-      (secondary "#61AFEF")
-      (success "#98C379")
-      (warning "#E5C07B")
-      (error "#E06C75")
-      (info "#56B6C2")
-      (muted "#565761"))
+      (background "#1F1F24")
+      (currentLine "#2F3239")
+      (selection "#515B70")
+      (cursor "#FFFFFF")
+      (invisibles "#424D5B")
+      (comment "#6C7986")
+      (keyword "#FC5FA3")
+      (string "#FC6A5D")
+      (type "#91D462")
+
+      (highlight "#bd93f9")
+      
+      (rainbow-1 "#f8f8f2")
+      (rainbow-2 "#8be9fd")
+      (rainbow-3 "#bd93f9")
+      (rainbow-4 "#ff79c6")
+      (rainbow-5 "#ffb86c")
+      (rainbow-6 "#50fa7b")
+      (rainbow-7 "#f1fa8c")
+      (rainbow-8 "#0189cc")
+      (rainbow-9 "#ff5555")
+      (eph-verbatim "#f1fa8c")
+      (eph-code "#ff79c6"))
   
   (custom-theme-set-faces
-   'chunhui
+   'default-dark
    `(cursor ((,class (:background ,fg3))))
    `(default ((((type nil)) (:background "#000000" :foreground ,fg1))
               (,class (:background ,bg1 :foreground ,fg1))))
@@ -48,6 +65,7 @@
    `(show-paren-match-face ((,class (:background ,warning))))
    `(trailing-whitespace ((,class :foreground nil :background ,warning)))
    `(vertical-border ((,class (:foreground ,bg2))))
+   `(active ((,class (:foreground ,highlight))))
    `(warning ((,class (:foreground ,warning))))
    `(whitespace-trailing ((,class :inherit trailing-whitespace)))
 
@@ -99,6 +117,10 @@
    `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
    
+   ;; mode-line
+   `(mode-line ((,class (:foreground nil :background ,bg3 :box ,bg3))))
+   `(mode-line-inactive ((,class (:foreground ,fg1 :background ,bg1 :box ,bg1))))
+
    ))
 
 ;;;###autoload
@@ -106,4 +128,4 @@
   (add-to-list 'custom-theme-load-path
 	       (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'chunhui)
+(provide-theme 'default-dark)
