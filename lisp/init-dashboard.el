@@ -15,8 +15,8 @@
 	  dashboard-center-content t
 	  dashboard-show-shortcuts nil
 	  dashboard-set-heading-icons t
-          dashboard-set-init-info t
-	  dashboard-set-file-icons t
+    dashboard-set-init-info t
+	  dashboard-set-file-icons nil
     dashboard-items '((recents  . 5)
                         (projects . 5)
                         (agenda . 5)))
@@ -30,14 +30,8 @@
   (when (and
          (display-graphic-p)
          (eq dashboard-set-heading-icons t))
-    ;; Load `all-the-icons' if it's unavailable
-    (unless (featurep 'all-the-icons)
-      (require 'all-the-icons nil t))
-
     (insert (cond
              ((string-equal heading "Recent Files:") (propertize history 'face 'dashboard-heading))
-             ((string-equal heading "Bookmarks:")
-              (all-the-icons-octicon "bookmark" :height 1.2 :v-adjust 0.0 :face 'dashboard-heading))
              ((string-equal heading "Agenda for today:") (propertize calendar 'face 'dashboard-heading))
              ((string-equal heading "Registers:")
               (all-the-icons-octicon "database" :height 1.2 :v-adjust 0.0 :face 'dashboard-heading))

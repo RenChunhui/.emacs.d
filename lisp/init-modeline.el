@@ -6,7 +6,7 @@
 
 (if *design-mode*
     (progn
-      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " default)    'face 'warning))
+      (diminish-major-mode 'emacs-lisp-mode-hook (propertize "\xe926"    'face 'warning))
       (diminish-major-mode 'web-mode-hook        (propertize (format " %s " html)       'face 'html-face))
       (diminish-major-mode 'css-mode-hook        (propertize (format " %s " css)        'face 'css-face))
       (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " scss)       'face 'scss-face))
