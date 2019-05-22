@@ -25,7 +25,7 @@
 	 (typescript-mode . yas-minor-mode))
   :diminish yas-minor-mode
   :init
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (setq yas-snippet-dirs '("~/.emacs.d/private/snippets"))
   :config
   (yas-reload-all)
   (global-set-key (kbd "M-/") 'company-yasnippet))
