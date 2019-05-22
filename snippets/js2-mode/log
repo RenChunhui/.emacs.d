@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: log print
-# key: log
-# --
-console.log($0);

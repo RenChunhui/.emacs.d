@@ -4,8 +4,6 @@
   `(add-hook ,mode-hook
              (lambda () (setq mode-name ,abbrev))))
 
-
-
 (if *design-mode*
     (progn
       (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " default)    'face 'warning))
@@ -16,7 +14,7 @@
       (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " typescript) 'face 'typescript-face))
       (diminish-major-mode 'json-mode-hook       (propertize (format " %s " json)       'face 'json-face))
       (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " yaml)       'face 'yaml-face))
-      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " org)        'face 'org-face))
+      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " default)    'face 'org-face))
       (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " markdown)   'face 'markdown-face)))
   (progn
     (diminish-major-mode 'text-mode-hook (propertize "Text"))
@@ -45,7 +43,7 @@
 				    (let* ((active (powerline-selected-window-active))
 					   (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
 			  		   (mode-line (if active 'mode-line 'mode-line-inactive))
-					   (face0 (if active 'powerline-active0 'powerline-inactive0))
+					     (face0 (if active 'powerline-active0 'powerline-inactive0))
 			  		   (face1 (if active 'powerline-active1 'powerline-inactive1))
 			  		   (face2 (if active 'powerline-active2 'powerline-inactive2))
 					   
@@ -58,7 +56,7 @@
 
 					   ;; left
 					   (lhs (list (powerline-raw " ")
-						      (powerline-raw (insert-winum-number))
+						      (powerline-raw (insert-winum-number) 'face2)
 						      (powerline-raw " ")
                   (powerline-raw " %b ")
                   (powerline-raw (insert-major-mode))
@@ -168,6 +166,6 @@
     
     (defun insert-major-mode ()
       "Major mode."
-			(format-mode-line '(:eval (format " %s " (powerline-major-mode)))))))
+      (format-mode-line '(:eval (format " %s " (powerline-major-mode)))))))
 
 (provide 'init-modeline)

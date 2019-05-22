@@ -87,7 +87,7 @@ REAL-WIDTH: the real width of the line.  If the line contains an image, the size
 (defun emacs-buffer//insert-logo ()
   "Display logo image."
   (let* ((title tea-emacs-buffer-logo-title)
-	 (spec (create-image "~/.emacs.d/assets/logo.png"))
+	 (spec (create-image "~/.emacs.d/private/icons/logo.png"))
 	 (size (image-size spec))
 	 (width (car size))
 	 (left-margin (max 0 (floor (- tea-emacs-buffer--window-width width) 2))))
@@ -193,10 +193,6 @@ REFRESH if the buffer should be redrawn."
       (insert (make-string (max 0 (floor (/ (- tea-emacs-buffer--window-width
                                                (+ (length title) 1)) 2))) ?\s))
       (insert (format "%s\n\n" title))))
-
-;; (require 'benchmark-init)
-;; To disable collection of benchmark data after init is done.
-;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 (use-package benchmark-init
   :ensure t

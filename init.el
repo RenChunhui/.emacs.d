@@ -20,7 +20,7 @@
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-(add-to-list 'custom-theme-load-path (expand-file-name "themes" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "private/themes" user-emacs-directory))
 
 (setq gc-cons-threshold (* 128 1024 1024)
       gc-cons-percentage 0.6)
@@ -31,11 +31,13 @@
   (load custom-file))
 
 (require 'init-osx)
-(require 'init-general)
-(require 'init-elpa)
-
 (require 'init-variables)
-(require 'init-startup)
+(require 'init-elpa)
+(require 'init-generic)
+
+
+(require 'init-theme)
+(require 'init-dashboard)
 (require 'init-modeline)
 
 (require 'init-completion)
@@ -54,12 +56,6 @@
 (require 'init-yaml)
 (require 'init-markdown)
 (require 'init-org)
-
-(add-hook 'after-init-hook
-	  (lambda ()
-	    (require 'server)
-	    (unless (server-running-p)
-	      (server-start))))
 
 (add-hook 'emacs-startup-hook
 	  (lambda ()

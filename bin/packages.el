@@ -2,9 +2,9 @@
 
 (package-initialize)
 
-(setq package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
-        ("org-cn"   . "http://elpa.emacs-china.org/org/")
-        ("gnu-cn"   . "http://elpa.emacs-china.org/gnu/")))
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-refresh-contents)
 
@@ -29,6 +29,7 @@
 
     ;; ui
     powerline
+    all-the-icons
 
     ;; ivy
     project
