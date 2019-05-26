@@ -12,57 +12,62 @@
   "Default-theme options."
   :group 'faces)
 
+(defface elisp-face
+  '((t :foreground "#411F5D"))
+  "Face for Emacs lisp."
+  :group 'default-theme)
+
 (defface html-face
-  '((t :background "#E44D26"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#E44D26"))
   "Face for html5."
   :group 'default-theme)
 
 (defface css-face
-  '((t :background "#ebebeb"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#ebebeb"))
   "Face for css."
   :group 'default-theme)
 
 (defface scss-face
-  '((t :background "#cd6799"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#cd6799"))
   "Face for scss."
   :group 'default-theme)
 
 (defface javascript-face
-  '((t :background "#f5de19"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#f5de19"))
   "Face for javascript."
   :group 'default-theme)
 
 (defface typescript-face
-  '((t :background "#007acc"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#007acc"))
   "Face for typescript."
   :group 'default-theme)
 
 (defface json-face
-  '((t :background "#f5de19"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#f5de19"))
   "Face for json."
   :group 'default-theme)
 
 (defface yaml-face
-  '((t :background "#fbc02d"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#fbc02d"))
   "Face for yaml."
   :group 'default-theme)
 
 (defface org-face
-  '((t :background "#77AA99"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#77AA99"))
   "Face for org mode."
   :group 'default-theme)
 
 (defface markdown-face
-  '((t :background "#755838"
-       :foreground "#FFF"))
+  '((t 
+       :foreground "#755838"))
   "Face for markdown."
   :group 'default-theme)
 
@@ -81,6 +86,7 @@
 (defconst json             "\xe60b")
 (defconst yaml             "\xe612")
 (defconst markdown         "\xe73e")
+(defconst elisp            "\xe926")
 
 ;; dashboard
 (defconst history          "\xf7d9")
@@ -88,12 +94,19 @@
 (defconst repo             "\xf401")
 (defconst calendar         "\xf073")
 
+;; folder
+(defconst folder           "\xe5ff")
+(defconst folder_open      "\xe5fe")
+
 ;; git status
 (defconst git_branch       "\xe725")
 (defconst git_commit       "\xe729")
 (defconst git_compare      "\xe728")
 (defconst git_merge        "\xe727")
 (defconst git_pull_request "\xe726")
+
+;; lip box
+(defconst box_cube "\xf1b2")
 
 (defconst flycheck_error   "\xf658")
 (defconst flycheck_warning "\xf071")

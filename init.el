@@ -39,8 +39,11 @@
 (require 'init-theme)
 (require 'init-dashboard)
 (require 'init-modeline)
+(require 'init-tree)
 
 (require 'init-completion)
+(require 'init-lsp)
+(require 'init-styles-guide)
 (require 'init-ivy)
 (require 'init-project)
 (require 'init-yasnippet)
