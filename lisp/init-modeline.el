@@ -6,7 +6,7 @@
 
 (if *design-mode*
     (progn
-      (diminish-major-mode 'emacs-lisp-mode-hook (propertize "\xe926"    'face 'warning))
+      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " elisp)      'face 'elisp-face))
       (diminish-major-mode 'web-mode-hook        (propertize (format " %s " html)       'face 'html-face))
       (diminish-major-mode 'css-mode-hook        (propertize (format " %s " css)        'face 'css-face))
       (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " scss)       'face 'scss-face))
@@ -56,7 +56,7 @@
 
 					   ;; left
 					   (lhs (list (powerline-raw " ")
-						      (powerline-raw (insert-winum-number) 'face2)
+						      (powerline-raw (insert-winum-number) 'face0)
 						      (powerline-raw " ")
                   (powerline-raw " %b ")
                   (powerline-raw (insert-major-mode))
