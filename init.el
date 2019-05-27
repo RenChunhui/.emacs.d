@@ -14,11 +14,25 @@
   (expand-file-name (concat user-emacs-directory ".cache/"))
   "Emacs cache directory.")
 
-(defconst *design-mode* t)
+;; modeline 是否使用 icon 图标
+(defconst *modeline-icon-enable* t)
+
+;; dashboard 是否启用
+(defconst *dashboard-enable* t)
+
+;; 是否启用 lsp mode
+(defconst *lsp-enable* t)
+
+;; 是否使用 company-quickhelp
+(defconst *quickhelp-enable* t)
+
+;; 是否使用 company-box
+(defconst *company-box-enable* nil)
 
 (when (version< emacs-version "26.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
 
+;; 添加路径
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'custom-theme-load-path (expand-file-name "private/themes" user-emacs-directory))
 
@@ -31,18 +45,25 @@
   (load custom-file))
 
 (require 'init-osx)
-(require 'init-variables)
+(require 'init-face)
 (require 'init-elpa)
 (require 'init-generic)
 
-
 (require 'init-theme)
-(require 'init-dashboard)
+
+(when *dashboard-enable*
+  (require 'init-dashboard))
+(unless *dashboard-enable*
+  (require 'init-startup))
+
 (require 'init-modeline)
 (require 'init-tree)
 
 (require 'init-completion)
-(require 'init-lsp)
+
+(when *lsp-enable*
+  (require 'init-lsp))
+
 (require 'init-styles-guide)
 (require 'init-ivy)
 (require 'init-project)

@@ -15,10 +15,10 @@
   (progn
     (setq evil-split-window-below t
 	  evil-split-window-right t
-	  evil-normal-state-tag (propertize "- NORMAL -" 'face '(:foreground "green"))
-	  evil-insert-state-tag (propertize "- INSERT -" 'face '(:foreground "blue"))
-	  evil-visual-state-tag (propertize "- VISUAL -" 'face '(:foreground "orange"))
-	  evil-emacs-state-tag (propertize "- EMACS -" 'face '(:foreground "violet"))))
+	  evil-normal-state-tag (propertize "- NORMAL -" 'face '(:foreground "DarkGoldenrod2"))
+	  evil-insert-state-tag (propertize "- INSERT -" 'face '(:foreground "chartreuse3"))
+	  evil-visual-state-tag (propertize "- VISUAL -" 'face '(:foreground "gray"))
+	  evil-emacs-state-tag (propertize "- EMACS -" 'face '(:foreground "SkyBlue2"))))
   :config
   (evil-mode 1))
 

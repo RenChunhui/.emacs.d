@@ -1,10 +1,4 @@
- ;;; init-osx.el --- OSX related configuration -*- lexical-binding: t -*-
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
+;;; init-osx.el --- osx configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -17,9 +11,6 @@
 ;; Set keys for Apple keyboard, for emacs in OS X
 (setq mac-option-modifier 'meta)
 (setq mac-command-modifier 'super)
-
-;; Make the browser the OSX default
-;; (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
 ;; In dired, move deletions to trash
 (setq delete-by-moving-to-trash t)

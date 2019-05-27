@@ -20,7 +20,26 @@
     (set-selection-coding-system 'utf-8)
     (setq locale-coding-system 'utf-8)
     (setq-default buffer-file-coding-system 'utf-8)))
-(set-face-attribute 'default nil :font "SF Mono-13")
+
+(use-package scroll-bar
+  :ensure nil
+  :config (scroll-bar-mode -1))
+
+(use-package tool-bar
+  :ensure nil
+  :config (tool-bar-mode -1))
+
+(use-package linum
+  :hook ((prog-mode
+	  text-mode
+	  emacs-lisp-mode
+	  js2-mode
+	  tide-mode
+	  typescript-mode
+	  web-mode
+	  css-mode
+	  scss-mode) . linum-mode))
+
 (use-package emacs
   :ensure nil
   :custom
@@ -30,16 +49,19 @@
   (global-hl-line-mode t)
   (global-font-lock-mode 1)
   (global-visual-line-mode 1)
-  (set-face-attribute 'default nil :font "SF Mono-13")
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
+  
   :config
   (progn
+    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+    (add-to-list 'default-frame-alist '(ns-appearance . dark))
+    (set-face-attribute 'default nil :font "SF Mono-13")
+    (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
     (setq visible-bell nil
 	  ring-bell-function 'ignore
 
-    ;; splash
-    initial-scratch-message nil
+	  ;; splash
+	  initial-scratch-message nil
 	  initial-major-mode 'fundamental-mode
 	  inhibit-splash-screen t
 	  inhibit-startup-message t
@@ -50,10 +72,10 @@
 	  backup-directory-alist (list (cons "." (concat emacs-cache-directory "backup/")))
 	  ;; Fullscreen
 	  ns-use-native-fullscreen nil
-
+	  
 	  ;; number mode
 	  column-number-mode t
-
+	  
 	  ;; render
 	  inhibit-compacting-font-caches t
 	  ns-use-srgb-colorspace nil
@@ -62,34 +84,6 @@
 	  recentf-save-file (concat emacs-cache-directory "recentf")
 	  abbrev-file-name (concat emacs-cache-directory "abbrev.el")
 	  auto-save-list-file-name (concat emacs-cache-directory "autosave"))))
-
-(use-package scroll-bar
-  :ensure nil
-  :config (scroll-bar-mode -1))
-
-(use-package menu-bar
-  :ensure nil
-  :config (menu-bar-mode -1))
-
-(use-package tool-bar
-  :ensure nil
-  :config (tool-bar-mode -1))
-
-(use-package display-line-numbers
-  :hook ((prog-mode
-	  text-mode
-	  emacs-lisp-mode
-	  js2-mode
-	  tide-mode
-	  typescript-mode
-	  web-mode
-	  css-mode
-	  scss-mode) . display-line-numbers-mode))
-
-;; server
-(use-package saveplace
-  :ensure nil
-  :hook (after-init . save-place-mode))
 
 ;; history
 (use-package recentf
@@ -109,15 +103,6 @@
                           "undo-tree-hist"
                           "url"
                           "COMMIT_EDITMSG\\'")))
-
-;; common
-(use-package exec-path-from-shell
-    :ensure t
-    :init
-    (setq exec-path-from-shell-check-startup-files nil)
-    (setq exec-path-from-shell-variables '("PATH" "MANPATH" "PYTHONPATH" "GOPATH"))
-    (setq exec-path-from-shell-arguments '("-l"))
-    (exec-path-from-shell-initialize))
 
 (provide 'init-generic)
 
