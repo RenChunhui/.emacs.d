@@ -51,13 +51,7 @@
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
-          treemacs-width                         25
-
-          ;;treemacs-icon-root-png   (propertize (format "%s " repo) 'face 'treemacs-directory-face)
-          ;;treemacs-icon-open-png   "~/.emacs.d/private/icon/folder_open.png"
-          ;;treemacs-icon-closed-png (propertize (format "%s " folder) 'face 'treemacs-directory-face)
-
-          )
+          treemacs-width                         25)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.

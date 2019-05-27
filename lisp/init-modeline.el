@@ -1,10 +1,17 @@
+(defface powerline-highlight-face '((t (:background "DarkGoldenrod2"
+                                             :foreground "#3E3D31"
+                                             :inherit mode-line)))
+  "Powerline face 3."
+  :group 'powerline)
 
 (defmacro diminish-major-mode (mode-hook abbrev)
   "Macro for diminish major mode with MODE-HOOK and ABBREV."
   `(add-hook ,mode-hook
              (lambda () (setq mode-name ,abbrev))))
 
-(if *design-mode*
+(setq ns-use-srgb-colorspace nil)
+
+(if *modeline-icon-enable*
     (progn
       (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " elisp)      'face 'elisp-face))
       (diminish-major-mode 'web-mode-hook        (propertize (format " %s " html)       'face 'html-face))
@@ -15,7 +22,8 @@
       (diminish-major-mode 'json-mode-hook       (propertize (format " %s " json)       'face 'json-face))
       (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " yaml)       'face 'yaml-face))
       (diminish-major-mode 'org-mode-hook        (propertize (format " %s " default)    'face 'org-face))
-      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " markdown)   'face 'markdown-face)))
+      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " markdown)   'face 'markdown-face))
+      (diminish-major-mode 'dashboard-mode-hook  (propertize (format " %s " dashboard)  'face 'dashboard-heading)))
   (progn
     (diminish-major-mode 'text-mode-hook (propertize "Text"))
     (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
@@ -43,9 +51,10 @@
 				    (let* ((active (powerline-selected-window-active))
 					   (mode-line-buffer-id (if active 'mode-line-buffer-id 'mode-line-buffer-id-inactive))
 			  		   (mode-line (if active 'mode-line 'mode-line-inactive))
-					     (face0 (if active 'powerline-active0 'powerline-inactive0))
+					   (face0 (if active 'powerline-active0 'powerline-inactive0))
 			  		   (face1 (if active 'powerline-active1 'powerline-inactive1))
 			  		   (face2 (if active 'powerline-active2 'powerline-inactive2))
+					   (face3 (if active 'powerline-highlight-face 'mode-line))
 					   
 					   (separator-left (intern (format "powerline-%s-%s"
 									   (powerline-current-separator)
@@ -53,13 +62,14 @@
 					   (separator-right (intern (format "powerline-%s-%s"
 									    (powerline-current-separator)
 									    (cdr powerline-default-separator-dir))))
-
+					   
 					   ;; left
-					   (lhs (list (powerline-raw " ")
-						      (powerline-raw (insert-winum-number) 'face0)
-						      (powerline-raw " ")
-                  (powerline-raw " %b ")
-                  (powerline-raw (insert-major-mode))
+					   (lhs (list (powerline-raw " " face3)
+						      (powerline-raw (insert-winum-number) face3)
+						      (powerline-raw " " face3)
+						      (funcall separator-left face3 mode-line)
+						      (powerline-raw " %b ")
+						      (powerline-raw (insert-major-mode))
 						      (powerline-raw (insert-version-control))
 						      (powerline-raw " ")
 						      (powerline-raw (insert-flycheck))))
@@ -71,8 +81,9 @@
 					   (rhs (list (powerline-raw (insert-buffer-encoding))
 						      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
 						      (powerline-raw " " mode-line)
+                  (powerline-raw (buffer-encoding-abbrev-segment))
 						      )))
-				      
+
 				      (concat (powerline-render lhs)
 					      (powerline-fill-center mode-line (/ (powerline-width center) 2.0))
 					      (powerline-render center)
@@ -95,6 +106,21 @@
        ((string= "9" str) "➒")
        ((string= "0" str) "➓"))))))
 
+(defun buffer-encoding-segment ()
+  "The full `buffer-file-coding-system'."
+  (format-mode-line
+   '(:eval
+      (format "%s" buffer-file-coding-system))))
+
+(defun buffer-encoding-abbrev-segment ()
+  "The line ending convention used in the buffer."
+  (format-mode-line
+  '(:eval
+    (let ((buf-coding (format "%s" buffer-file-coding-system)))
+    (if (string-match "\\(dos\\|unix\\|mac\\)" buf-coding)
+        (match-string 1 buf-coding)
+      buf-coding)))))
+
 (use-package winum
   :ensure t
   :init
@@ -104,13 +130,13 @@
   :ensure t
   :init
   (progn
-    (setq powerline-default-separator 'nil)
+    (setq powerline-default-separator 'utf-8)
     (powerline-custom-theme))
   :config
   (progn
     (defun insert-winum-number ()
       "Window number."
-      (if *design-mode*
+      (if *modeline-icon-enable*
 	  (winum-unicode-number (winum-get-number-string))
 	(format-mode-line '(:eval (format " %s " (winum-get-number-string))))))
     

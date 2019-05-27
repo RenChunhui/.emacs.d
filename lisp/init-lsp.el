@@ -20,7 +20,11 @@
 
 (use-package lsp-ui
   :ensure t
-  :commands lsp-ui-mode)
+  :commands (lsp-ui-mode)
+  :init
+  (progn
+    (setq lsp-ui-sideline-enable nil
+	  lsp-ui-doc-enable t)))
 
 (use-package company-lsp
   :ensure t

@@ -1,4 +1,4 @@
-;;; init-styles.el --- styles configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-face.el --- face configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -110,7 +110,8 @@
 
 (defconst flycheck_error   "\xf658")
 (defconst flycheck_warning "\xf071")
+(defconst dashboard        "\xf463")
 
-(provide 'init-variables)
+(provide 'init-face)
 
 ;;; init-styles.el ends here

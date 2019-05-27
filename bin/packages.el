@@ -11,6 +11,7 @@
 (defconst ora-packages
   '(use-package
     company
+    company-quickhelp
     lsp-mode
     lsp-ui
     company-lsp
@@ -29,7 +30,6 @@
 
     ;; ui
     powerline
-    all-the-icons
 
     ;; ivy
     project
