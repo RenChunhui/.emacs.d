@@ -45,7 +45,7 @@
   (load custom-file))
 
 (require 'init-osx)
-(require 'init-face)
+(require 'init-symbols)
 (require 'init-elpa)
 (require 'init-generic)
 
