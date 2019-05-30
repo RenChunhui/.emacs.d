@@ -81,7 +81,6 @@
 					   (rhs (list (powerline-raw (insert-buffer-encoding))
 						      (powerline-raw (replace-regexp-in-string  "%" "%%" (format-mode-line '(-3 "%p"))))
 						      (powerline-raw " " mode-line)
-                  (powerline-raw (buffer-encoding-abbrev-segment))
 						      )))
 
 				      (concat (powerline-render lhs)

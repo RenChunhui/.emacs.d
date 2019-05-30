@@ -16,7 +16,8 @@
          (tide-mode . lsp))
   :init
   (progn
-    (setq lsp-auto-guess-root t)))
+    (setq lsp-auto-guess-root t
+	  lsp-session-file "~/.emacs.d/.cache/.lsp-session-v1")))
 
 (use-package lsp-ui
   :ensure t

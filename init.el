@@ -71,14 +71,7 @@
 (require 'init-flycheck)
 (require 'init-evil)
 (require 'init-keybindings)
-
-(require 'init-html)
-(require 'init-css)
-(require 'init-javascript)
-(require 'init-typescript)
-(require 'init-json)
-(require 'init-yaml)
-(require 'init-markdown)
+(require 'init-lang)
 (require 'init-org)
 
 (add-hook 'emacs-startup-hook
