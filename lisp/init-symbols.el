@@ -1,4 +1,4 @@
-;;; init-face.el --- face configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-symbols.el --- symbols configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -77,41 +77,42 @@
   "Face for markdown."
   :group 'default-theme)
 
-(defconst default          "\xe612")
-(defconst html             "\xe736")
-(defconst css              "\xe749")
-(defconst scss             "\xe603")
-(defconst javascript       "\xe74e")
-(defconst typescript       "\xe628")
-(defconst json             "\xe60b")
-(defconst yaml             "\xe612")
-(defconst markdown         "\xe73e")
-(defconst elisp            "\xe926")
+;; languages
+(defconst icon-default          "\xe612")
+(defconst icon-html             "\xe736")
+(defconst icon-css              "\xe749")
+(defconst icon-scss             "\xe603")
+(defconst icon-javascript       "\xe74e")
+(defconst icon-typescript       "\xe628")
+(defconst icon-json             "\xe60b")
+(defconst icon-yaml             "\xe612")
+(defconst icon-markdown         "\xe73e")
+(defconst icon-elisp            "\xe926")
 
 ;; dashboard
-(defconst history          "\xf7d9")
-(defconst project          "\xe601")
-(defconst repo             "\xf401")
-(defconst calendar         "\xf073")
+(defconst icon-history          "\xf7d9")
+(defconst icon-project          "\xe601")
+(defconst icon-repo             "\xf401")
+(defconst icon-calendar         "\xf073")
 
 ;; folder
-(defconst folder           "\xe5ff")
-(defconst folder_open      "\xe5fe")
+(defconst icon-folder           "\xe5ff")
+(defconst icon-folder_open      "\xe5fe")
 
 ;; git status
-(defconst git_branch       "\xe725")
-(defconst git_commit       "\xe729")
-(defconst git_compare      "\xe728")
-(defconst git_merge        "\xe727")
-(defconst git_pull_request "\xe726")
+(defconst icon-git_branch       "\xe725")
+(defconst icon-git_commit       "\xe729")
+(defconst icon-git_compare      "\xe728")
+(defconst icon-git_merge        "\xe727")
+(defconst icon-git_pull_request "\xe726")
 
 ;; lip box
-(defconst box_cube "\xf1b2")
+(defconst icon-box_cube "\xf1b2")
 
-(defconst flycheck_error   "\xf658")
-(defconst flycheck_warning "\xf071")
-(defconst dashboard        "\xf463")
+(defconst icon-flycheck_error   "\xf658")
+(defconst icon-flycheck_warning "\xf071")
+(defconst icon-dashboard        "\xf463")
 
-(provide 'init-face)
+(provide 'init-symbols)
 
-;;; init-styles.el ends here
+;;; init-symbols.el ends here

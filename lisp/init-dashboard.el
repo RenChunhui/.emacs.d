@@ -31,11 +31,9 @@
          (display-graphic-p)
          (eq dashboard-set-heading-icons t))
     (insert (cond
-             ((string-equal heading "Recent Files:") (propertize history 'face 'dashboard-heading))
-             ((string-equal heading "Agenda for today:") (propertize calendar 'face 'dashboard-heading))
-             ((string-equal heading "Registers:")
-              (all-the-icons-octicon "database" :height 1.2 :v-adjust 0.0 :face 'dashboard-heading))
-             ((string-equal heading "Projects:") (propertize repo 'face 'dashboard-heading))))
+             ((string-equal heading "Recent Files:") (propertize icon-history 'face 'dashboard-heading))
+             ((string-equal heading "Agenda for today:") (propertize icon-calendar 'face 'dashboard-heading))
+             ((string-equal heading "Projects:") (propertize icon-repo 'face 'dashboard-heading))))
     (insert " ")))
 (advice-add #'dashboard-insert-heading :before #'dashboard-insert-heading-icon)
 

@@ -13,17 +13,17 @@
 
 (if *modeline-icon-enable*
     (progn
-      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " elisp)      'face 'elisp-face))
-      (diminish-major-mode 'web-mode-hook        (propertize (format " %s " html)       'face 'html-face))
-      (diminish-major-mode 'css-mode-hook        (propertize (format " %s " css)        'face 'css-face))
-      (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " scss)       'face 'scss-face))
-      (diminish-major-mode 'js2-mode-hook        (propertize (format " %s " javaScript) 'face 'javaScript-face))
-      (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " typescript) 'face 'typescript-face))
-      (diminish-major-mode 'json-mode-hook       (propertize (format " %s " json)       'face 'json-face))
-      (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " yaml)       'face 'yaml-face))
-      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " default)    'face 'org-face))
-      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " markdown)   'face 'markdown-face))
-      (diminish-major-mode 'dashboard-mode-hook  (propertize (format " %s " dashboard)  'face 'dashboard-heading)))
+      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " icon-elisp)      'face 'elisp-face))
+      (diminish-major-mode 'web-mode-hook        (propertize (format " %s " icon-html)       'face 'html-face))
+      (diminish-major-mode 'css-mode-hook        (propertize (format " %s " icon-css)        'face 'css-face))
+      (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " icon-scss)       'face 'scss-face))
+      (diminish-major-mode 'js2-mode-hook        (propertize (format " %s " icon-javaScript) 'face 'javaScript-face))
+      (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " icon-typescript) 'face 'typescript-face))
+      (diminish-major-mode 'json-mode-hook       (propertize (format " %s " icon-json)       'face 'json-face))
+      (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " icon-yaml)       'face 'yaml-face))
+      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " icon-default)    'face 'org-face))
+      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " icon-markdown)   'face 'markdown-face))
+      (diminish-major-mode 'dashboard-mode-hook  (propertize (format " %s " icon-dashboard)  'face 'dashboard-heading)))
   (progn
     (diminish-major-mode 'text-mode-hook (propertize "Text"))
     (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
