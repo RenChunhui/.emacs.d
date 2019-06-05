@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package atom-one-dark-theme
-  :ensure t
   :hook (after-init . (lambda ()
 			(load-theme 'atom-one-dark t))))
 

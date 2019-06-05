@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package lsp-mode
-  :ensure t
   :commands (lsp lsp-symbol-highlight)
   :hook ((js2-mode . lsp)
          (typescript-mode . lsp)
@@ -20,7 +19,6 @@
 	  lsp-session-file "~/.emacs.d/.cache/.lsp-session-v1")))
 
 (use-package lsp-ui
-  :ensure t
   :commands (lsp-ui-mode)
   :init
   (progn
@@ -28,7 +26,6 @@
 	  lsp-ui-doc-enable t)))
 
 (use-package company-lsp
-  :ensure t
   :commands company-lsp
   :init
   (set (make-local-variable 'company-backends) '(company-lsp)))

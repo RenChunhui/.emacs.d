@@ -15,25 +15,23 @@
 ;;; Code:
 
 (use-package company
-  :ensure t
   :hook (emacs-startup . global-company-mode)
   :init
   (progn
-    (setq company-idle-delay 0.1
-	  company-show-numbers nil
-	  company-tooltip-limit 10
-	  company-minimum-prefix-length 1)))
+    (setq company-idle-delay            0.2
+	  company-show-numbers          nil
+	  company-tooltip-limit         10
+	  company-minimum-prefix-length 2)))
 
 (when *quickhelp-enable*
   (use-package company-quickhelp
-    :ensure t
     :after (company)
     :commands (company-quickhelp-manual-begin)
     :config
     (company-quickhelp-mode)))
 
-(use-package company-box
-    :ensure t
+(when *company-box-enable*
+  (use-package company-box
     :defer    t
     :after (all-the-icons company)
     :hook (company-mode . company-box-mode)
@@ -80,7 +78,7 @@
             (23 . ,(concat (all-the-icons-faicon   "calendar")       " ")) ;; Event
             (24 . ,(concat (all-the-icons-faicon   "square-o")       " ")) ;; Operator
             (25 . ,(concat (all-the-icons-faicon   "arrows")         " "))) ;; TypeParameter
-          ))
+          )))
 
 (provide 'init-completion)
 

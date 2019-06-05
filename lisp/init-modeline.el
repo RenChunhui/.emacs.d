@@ -121,12 +121,10 @@
       buf-coding)))))
 
 (use-package winum
-  :ensure t
   :init
   (winum-mode))
 
 (use-package powerline
-  :ensure t
   :init
   (progn
     (setq powerline-default-separator 'utf-8)

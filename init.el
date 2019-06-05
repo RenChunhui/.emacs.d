@@ -15,19 +15,19 @@
   "Emacs cache directory.")
 
 ;; modeline 是否使用 icon 图标
-(defconst *modeline-icon-enable* t)
+(defvar *modeline-icon-enable* t)
 
 ;; dashboard 是否启用
-(defconst *dashboard-enable* t)
+(defvar *dashboard-enable* t)
 
 ;; 是否启用 lsp mode
-(defconst *lsp-enable* t)
+(defvar *lsp-enable* nil)
 
 ;; 是否使用 company-quickhelp
-(defconst *quickhelp-enable* t)
+(defvar *quickhelp-enable* t)
 
 ;; 是否使用 company-box
-(defconst *company-box-enable* nil)
+(defvar *company-box-enable* nil)
 
 (when (version< emacs-version "26.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
