@@ -12,34 +12,29 @@
   '(use-package
     company
     company-quickhelp
+    company-box
+    dashboard
+    evil
+    evil-leader
+    flycheck
+    counsel
+    counsel-projectile
+    swiper
+    which-key
     lsp-mode
     lsp-ui
     company-lsp
-    yasnippet
+    winum
+    powerline
+    projectile
+    editorconfig
+    atom-one-dark-theme
     treemacs
     treemacs-evil
     treemacs-projectile
     treemacs-icons-dired
     treemacs-magit
-    which-key
-    flycheck
-    winum
-    magit
-    editorconfig
-    benchmark-init
-
-    ;; ui
-    powerline
-
-    ;; ivy
-    project
-    counsel
-    counsel-projectile
-    swiper
-
-    ;; evil
-    evil
-    evil-leader
+    yasnippet
 
     ;; language
     web-mode

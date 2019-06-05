@@ -15,7 +15,6 @@
 ;;; Code:
 
 (use-package projectile
-  :ensure t
   :defer .1
   :hook (emacs-startup . projectile-mode)
   :init

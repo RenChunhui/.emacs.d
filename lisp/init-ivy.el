@@ -6,6 +6,7 @@
   (progn
     (setq ivy-height 12
 	  ivy-wrap t
+	  ivy-use-virtual-buffers t
 	  ivy-fixed-height-minibuffer t)
     (setq-default projectile-completion-system 'ivy)))
 

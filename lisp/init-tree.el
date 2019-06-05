@@ -8,12 +8,7 @@
 
 ;;; Code:
 
-
-(use-package all-the-icons
-  :ensure t)
-
 (use-package treemacs
-  :ensure t
   :defer t
   :init
   (with-eval-after-load 'winum
@@ -68,21 +63,17 @@
        (treemacs-git-mode 'simple)))))
 
 (use-package treemacs-evil
-  :after (treemacs evil)
-  :ensure t)
+  :after (treemacs evil))
 
 (use-package treemacs-projectile
-  :after (treemacs projectile)
-  :ensure t)
+  :after (treemacs projectile))
 
 (use-package treemacs-icons-dired
   :after (treemacs dired)
-  :ensure t
   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
-  :after (treemacs magit)
-  :ensure t)
+  :after (treemacs magit))
 
 (provide 'init-tree)
 

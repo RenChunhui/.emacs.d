@@ -9,22 +9,21 @@
 ;;; Code:
 
 (use-package dashboard
-    :ensure t
-    :init
+  :init
+  (progn
     (setq dashboard-startup-banner "~/.emacs.d/private/icons/logo.png"
 	  dashboard-banner-logo-title "Welcome to GNU Emacs."
-	  dashboard-set-footer nil
-	  dashboard-center-content t
-	  dashboard-show-shortcuts nil
-	  dashboard-set-heading-icons t
-	  dashboard-set-init-info t
-	  dashboard-set-file-icons t
+	  dashboard-set-init-info     t
+	  dashboard-center-content    t
+	  dashboard-show-shortcuts    nil
+	  dashboard-set-heading-icons nil
+	  dashboard-set-file-icons    nil
 	  dashboard-items '((recents  . 5)
 			    (projects . 5)
-			    (agenda . 5)))
-    :config
-    (progn
-      (dashboard-setup-startup-hook)))
+			    (agenda   . 10))
+	  dashboard-set-footer nil))
+  :config
+  (dashboard-setup-startup-hook))
 
 (provide 'init-dashboard)
 
