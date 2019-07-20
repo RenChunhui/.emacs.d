@@ -35,6 +35,8 @@
     treemacs-icons-dired
     treemacs-magit
     yasnippet
+    magit
+    diff-hl
 
     ;; language
     web-mode

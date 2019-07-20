@@ -8,9 +8,13 @@
 
 ;;; Code:
 
-(use-package atom-one-dark-theme
+;;(use-package atom-one-dark-theme
+;;  :hook (after-init . (lambda ()
+;;			(load-theme 'atom-one-dark))))
+
+(use-package dracula-theme
   :hook (after-init . (lambda ()
-			(load-theme 'atom-one-dark t))))
+			(load-theme 'dracula))))
 
 (provide 'init-theme)
 
