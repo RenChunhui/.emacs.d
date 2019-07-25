@@ -9,10 +9,10 @@
 ;;; Code:
 
 (use-package dashboard
+  :ensure t
   :init
   (progn
-    (setq dashboard-startup-banner "~/.emacs.d/private/icons/logo.png"
-	  dashboard-banner-logo-title "Welcome to GNU Emacs."
+    (setq dashboard-banner-logo-title "Welcome to GNU Emacs."
 	  dashboard-set-init-info     t
 	  dashboard-center-content    t
 	  dashboard-show-shortcuts    nil

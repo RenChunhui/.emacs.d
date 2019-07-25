@@ -11,34 +11,34 @@
 
 (setq ns-use-srgb-colorspace nil)
 
-(if *modeline-icon-enable*
-    (progn
-      (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " icon-elisp)      'face 'elisp-face))
-      (diminish-major-mode 'web-mode-hook        (propertize (format " %s " icon-html)       'face 'html-face))
-      (diminish-major-mode 'css-mode-hook        (propertize (format " %s " icon-css)        'face 'css-face))
-      (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " icon-scss)       'face 'scss-face))
-      (diminish-major-mode 'js2-mode-hook        (propertize (format " %s " icon-javaScript) 'face 'javaScript-face))
-      (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " icon-typescript) 'face 'typescript-face))
-      (diminish-major-mode 'json-mode-hook       (propertize (format " %s " icon-json)       'face 'json-face))
-      (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " icon-yaml)       'face 'yaml-face))
-      (diminish-major-mode 'org-mode-hook        (propertize (format " %s " icon-default)    'face 'org-face))
-      (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " icon-markdown)   'face 'markdown-face))
-      (diminish-major-mode 'dashboard-mode-hook  (propertize (format " %s " icon-dashboard)  'face 'dashboard-heading)))
-  (progn
-    (diminish-major-mode 'text-mode-hook (propertize "Text"))
-    (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
-    (diminish-major-mode 'dashboard-mode-hook   (propertize " Dashboard "  'face '(:background "#672F14")))
-    (diminish-major-mode 'emacs-lisp-mode-hook  (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
-    (diminish-major-mode 'org-mode-hook         (propertize " Org-mode "   'face 'org-face))
-    (diminish-major-mode 'web-mode-hook         (propertize " HTML "       'face 'html-face))
-    (diminish-major-mode 'css-mode-hook         (propertize " CSS "        'face 'css-face))
-    (diminish-major-mode 'scss-mode-hook        (propertize " Sass "       'face 'scss-face))
-    (diminish-major-mode 'js2-mode-hook         (propertize " JavaScript " 'face 'javaScript-face))
-    (diminish-major-mode 'typescript-mode-hook  (propertize " TypeScript " 'face 'typescript-face))
-    (diminish-major-mode 'tide-mode-hook        (propertize " TypeScript " 'face 'typescript-face))
-    (diminish-major-mode 'json-mode-hook        (propertize " JSON "       'face 'json-face))
-    (diminish-major-mode 'yaml-mode-hook        (propertize " YAML "       'face 'yaml-face))
-    (diminish-major-mode 'markdown-mode-hook    (propertize " Markdown "   'face 'markdown-face))))
+;; (if *modeline-icon-enable*
+;;     (progn
+;;       (diminish-major-mode 'emacs-lisp-mode-hook (propertize (format " %s " icon-elisp)      'face 'elisp-face))
+;;       (diminish-major-mode 'web-mode-hook        (propertize (format " %s " icon-html)       'face 'html-face))
+;;       (diminish-major-mode 'css-mode-hook        (propertize (format " %s " icon-css)        'face 'css-face))
+;;       (diminish-major-mode 'scss-mode-hook       (propertize (format " %s " icon-scss)       'face 'scss-face))
+;;       (diminish-major-mode 'js2-mode-hook        (propertize (format " %s " icon-javaScript) 'face 'javaScript-face))
+;;       (diminish-major-mode 'typescript-mode-hook (propertize (format " %s " icon-typescript) 'face 'typescript-face))
+;;       (diminish-major-mode 'json-mode-hook       (propertize (format " %s " icon-json)       'face 'json-face))
+;;       (diminish-major-mode 'yaml-mode-hook       (propertize (format " %s " icon-yaml)       'face 'yaml-face))
+;;       (diminish-major-mode 'org-mode-hook        (propertize (format " %s " icon-default)    'face 'org-face))
+;;       (diminish-major-mode 'markdown-mode-hook   (propertize (format " %s " icon-markdown)   'face 'markdown-face))
+;;       (diminish-major-mode 'dashboard-mode-hook  (propertize (format " %s " icon-dashboard)  'face 'dashboard-heading)))
+  ;; (progn
+  ;;   (diminish-major-mode 'text-mode-hook (propertize "Text"))
+  ;;   (diminish-major-mode 'fundamental-mode-hook (propertize " Fundamental "))
+  ;;   (diminish-major-mode 'dashboard-mode-hook   (propertize " Dashboard "  'face '(:background "#672F14")))
+  ;;   (diminish-major-mode 'emacs-lisp-mode-hook  (propertize " Emacs-Lisp " 'face '(:background "#A52ECB")))
+  ;;   (diminish-major-mode 'org-mode-hook         (propertize " Org-mode "   'face 'org-face))
+  ;;   (diminish-major-mode 'web-mode-hook         (propertize " HTML "       'face 'html-face))
+  ;;   (diminish-major-mode 'css-mode-hook         (propertize " CSS "        'face 'css-face))
+  ;;   (diminish-major-mode 'scss-mode-hook        (propertize " Sass "       'face 'scss-face))
+  ;;   (diminish-major-mode 'js2-mode-hook         (propertize " JavaScript " 'face 'javaScript-face))
+  ;;   (diminish-major-mode 'typescript-mode-hook  (propertize " TypeScript " 'face 'typescript-face))
+  ;;   (diminish-major-mode 'tide-mode-hook        (propertize " TypeScript " 'face 'typescript-face))
+  ;;   (diminish-major-mode 'json-mode-hook        (propertize " JSON "       'face 'json-face))
+  ;;   (diminish-major-mode 'yaml-mode-hook        (propertize " YAML "       'face 'yaml-face))
+  ;;   (diminish-major-mode 'markdown-mode-hook    (propertize " Markdown "   'face 'markdown-face)))
 
 
 
@@ -121,14 +121,16 @@
       buf-coding)))))
 
 (use-package winum
+  :ensure t
   :init
   (winum-mode))
 
 (use-package powerline
+  :ensure t
   :init
   (progn
     (setq powerline-default-separator 'utf-8)
-    (powerline-custom-theme))
+    (powerline-default-theme))
   :config
   (progn
     (defun insert-winum-number ()

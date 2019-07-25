@@ -1,10 +1,4 @@
-;;; init-package.el --- init package -*- lexical-binding: t -*-
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
+;;; init.el --- Load all configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;

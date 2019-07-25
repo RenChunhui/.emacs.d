@@ -1,3 +1,12 @@
+;;; init-gui.el --- ivy configuration -*- coding: utf-8; lexical-binding: t -*-
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
+
+;;; Commentary:
+
+;;; Code:
 
 (use-package ivy
   :ensure t
@@ -24,3 +33,5 @@
   :defer .1)
 
 (provide 'init-ivy)
+
+;;; init-ivy.el ends here

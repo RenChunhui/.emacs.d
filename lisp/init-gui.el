@@ -1,4 +1,4 @@
-;;; init-generic.el --- generic configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-gui.el --- gui configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -7,6 +7,9 @@
 ;;; Commentary:
 
 ;;; Code:
+
+;; Don't open files from the workspace in a new frame
+(setq ns-pop-up-frames nil)
 
 (use-package mule
   :ensure nil
@@ -104,6 +107,6 @@
                           "url"
                           "COMMIT_EDITMSG\\'")))
 
-(provide 'init-generic)
+(provide 'init-gui)
 
-;;; init-generic.el ends here
+;;; init-gui.el ends here
