@@ -17,7 +17,7 @@
 				   "~/OneDrive/org/idea.org"
 				   "~/OneDrive/org/journal.org"
 				   "~/OneDrive/org/life.org"))
-		org-hide-emphasis-markers t
+
 	  ;; directory for capture files.
 	  org-directory (expand-file-name "~/OneDrive")
 

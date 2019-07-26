@@ -1,4 +1,4 @@
-;;; init-gui.el --- gui configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-generic.el --- generic configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -7,9 +7,6 @@
 ;;; Commentary:
 
 ;;; Code:
-
-;; Don't open files from the workspace in a new frame
-(setq ns-pop-up-frames nil)
 
 (use-package mule
   :ensure nil
@@ -24,13 +21,15 @@
     (setq locale-coding-system 'utf-8)
     (setq-default buffer-file-coding-system 'utf-8)))
 
-(use-package scroll-bar
-  :ensure nil
-  :config (scroll-bar-mode -1))
+;; defaults write org.gnu.Emacs Emacs.ToolBar -string no
+;; defaults write org.gnu.Emacs Emacs.ScrollBar -string no
+;; (use-package scroll-bar
+;;   :ensure nil
+;;   :config (scroll-bar-mode -1))
 
-(use-package tool-bar
-  :ensure nil
-  :config (tool-bar-mode -1))
+;; (use-package tool-bar
+;;   :ensure nil
+;;   :config (tool-bar-mode -1))
 
 (use-package linum
   :hook ((prog-mode
@@ -107,6 +106,6 @@
                           "url"
                           "COMMIT_EDITMSG\\'")))
 
-(provide 'init-gui)
+(provide 'init-generic)
 
-;;; init-gui.el ends here
+;;; init-generic.el ends here
