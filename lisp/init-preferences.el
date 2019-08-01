@@ -1,4 +1,4 @@
-;;; init-generic.el --- generic configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-generic.el --- preferences configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -23,9 +23,9 @@
 
 ;; defaults write org.gnu.Emacs Emacs.ToolBar -string no
 ;; defaults write org.gnu.Emacs Emacs.ScrollBar -string no
-;; (use-package scroll-bar
-;;   :ensure nil
-;;   :config (scroll-bar-mode -1))
+(use-package scroll-bar
+  :ensure nil
+  :config (scroll-bar-mode -1))
 
 ;; (use-package tool-bar
 ;;   :ensure nil
@@ -45,7 +45,6 @@
 (use-package emacs
   :ensure nil
   :custom
-  (cursor-type 'bar)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
   (global-hl-line-mode t)
@@ -54,9 +53,11 @@
   
   :config
   (progn
-    (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-    (add-to-list 'default-frame-alist '(ns-appearance . dark))
+    ;; Default font
     (set-face-attribute 'default nil :font "SF Mono-13")
+    (set-fontset-font t 'han      (font-spec :family "STkaiti" :size 16))
+    (set-fontset-font t 'cjk-misc (font-spec :family "STkaiti" :size 16))
+
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
     (setq visible-bell nil
@@ -92,7 +93,7 @@
   :ensure nil
   :hook (after-init . recentf-mode)
   :init
-  (setq recentf-max-saved-items 200)
+  (setq recentf-max-saved-items 10)
   (setq recentf-exclude '((expand-file-name package-user-dir)
                           ".cache"
                           ".cask"
@@ -106,6 +107,14 @@
                           "url"
                           "COMMIT_EDITMSG\\'")))
 
-(provide 'init-generic)
+(use-package eldoc
+  :ensure nil
+  :diminish eldoc-mode)
 
-;;; init-generic.el ends here
+(use-package simple
+  :ensure nil
+  :diminish visual-line-mode)
+
+(provide 'init-preferences)
+
+;;; init-preferences.el ends here

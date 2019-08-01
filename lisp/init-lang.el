@@ -60,14 +60,6 @@
   :config (add-hook 'yaml-mode-hook
 		    '(lambda ()
 		       (define-key yaml-mode-map "\C-m" newline-and-indent))))
-
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode))
-  :init
-  (setq markdown-command "multimarkdown"))
   
 (provide 'init-lang)
 

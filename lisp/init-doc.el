@@ -1,4 +1,4 @@
-;;; init-org.el --- org mode configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-doc.el --- doc configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -7,6 +7,14 @@
 ;;; Commentary:
 
 ;;; Code:
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+	 ("\\.md\\'" . markdown-mode))
+  :init
+  (setq markdown-command "multimarkdown"))
 
 (use-package org
   :defer t
@@ -33,16 +41,6 @@
 	  ;; add timestamp when todo change to done.
 	  org-log-done 'time)))
 
-(use-package org-id
-  :init
-  (progn
-    (setq org-id-link-to-org-use-id t)))
+(provide 'init-doc)
 
-(use-package org-bullets
-  :ensure t
-  :after (org)
-  :hook (org-mode . org-bullets-mode))
-
-(provide 'init-org)
-
-;;; init-org.el ends here
+;;; init-doc.el ends here
