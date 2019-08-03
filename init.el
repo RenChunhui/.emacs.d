@@ -40,7 +40,9 @@
 		  file-name-handler-alist nil)))
 
 (require 'init-elpa)
+(require 'init-startup)
 (require 'init-preferences)
+(require 'init-keys)
 (require 'init-plugins)
 (require 'init-lang)
 (require 'init-dired)
