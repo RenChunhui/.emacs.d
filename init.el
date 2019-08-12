@@ -39,17 +39,16 @@
 		  gc-cons-percentage 0.1
 		  file-name-handler-alist nil)))
 
-(require 'init-elpa)
-(require 'init-startup)
-(require 'init-preferences)
-(require 'init-keys)
-(require 'init-plugins)
-(require 'init-lang)
-(require 'init-dired)
-(require 'init-doc)
-
 (require 'server)
 (unless (server-running-p) (server-start))
+
+(require 'init-gui-frames)
+(require 'init-elpa)
+(require-package 'diminish)
+
+(require 'init-recentf)
+
+(require 'init-company)
 
 (provide 'init)
 
