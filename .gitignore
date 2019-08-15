@@ -45,4 +45,4 @@ python-*-docs-html
 /srecode-map.el
 /recentf
 .mc-lists.el
-
+/transient

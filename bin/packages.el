@@ -9,16 +9,20 @@
 (package-refresh-contents)
 
 (defconst ora-packages
-  '(company
+  '(use-package
+    company
     yasnippet
     flycheck
     magit
     editorconfig
+    memoize
+    dashboard
     benchmark-init
     project
     counsel
     counsel-projectile
     swiper
+    powerline
 
     ;; language
     web-mode

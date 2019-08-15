@@ -24,6 +24,7 @@
 
 ;; add load path
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6)
@@ -42,13 +43,14 @@
 (require 'server)
 (unless (server-running-p) (server-start))
 
-(require 'init-gui-frames)
 (require 'init-elpa)
-(require-package 'diminish)
-
-(require 'init-recentf)
-
-(require 'init-company)
+(require 'init-preferences)
+(require 'init-dashboard)
+(require 'init-modeline)
+(require 'init-evil)
+(require 'init-plugins)
+(require 'init-lang)
+(require 'init-doc)
 
 (provide 'init)
 
