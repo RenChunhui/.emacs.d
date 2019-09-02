@@ -158,11 +158,6 @@
   :diminish editorconfig-mode
   :config
   (editorconfig-mode 1))
-
-(use-package winum
-  :ensure t
-  :init
-  (winum-mode))
   
 (provide 'init-plugins)
 

@@ -23,14 +23,18 @@
     counsel-projectile
     swiper
     powerline
+    dracula-theme
+
+    ;; lsp
+    lsp-mode
+    lsp-ui
+    company-lsp
 
     ;; language
     web-mode
     css-mode
     scss-mode
     js2-mode
-    tern
-    company-tern
     tide
     json-mode
     yaml-mode

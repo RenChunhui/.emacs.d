@@ -22,7 +22,8 @@
 	dashboard-set-file-icons nil
 	dashboard-items '((recents  . 5)
 			  (projects . 5)
-			  (agenda . 5)))
+			  (agenda . 5))
+	dashboard-set-footer nil)
   :config
   (progn
     (dashboard-setup-startup-hook)))

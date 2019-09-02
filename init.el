@@ -47,8 +47,8 @@
 (require 'init-preferences)
 (require 'init-dashboard)
 (require 'init-modeline)
-(require 'init-evil)
 (require 'init-plugins)
+(require 'init-lsp)
 (require 'init-lang)
 (require 'init-doc)
 
