@@ -1,10 +1,4 @@
-;;; init-lang.el --- langulages configuration -*- lexical-binding: t -*-
-;;
-;; Copyright (c) 2018 Chunhui Ren
-;;
-;; Author  : Chunhui Ren <renchunhui2008@gmail.com>
-;; URL     : https://github.com/RenChunhui/.emacs.d
-;; Version : 1.0.0
+;;; init-web.el --- web configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -13,7 +7,6 @@
 ;;; Commentary:
 
 ;;; Code:
-
 (use-package web-mode
   :ensure t
   :mode ("\\.html\\'" . web-mode)
@@ -60,7 +53,7 @@
   :config (add-hook 'yaml-mode-hook
 		    '(lambda ()
 		       (define-key yaml-mode-map "\C-m" newline-and-indent))))
-  
-(provide 'init-lang)
+           
+(provide 'init-web)
 
-;;; init-lang.el ends here
+;;; init-web.el ends here

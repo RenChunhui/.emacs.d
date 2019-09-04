@@ -19,12 +19,23 @@
 (setq package--init-file-ensured t
       package-user-dir (expand-file-name "elpa" emacs-cache-directory)
       package-enable-at-startup nil
-      package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("melpa-stable" . "https://stable.melpa.org/packages/")
-			 ("gnu" . "https://elpa.gnu.org/packages/")))
+      package-archives '(("melpa-cn" . "http://elpa.emacs-china.org/melpa/")
+			 ("gnu-cn" . "http://elpa.emacs-china.org/gnu/")))
 
 (package-initialize)
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package diminish
+  :ensure t)
+
+(use-package benchmark-init
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+  
 (provide 'init-elpa)
 
 ;;; init-elpa.el ends here

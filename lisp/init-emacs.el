@@ -1,4 +1,4 @@
-;;; init-generic.el --- preferences configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-emacs.el --- emacs configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -7,6 +7,38 @@
 ;;; Commentary:
 
 ;;; Code:
+
+(setq user-full-name "Chunhui Ren"
+      user-mail-address "renchunhui2008@gmail.com")
+
+(with-no-warnings
+  (setq mac-option-modifier 'meta
+	mac-command-modifier 'super)
+  (bind-keys ([(super a)] . mark-whole-buffer)
+	     ([(super c)] . kill-ring-save)
+	     ([(super l)] . goto-line)
+	     ([(super q)] . save-buffer-kill-emacs)
+	     ([(super s)] . save-buffer)
+	     ([(super v)] . yank)
+	     ([(super w)] . delete-frame)
+	     ([(super z)] . undo)))
+
+(use-package server
+  :ensure nil
+  :hook (after-init . server-mode))
+
+(use-package saveplace
+  :ensure nil
+  :hook (after-init . save-place-mode))
+
+(use-package time
+  :ensure nil
+  :unless (display-graphic-p)
+  :hook (after-init . display-time-mode)
+  :init
+  (progn
+    (setq display-time-24hr-format t
+	  display-time-day-and-date t)))
 
 (use-package mule
   :ensure nil
@@ -21,15 +53,9 @@
     (setq locale-coding-system 'utf-8)
     (setq-default buffer-file-coding-system 'utf-8)))
 
-;; defaults write org.gnu.Emacs Emacs.ToolBar -string no
-;; defaults write org.gnu.Emacs Emacs.ScrollBar -string no
 (use-package scroll-bar
   :ensure nil
   :config (scroll-bar-mode -1))
-
-;; (use-package tool-bar
-;;   :ensure nil
-;;   :config (tool-bar-mode -1))
 
 (use-package linum
   :hook ((prog-mode
@@ -88,7 +114,6 @@
 	  abbrev-file-name (concat emacs-cache-directory "abbrev.el")
 	  auto-save-list-file-name (concat emacs-cache-directory "autosave"))))
 
-;; history
 (use-package recentf
   :ensure nil
   :hook (after-init . recentf-mode)
@@ -113,7 +138,9 @@
 
 (use-package simple
   :ensure nil
-  :diminish visual-line-mode)
+  :diminish visual-line-mode
+  :hook ((window-setup . size-indication-mode)
+	 ((prog-mode markdown-mode conf-mode) . enable-trailing-whitespace)))
 
 (use-package dired
   :ensure nil
@@ -123,6 +150,6 @@
   (progn
     (setq dired-omit-files "\\.git$\\|\\.DS_Store$")))
 
-(provide 'init-preferences)
+(provide 'init-emacs)
 
-;;; init-preferences.el ends here
+;;; init-emacs.el ends here

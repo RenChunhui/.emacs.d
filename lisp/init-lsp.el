@@ -9,6 +9,7 @@
 ;;; Code:
 
 (use-package lsp-mode
+  :ensure t
   :hook (typescript-mode . lsp)
   :commands lsp)
 

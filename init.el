@@ -44,13 +44,24 @@
 (unless (server-running-p) (server-start))
 
 (require 'init-elpa)
-(require 'init-preferences)
-(require 'init-dashboard)
-(require 'init-modeline)
-(require 'init-plugins)
-(require 'init-lsp)
-(require 'init-lang)
-(require 'init-doc)
+(require 'init-os)
+;; (require 'init-emacs)
+(require 'init-gui)
+(require 'init-ivy)
+;; (require 'init-edit)
+(require 'init-company)
+(require 'init-yasnippet)
+
+;; (require 'init-calendar)
+;; (require 'init-dashboard)
+
+;; (require 'init-vcs)
+(require 'init-flycheck)
+(require 'init-projectile)
+;; (require 'init-lsp)
+
+(require 'init-web)
+;; (require 'init-doc)
 
 (provide 'init)
 

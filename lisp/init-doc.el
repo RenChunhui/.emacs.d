@@ -17,6 +17,8 @@
   (setq markdown-command "multimarkdown"))
 
 (use-package org
+  :ensure nil
+  :custom-face (org-ellipsis ((t (:foreground nil))))
   :defer t
   :mode ("\\.org$\\'" . org-mode)
   :init
@@ -40,6 +42,24 @@
 	  
 	  ;; add timestamp when todo change to done.
 	  org-log-done 'time)))
+
+(use-package org-bullets
+  :ensure t
+  :if (char-displayable-p ?◉)
+  :hook (org-mode . org-bullets-mode)
+  :init (setq org-bullets-bullet-list '("●" "◉" "⚫" "•")))
+
+(use-package org-fancy-priorities
+  :ensure t
+  :diminish
+  :hook (org-mode . org-fancy-priorities-mode)
+  :init (setq org-fancy-priorities-list
+	      (if (char-displayable-p ?■)
+		  '("■" "■" "■" "■")
+		'("HIGH" "MIDIUM" "LOW" "OPTIONAL"))))
+
+(use-package org-dashboard
+  :ensure t)
 
 (provide 'init-doc)
 

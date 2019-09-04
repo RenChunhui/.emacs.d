@@ -8,12 +8,10 @@
 
 ;;; Code:
 
-(use-package all-the-icons
-  :load-path "site-lisp/all-the-icons")
-
 (use-package dashboard
   :ensure t
   :after (all-the-icons)
+  :diminish (dashboard-mode page-break-lines-mode)
   :init
   (setq dashboard-center-content t
 	dashboard-show-shortcuts nil
