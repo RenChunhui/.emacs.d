@@ -8,37 +8,31 @@
 
 ;;; Code:
 
-(use-package all-the-icons
-  :after memoize
-  :load-path "site-lisp/all-the-icons")
-
 (use-package doom-themes
   :ensure t
-  :hook (after-load-theme . (lambda ()
-			      (set-face-foreground
-			       'mode-line
-			       (face-foreground 'default))))
+  :custom
+  (doom-themes-org-config)
   :init
-  (load-theme 'doom-one t)
-  :config
+  (load-theme 'doom-one t))
+
+(use-package dashboard
+  :ensure t
+  :diminish (dashboard-mode page-break-lines-mode)
+  :init
   (progn
-    (set-face-foreground 'mode-line (face-foreground 'default))))
+    (setq dashboard-center-content t
+	  dashboard-set-footer nil))
+  :config
+  (dashboard-setup-startup-hook))
 
-;; (use-package doom-modeline
-;;   :ensure t
-;;   :hook (after-init . doom-modeline-mode)
-;;   :init
-;;   (progn
-;;     (unless after-init-time
-;;       (setq doom-modeline--old-format mode-line-format)
-;;       (setq-default mode-line-format nil))
-;;     (setq doom-modeline-major-mode-color-icon t
-;; 	  doom-modeline-minor-modes nil
-;; 	  doom-modeline-mu4e nil)))
-
-;; (use-package hide-mode-line
-;;   :ensure t
-;;   :hook (((completion-list-mode completion-in-region-mode) . hide-mode-line-mode)))
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode)
+  :init
+  (progn
+    (setq doom-modeline-height 25
+	  doom-modeline-bar-width 3
+	  doom-modeline-icon (display-graphic-p))))
 
 (provide 'init-gui)
 

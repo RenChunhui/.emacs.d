@@ -35,6 +35,13 @@
   :ensure t
   :config
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
+(use-package memoize
+  :ensure t)
+
+(use-package all-the-icons
+  :after memoize
+  :load-path "site-lisp/all-the-icons")
   
 (provide 'init-elpa)
 

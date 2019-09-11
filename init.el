@@ -45,23 +45,19 @@
 
 (require 'init-elpa)
 (require 'init-os)
-;; (require 'init-emacs)
+(require 'init-emacs)
 (require 'init-gui)
+
+(require 'init-completion)
 (require 'init-ivy)
-;; (require 'init-edit)
-(require 'init-company)
-(require 'init-yasnippet)
-
-;; (require 'init-calendar)
-;; (require 'init-dashboard)
-
-;; (require 'init-vcs)
-(require 'init-flycheck)
 (require 'init-projectile)
-;; (require 'init-lsp)
+(require 'init-vc)
+
+(require 'init-evil)
+(require 'init-edit)
 
 (require 'init-web)
-;; (require 'init-doc)
+(require 'init-doc)
 
 (provide 'init)
 

@@ -14,6 +14,6 @@
   :bind (("C-x g" . magit-status)
 	 ("C-x M-g" . magit-dispatch)))
 
-(provide 'init-vcs)
+(provide 'init-vc)
 
-;;; init-vcs.el ends here
+;;; init-vc.el ends here
