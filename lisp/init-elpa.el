@@ -28,16 +28,11 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package diminish
-  :ensure t)
-
 (use-package benchmark-init
-  :ensure t
-  :config
+  :init
   (add-hook 'after-init-hook 'benchmark-init/deactivate))
 
-(use-package memoize
-  :ensure t)
+(use-package memoize)
 
 (use-package all-the-icons
   :after memoize

@@ -1,4 +1,4 @@
-;;; init-os.el --- os configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-osx.el --- configuration for macOS -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -22,6 +22,6 @@
 
 (global-set-key (kbd "s-s") 'save-buffer)
 
-(provide 'init-os)
+(provide 'init-osx)
 
-;;; init-os.el ends here
+;;; init-osx.el ends here

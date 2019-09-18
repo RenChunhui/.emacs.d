@@ -44,20 +44,24 @@
 (unless (server-running-p) (server-start))
 
 (require 'init-elpa)
-(require 'init-os)
+(require 'init-osx)
 (require 'init-emacs)
 (require 'init-gui)
 
-(require 'init-completion)
 (require 'init-ivy)
+(require 'init-completion)
 (require 'init-projectile)
+(require 'init-flycheck)
 (require 'init-vc)
-
-(require 'init-evil)
-(require 'init-edit)
+(require 'init-chinese)
+(require 'init-tools)
 
 (require 'init-web)
-(require 'init-doc)
+(require 'init-rust)
+(require 'init-json)
+(require 'init-yaml)
+(require 'init-org)
+(require 'init-markdown)
 
 (provide 'init)
 

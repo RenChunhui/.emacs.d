@@ -21,6 +21,11 @@
   :init
   (progn
     (setq dashboard-center-content t
+	  dashboard-set-heading-icons t
+	  dashboard-set-file-icons t
+	  dashboard-items '((recents . 5)
+			    (projects . 5)
+			    (agenda . 5))
 	  dashboard-set-footer nil))
   :config
   (dashboard-setup-startup-hook))
@@ -31,9 +36,15 @@
   :init
   (progn
     (setq doom-modeline-height 25
-	  doom-modeline-bar-width 3
-	  doom-modeline-icon (display-graphic-p))))
+	  doom-modeline-bar-width 2
+	  doom-modeline-icon (display-graphic-p)
+	  doom-modeline-major-mode-icon t
+	  doom-modeline-buffer-file-name-style 'file-name)))
 
+(use-package winum
+  :ensure t
+  :config
+  (winum-mode))
 (provide 'init-gui)
 
 ;;; init-gui.el ends here

@@ -9,9 +9,8 @@
 ;;; Code:
 
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
-  :hook (emacs-startup . ivy-mode)
+  :hook (after-init . ivy-mode)
   :config
   (progn
     (setq ivy-height 12
@@ -20,22 +19,21 @@
 	  ivy-fixed-height-minibuffer t)
     (setq-default projectile-completion-system 'ivy)))
 
+(use-package ivy-rich
+  :hook (ivy-mode . ivy-rich-mode))
+
 (use-package counsel
-  :ensure t
-  :defer .1
   :diminish ivy-mode counsel-mode
+  :hook (after-init . counsel-mode)
   :bind (("M-x" . counsel-M-x))
   :init
   (progn
     (setq counsel-find-file-ignore-regexp "\\.DS_Store\\'")))
 
-(use-package counsel-projectile
-  :ensure t
-  :defer .1)
+(use-package counsel-projectile)
 
 (use-package swiper
-  :ensure t
-  :defer .1)
+  :after ivy)
 
 (provide 'init-ivy)
 

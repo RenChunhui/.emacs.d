@@ -17,17 +17,3 @@
 </p>
 
 - - -
-
-**目录**
-- [简介](#简介)
-- [安装](#安装)
-
-# 简介
-
-这是一份使用 use-package 作包管理器,主要用于 web 前端开发的配置. package 数量在50左右，启动速度大概在1.7~1.8秒左右。
-
-# 安装
-
-``` bash
-git clone https://github.com/renchunhui/.emacs.d
-```

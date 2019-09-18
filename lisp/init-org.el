@@ -1,4 +1,4 @@
-;;; init-doc.el --- doc configuration -*- coding: utf-8; lexical-binding: t -*-
+;;; init-org.el --- org configuration -*- coding: utf-8; lexical-binding: t -*-
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -8,13 +8,7 @@
 
 ;;; Code:
 
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode))
-  :init
-  (setq markdown-command "multimarkdown"))
+
 
 (use-package org
   :ensure nil
@@ -43,24 +37,6 @@
 	  ;; add timestamp when todo change to done.
 	  org-log-done 'time)))
 
-(use-package org-bullets
-  :ensure t
-  :if (char-displayable-p ?◉)
-  :hook (org-mode . org-bullets-mode)
-  :init (setq org-bullets-bullet-list '("●" "◉" "⚫" "•")))
+(provide 'init-org)
 
-(use-package org-fancy-priorities
-  :ensure t
-  :diminish
-  :hook (org-mode . org-fancy-priorities-mode)
-  :init (setq org-fancy-priorities-list
-	      (if (char-displayable-p ?■)
-		  '("■" "■" "■" "■")
-		'("HIGH" "MIDIUM" "LOW" "OPTIONAL"))))
-
-(use-package org-dashboard
-  :ensure t)
-
-(provide 'init-doc)
-
-;;; init-doc.el ends here
+;;; init-org.el ends here

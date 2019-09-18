@@ -10,6 +10,7 @@
 (use-package web-mode
   :ensure t
   :mode ("\\.html\\'" . web-mode)
+  :defer t
   :config
   (progn
     (setq web-mode-markup-indent-offset 2
@@ -21,10 +22,15 @@
 
 (use-package css-mode
   :ensure t
-  :mode ("\\.css\\'" . css-mode))
+  :defer t
+  :mode ("\\.css\\'" . css-mode)
+  :config
+  (add-hook 'css-mode-hook (lambda()
+			     (add-to-list (make-local-variable 'company-backends) '(company-css company-files company-yasnippet company-capf)))))
 
 (use-package scss-mode
   :ensure t
+  :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
@@ -41,18 +47,6 @@
   :init
   (progn
     (setq tide-tsserver-executable "/usr/local/bin/tsserver")))
-
-(use-package json-mode
-  :ensure t
-  :mode ("\\.json\\'" . json-mode))
-
-(use-package yaml-mode
-  :ensure t
-  :mode (("\\.\\(yml\\|yaml\\)\\'" . yaml-mode)
-	 ("Procfile\\'" . yaml-mode))
-  :config (add-hook 'yaml-mode-hook
-		    '(lambda ()
-		       (define-key yaml-mode-map "\C-m" newline-and-indent))))
            
 (provide 'init-web)
 

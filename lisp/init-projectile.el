@@ -1,14 +1,16 @@
 
 (use-package projectile
-  :defer .1
   :diminish projectile-mode
-  :hook (emacs-startup . projectile-mode)
+  :hook (after-init . projectile-mode)
   :init
   (progn
     (setq projectile-sort-order 'recentf
 	  projectile-cache-file (concat emacs-cache-directory "projectile.cache")
 	  projectile-known-projects-file (concat emacs-cache-directory "projectile-bookmarks.eld")
-	  projectile-globally-ignored-files '(".DS_Store")))
+	  projectile-globally-ignored-files '(".DS_Store")
+	  projectile-globally-ignored-file-suffixes '(".elc" ".pyc")
+	  projectile-files-cache-expire 604800
+	  projectile-use-git-grep t))
   :config
   (progn
     (setq projectile-completion-system 'ivy)))
