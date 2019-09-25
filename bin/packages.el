@@ -14,7 +14,7 @@
     memoize
     doom-themes
     dashboard
-    doom-modeline
+    powerline
     winum
     company
     company-box

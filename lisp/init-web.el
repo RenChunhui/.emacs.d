@@ -8,7 +8,6 @@
 
 ;;; Code:
 (use-package web-mode
-  :ensure t
   :mode ("\\.html\\'" . web-mode)
   :defer t
   :config
@@ -21,15 +20,10 @@
 	  web-mode-enable-current-element-higlight t)))
 
 (use-package css-mode
-  :ensure t
   :defer t
-  :mode ("\\.css\\'" . css-mode)
-  :config
-  (add-hook 'css-mode-hook (lambda()
-			     (add-to-list (make-local-variable 'company-backends) '(company-css company-files company-yasnippet company-capf)))))
+  :mode ("\\.css\\'" . css-mode))
 
 (use-package scss-mode
-  :ensure t
   :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
@@ -39,7 +33,6 @@
   :mode "\\.ts$")
 
 (use-package tide
-  :ensure t
   :after (typescript-mode company)
   :hook ((typescript-mode . tide-setup)
 	 (typescript-mode . tide-hl-identifier-mode)
