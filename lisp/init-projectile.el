@@ -1,7 +1,7 @@
-
 (use-package projectile
+  :ensure t
   :diminish projectile-mode
-  :hook (after-init . projectile-mode)
+  :after (after-find-file dired-before-readin-hook minibuffer-setup-hook)
   :init
   (progn
     (setq projectile-sort-order 'recentf

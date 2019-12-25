@@ -8,8 +8,6 @@
 
 ;;; Code:
 
-
-
 (use-package org
   :ensure nil
   :custom-face (org-ellipsis ((t (:foreground nil))))
@@ -17,16 +15,13 @@
   :mode ("\\.org$\\'" . org-mode)
   :init
   (progn
-    (setq org-agenda-files (quote ("~/OneDrive/org/gtd.org"
-				   "~/OneDrive/org/idea.org"
-				   "~/OneDrive/org/journal.org"
-				   "~/OneDrive/org/life.org"))
+    (setq org-agenda-files (quote ("~/OneDrive/org/gtd.org"))
 
 	  ;; directory for capture files.
 	  org-directory (expand-file-name "~/OneDrive")
 
 	  ;; set status.
-	  org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELED(c)" "|" "SOMEDAY(s)" "LATER(l)"))
+	  org-todo-keywords '((sequencep "TODO(t)" "NEXT(n)" "|" "DONE(d)" "CANCELE(c)" "|" "MAYBE(m)" "LATER(l)"))
 
 	  ;; color for todo keywords.
 	  org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)

@@ -28,16 +28,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-(use-package benchmark-init
-  :init
-  (add-hook 'after-init-hook 'benchmark-init/deactivate))
-
-(use-package memoize)
-
-(use-package all-the-icons
-  :after memoize
-  :load-path "site-lisp/all-the-icons")
-  
 (provide 'init-elpa)
 
 ;;; init-elpa.el ends here

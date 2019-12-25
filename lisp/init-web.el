@@ -7,7 +7,9 @@
 ;;; Commentary:
 
 ;;; Code:
+
 (use-package web-mode
+  :ensure t
   :mode ("\\.html\\'" . web-mode)
   :defer t
   :config
@@ -20,10 +22,12 @@
 	  web-mode-enable-current-element-higlight t)))
 
 (use-package css-mode
+  :ensure t
   :defer t
   :mode ("\\.css\\'" . css-mode))
 
 (use-package scss-mode
+  :ensure t
   :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
@@ -33,10 +37,11 @@
   :mode "\\.ts$")
 
 (use-package tide
-  :after (typescript-mode company)
+  :ensure t
+  :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
-	 (typescript-mode . tide-hl-identifier-mode)
-	 (before-save . tide-format-before-save))
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save))
   :init
   (progn
     (setq tide-tsserver-executable "/usr/local/bin/tsserver")))
