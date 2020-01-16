@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package doom-themes
-  :ensure t
   :custom
   (doom-themes-org-config)
   :init

@@ -9,12 +9,10 @@
 ;;; Code:
 
 (use-package rust-mode
-  :ensure t
   :defer t
   :mode ("\\.rs\\'" . rust-mode))
 
 (use-package racer
-  :ensure t
   :defer t
   :init
   (progn

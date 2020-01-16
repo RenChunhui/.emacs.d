@@ -9,14 +9,12 @@
 ;;; Code:
 
 (use-package winum
-  :ensure t
   :init
   (setq winum-auto-setup-mode-line nil)
   :config
   (winum-mode))
 
 (use-package doom-modeline
-  :ensure t
   :hook (after-init . doom-modeline-mode)
   :init
   (progn

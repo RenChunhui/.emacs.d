@@ -8,8 +8,7 @@
 
 ;;; Code:
 
-(use-package memoize
-  :ensure t)
+(use-package memoize)
 
 (use-package all-the-icons
   :after memoize

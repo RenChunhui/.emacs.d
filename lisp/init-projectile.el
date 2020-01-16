@@ -1,5 +1,4 @@
 (use-package projectile
-  :ensure t
   :diminish projectile-mode
   :after (after-find-file dired-before-readin-hook minibuffer-setup-hook)
   :init
@@ -10,9 +9,7 @@
 	  projectile-globally-ignored-files '(".DS_Store")
 	  projectile-globally-ignored-file-suffixes '(".elc" ".pyc")
 	  projectile-files-cache-expire 604800
-	  projectile-use-git-grep t))
-  :config
-  (progn
-    (setq projectile-completion-system 'ivy)))
+	  projectile-use-git-grep t
+    projectile-completion-system 'ivy)))
 
 (provide 'init-projectile)

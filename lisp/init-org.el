@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package org
-  :ensure nil
   :custom-face (org-ellipsis ((t (:foreground nil))))
   :defer t
   :mode ("\\.org$\\'" . org-mode)
@@ -31,6 +30,10 @@
 	  
 	  ;; add timestamp when todo change to done.
 	  org-log-done 'time)))
+
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook 'org-bullets-mode))
 
 (provide 'init-org)
 

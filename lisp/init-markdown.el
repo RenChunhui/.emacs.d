@@ -1,5 +1,4 @@
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode ("/README\\(?:\\.\\(?:markdown\\|md\\)\\)?\\'" . gfm-mode)
   :init

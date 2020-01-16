@@ -9,9 +9,7 @@
 ;;; Code:
 
 (use-package web-mode
-  :ensure t
   :mode ("\\.html\\'" . web-mode)
-  :defer t
   :config
   (progn
     (setq web-mode-markup-indent-offset 2
@@ -22,22 +20,16 @@
 	  web-mode-enable-current-element-higlight t)))
 
 (use-package css-mode
-  :ensure t
-  :defer t
   :mode ("\\.css\\'" . css-mode))
 
 (use-package scss-mode
-  :ensure t
-  :defer t
   :mode (("\\.scss\\'" . scss-mode)
 	 ("\\.postcss\\'" . scss-mode)))
 
 (use-package typescript-mode
-  :ensure t
   :mode "\\.ts$")
 
 (use-package tide
-  :ensure t
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)

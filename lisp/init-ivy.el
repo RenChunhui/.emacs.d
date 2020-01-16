@@ -9,10 +9,9 @@
 ;;; Code:
 
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
-  :config
+  :init
   (progn
     (setq ivy-height 12
 	  ivy-wrap t
@@ -21,11 +20,9 @@
     (setq-default projectile-completion-system 'ivy)))
 
 (use-package ivy-rich
-  :ensure t
   :hook (ivy-mode . ivy-rich-mode))
 
 (use-package counsel
-  :ensure t
   :diminish ivy-mode counsel-mode
   :hook (after-init . counsel-mode)
   :bind (("M-x" . counsel-M-x))
@@ -33,11 +30,9 @@
   (progn
     (setq counsel-find-file-ignore-regexp "\\.DS_Store\\'")))
 
-(use-package counsel-projectile
-  :ensure t)
+(use-package counsel-projectile)
 
 (use-package swiper
-  :ensure t
   :after ivy)
 
 (provide 'init-ivy)
