@@ -15,16 +15,11 @@
 
 (setq debug-on-error t)
 
-(when (version< emacs-version "25.1")
+(when (version< emacs-version "27.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if posible."))
 
-(load (concat (file-name-directory load-file-name)
-	      "lisp/init-path.el")
-      nil (not init-file-debug))
-
-(load (concat (file-name-directory load-file-name)
-	      "lisp/init-gc.el")
-      nil (not init-file-debug))
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (require 'init-elpa)
 (require 'init-settings)
@@ -38,12 +33,8 @@
 (require 'init-projectile)
 (require 'init-flycheck)
 
-(require 'init-web)
-(require 'init-rust)
-(require 'init-json)
-(require 'init-yaml)
+(require 'init-lsp)
 (require 'init-org)
-(require 'init-markdown)
 
 (require 'server)
 (unless (server-running-p) (server-start))

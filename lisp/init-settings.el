@@ -1,6 +1,4 @@
 (progn
-  (tool-bar-mode -1)
-  (set-scroll-bar-mode nil)
   (fset 'yes-or-no-p 'y-or-n-p)
   (electric-pair-mode t)
   (global-hl-line-mode 1)

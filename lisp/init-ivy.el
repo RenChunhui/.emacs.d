@@ -9,7 +9,6 @@
 ;;; Code:
 
 (use-package ivy
-  :ensure t
   :diminish ivy-mode
   :hook (after-init . ivy-mode)
   :config
@@ -21,11 +20,9 @@
     (setq-default projectile-completion-system 'ivy)))
 
 (use-package ivy-rich
-  :ensure t
   :hook (ivy-mode . ivy-rich-mode))
 
 (use-package counsel
-  :ensure t
   :diminish ivy-mode counsel-mode
   :hook (after-init . counsel-mode)
   :bind (("M-x" . counsel-M-x))
@@ -37,7 +34,6 @@
   :ensure t)
 
 (use-package swiper
-  :ensure t
   :after ivy)
 
 (provide 'init-ivy)

@@ -1,5 +1,4 @@
 (use-package company
-  :ensure t
   :hook ((emacs-lisp-mode
 	  web-mode
 	  css-mode
@@ -15,7 +14,6 @@
 	  company-minimum-prefix-length 2)))
 
 (use-package yasnippet
-  :ensure t
   :diminish yas-minor-mode
   :hook ((emacs-lisp-mode
 	  js2-mode
@@ -25,7 +23,7 @@
 	  typescript-mode) . yas-minor-mode)
   :diminish yas-minor-mode
   :init
-  (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
+  (setq yas-snippet-dirs '("~/.config/emacs/snippets"))
   :config
   (yas-reload-all)
   (global-set-key (kbd "M-/") 'company-yasnippet))

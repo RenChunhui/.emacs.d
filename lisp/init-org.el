@@ -32,6 +32,9 @@
 	  ;; add timestamp when todo change to done.
 	  org-log-done 'time)))
 
+(use-package org-bullets
+  :init
+  (add-hook 'org-mode-hook 'org-bullets-mode))
 (provide 'init-org)
 
 ;;; init-org.el ends here

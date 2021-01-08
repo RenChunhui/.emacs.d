@@ -8,20 +8,13 @@
 
 ;;; Code:
 
-(use-package memoize
-  :ensure t)
-
-(use-package all-the-icons
-  :after memoize
-  :load-path "site-lisp/all-the-icons")
-
 (use-package dashboard
   :ensure t
   :diminish (dashboard-mode page-break-lines-mode)
   :init
   (progn
     (setq dashboard-center-content t
-	  dashboard-set-heading-icons t
+	  dashboard-set-heading-icons nil
 	  dashboard-set-file-icons nil
 	  dashboard-items '((recents . 5)
 			    (projects . 5)
